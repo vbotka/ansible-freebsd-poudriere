@@ -1,0 +1,32 @@
+---
+
+- name: Configure {{ poudriere_conf }}
+  template: >
+    src="poudriere.conf.j2"
+    dest="{{ poudriere_conf }}"
+    owner="{{ poudriere_owner }}"
+    group="{{ poudriere_group }}"
+    mode="{{ poudriere_mode }}"
+    backup="yes"
+  tags: poudriere_conf
+
+- name: Create {{ poudriere_pkglist_dir }}
+  file: >
+    path="{{ poudriere_pkglist_dir }}"
+    state="directory"
+    owner="{{ poudriere_owner }}"
+    group="{{ poudriere_group }}"
+  tags: poudriere_pkglist
+
+- name: Create list of packages in {{ poudriere_pkglist_dir }}
+  template: >
+    src="poudriere.pkglist.j2"
+    dest="{{ poudriere_pkglist_dir }}/{{ item.name }}-pkglist"
+    owner="{{ poudriere_owner }}"
+    group="{{ poudriere_group }}"
+    mode="{{ poudriere_mode }}"
+  with_items: "{{ pkglist }}"
+  tags: poudriere_pkglist
+
+# EOF
+...

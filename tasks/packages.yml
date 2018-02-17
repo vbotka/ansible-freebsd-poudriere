@@ -1,0 +1,21 @@
+---
+
+- name: Install poudriere (packages)
+  pkgng: >
+    name="{{ item }}"
+    state="present"
+  with_items: "{{ poudriere_packages }}"
+  when: freebsd_install_method == "packages"
+  tags: bsd_packages
+
+- name: Install poudriere (ports)
+  portinstall: >
+    name="{{ item }}"
+    state="present"
+    use_packages="{{ freebsd_use_packages }}"
+  with_items: "{{ poudriere_packages }}"
+  when: freebsd_install_method == "ports"
+  tags: bsd_ports
+
+# EOF
+...

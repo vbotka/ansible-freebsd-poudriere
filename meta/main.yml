@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Vladimir Botka
+  description: Install and configure Poudriere Build System in FreeBSD
+  company: https://botka.link
+  github_branch: master
+  license: BSD
+  min_ansible_version: 2.4
+  platforms:
+    - name: FreeBSD
+      versions:
+        - 11.0
+  galaxy_tags:
+    - freebsd
+    - builder
+    - installer
+    - poudriere
+dependencies: []
+...

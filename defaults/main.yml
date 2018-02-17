@@ -1,0 +1,44 @@
+---
+# defaults freebsd-poudriere
+
+#freebsd_install_method: "packages"
+freebsd_install_method: "ports"
+freebsd_use_packages: "yes"
+poudriere_packages:
+  - "ports-mgmt/poudriere"
+  - "devel/ccache"
+
+# owner, group, mode
+poudriere_owner: "root"
+poudriere_group: "wheel"
+poudriere_mode: "0644"
+# ssl
+poudriere_ssl_dir: "/usr/local/etc/ssl"
+poudriere_cert_CN: "builder.example.com"
+poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
+# poudriere.conf (see /usr/local/etc/poudriere.conf.sample)
+poudriere_conf: "/usr/local/etc/poudriere.conf"
+poudriere_conf_dir: "/usr/local/etc/poudriere.d"
+poudriere_conf_NO_ZFS: "yes"
+poudriere_conf_ZPOOL: "tank"
+poudriere_conf_ZROOTFS: "/poudriere"
+poudriere_conf_FREEBSD_HOST: "ftp://ftp.freebsd.org"
+poudriere_conf_RESOLV_CONF: "/etc/resolv.conf"
+poudriere_conf_BASEFS: "/usr/local/poudriere"
+poudriere_conf_POUDRIERE_DATA: "{{ poudriere_conf_BASEFS }}/data"
+poudriere_conf_USE_PORTLINT: "no"
+poudriere_conf_USE_TMPFS: "yes"
+poudriere_conf_DISTFILES_CACHE: "/usr/ports/distfiles"
+poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/poudriere.pem"
+poudriere_conf_URL_BASE: "http://{{ ansible_default_ipv4.address }}/"
+poudriere_conf_CHECK_CHANGED_OPTIONS: "verbose"
+poudriere_conf_CHECK_CHANGED_DEPS: "yes"
+
+# {{ poudriere_conf_dir }}/make.conf
+poudriere_make_conf: []
+
+poudriere_pkglist_dir: "{{ poudriere_conf_dir }}/pkglist"
+pkglist: {}
+
+# EOF
+...

@@ -1,0 +1,14 @@
+---
+
+# Note: Review poudriere CUSTOMISATION
+- name: Configure {{ poudriere_conf_dir }}/make.conf
+  template: >
+    src="make.conf.j2"
+    dest="{{ poudriere_conf_dir }}/make.conf"
+    owner="{{ poudriere_owner }}"
+    group="{{ poudriere_group }}"
+    mode="{{ poudriere_mode }}"
+    backup="yes"
+
+# EOF
+...
