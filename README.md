@@ -61,16 +61,17 @@ ssh to the host, create jail with the required FreeBSD tree and a ports tree, co
 # poudriere jail -c -j 11amd64 -v 11.1-RELEASE
 # poudriere ports -c -p local
 # poudriere options -j 11amd64 -p local -f 11amd64-pkglist
-# poudriere builk -j 11amd64 -p local -f 11amd64-pkglist
+# poudriere bulk -j 11amd64 -p local -f 11amd64-pkglist
 ```
 
 
 References
 ----------
 
-- [Building Packages with Poudriere](http://www.freebsd.cz/doc/handbook/ports-poudriere.html)
+- [FreBSD handbook: Building Packages with Poudriere](http://www.freebsd.cz/doc/handbook/ports-poudriere.html)
 - [Poudriere wiki](https://github.com/freebsd/poudriere/wiki)
-- [How To Set Up a Poudriere Build System](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers)
+- [DigitalOcean: How To Set Up a Poudriere Build System](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers)
+- [Building packages with poudriere](https://stevendouglas.me/?p=71)
 
 License
 -------
