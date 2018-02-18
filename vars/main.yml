@@ -22,7 +22,7 @@
 #bsd_mysql_version: "56"
 #bsd_python_version: "27"
 
-#pkgdict:
+#pkg_dict:
 #  - name: pf
 #    packages:
 #      - security/sshguard

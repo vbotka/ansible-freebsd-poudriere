@@ -25,7 +25,7 @@
     owner="{{ poudriere_owner }}"
     group="{{ poudriere_group }}"
     mode="{{ poudriere_mode }}"
-  with_items: "{{ pkgdict }}"
+  with_items: "{{ pkg_dict }}"
   tags: poudriere_pkglist
 
 # EOF
