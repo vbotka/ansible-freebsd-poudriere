@@ -30,7 +30,7 @@ poudriere_conf_USE_PORTLINT: "no"
 poudriere_conf_USE_TMPFS: "yes"
 poudriere_conf_DISTFILES_CACHE: "/usr/ports/distfiles"
 poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/poudriere.pem"
-poudriere_conf_URL_BASE: "http://{{ ansible_default_ipv4.address }}/"
+poudriere_conf_URL_BASE: "{{ ansible_default_ipv4.address }}"
 poudriere_conf_CHECK_CHANGED_OPTIONS: "verbose"
 poudriere_conf_CHECK_CHANGED_DEPS: "yes"
 
