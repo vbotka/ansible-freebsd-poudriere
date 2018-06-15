@@ -1,27 +1,21 @@
 ---
 # tasks freebsd-poudriere
 
-- include_tasks: packages.yml
-  tags:
-    - bsd_packages
-    - bsd_ports
-    - poudriere_packages
-    - poudriere_all
+- import_tasks: debug.yml
+  when: poudriere_debug
+  tags: poudriere_debug
 
-- include_tasks: cert.yml
-  tags:
-    - poudriere_cert
-    - poudriere_all
+- import_tasks: packages.yml
+  tags: poudriere_packages
 
-- include_tasks: conf.yml
-  tags:
-    - poudriere_conf
-    - poudriere_all
+- import_tasks: cert.yml
+  tags: poudriere_cert
 
-- include_tasks: make.yml
-  tags:
-    - poudriere_make
-    - poudriere_all
+- import_tasks: conf.yml
+  tags: poudriere_conf
+
+- import_tasks: make.yml
+  tags: poudriere_make
 
 # EOF
 ...

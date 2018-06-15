@@ -1,0 +1,53 @@
+---
+
+- name: Debug
+  vars:
+    msg: |
+         ansible_architecture [ {{ ansible_architecture }} ]
+         ansible_os_family [ {{ ansible_os_family }} ]
+         ansible_distribution [ {{ ansible_distribution }} ]
+         ansible_distribution_major_version [ {{ ansible_distribution_major_version }} ]
+         ansible_distribution_version [ {{ ansible_distribution_version }} ]
+         ansible_distribution_release [ {{ ansible_distribution_release }} ]
+
+         freebsd_install_method [ {{ freebsd_install_method }} ]
+         freebsd_use_packages [ {{ freebsd_use_packages }} ]
+         poudriere_packages [
+         {{ poudriere_packages | to_nice_yaml }} ]
+         poudriere_packages_cert [
+         {{ poudriere_packages_cert | to_nice_yaml }} ]
+         poudriere_owner [ {{ poudriere_owner }} ]
+         poudriere_group [ {{ poudriere_group }} ]
+         poudriere_mode [ {{ poudriere_mode }} ]
+         poudriere_mode_dir [ {{ poudriere_mode_dir }} ]
+         poudriere_ssl_dir [ {{ poudriere_ssl_dir }} ]
+         poudriere_ssl_dir_mode [ {{ poudriere_ssl_dir_mode }} ]
+         poudriere_ssl_private_dir_mode [ {{ poudriere_ssl_private_dir_mode }} ]
+         poudriere_ssl_private_key_mode [ {{ poudriere_ssl_private_key_mode }} ]
+         poudriere_cert_create [ {{ poudriere_cert_create }} ]
+         poudriere_cert_CN [ {{ poudriere_cert_CN }} ]
+         poudriere_cert_path [ {{ poudriere_cert_path }} ]
+         poudriere_conf [ {{ poudriere_conf }} ]
+         poudriere_conf_dir [ {{ poudriere_conf_dir }} ]
+         poudriere_conf_NO_ZFS [ {{ poudriere_conf_NO_ZFS }} ]
+         poudriere_conf_ZROOTFS [ {{ poudriere_conf_ZROOTFS }} ]
+         poudriere_conf_FREEBSD_HOST [ {{ poudriere_conf_FREEBSD_HOST }} ]
+         poudriere_conf_RESOLV_CONF [ {{ poudriere_conf_RESOLV_CONF }} ]
+         poudriere_conf_BASEFS [ {{ poudriere_conf_BASEFS }} ]
+         poudriere_conf_POUDRIERE_DATA [ {{ poudriere_conf_POUDRIERE_DATA }} ]
+         poudriere_conf_USE_PORTLINT [ {{ poudriere_conf_USE_PORTLINT }} ]
+         poudriere_conf_USE_TMPFS [ {{ poudriere_conf_USE_TMPFS }} ]
+         poudriere_conf_DISTFILES_CACHE [ {{ poudriere_conf_DISTFILES_CACHE }} ]
+         poudriere_conf_PKG_REPO_SIGNING_KEY [ {{ poudriere_conf_PKG_REPO_SIGNING_KEY }} ]
+         poudriere_conf_URL_BASE [ {{ poudriere_conf_URL_BASE }} ]
+         poudriere_conf_CHECK_CHANGED_OPTIONS [ {{ poudriere_conf_CHECK_CHANGED_OPTIONS }} ]
+         poudriere_conf_CHECK_CHANGED_DEPS [ {{ poudriere_conf_CHECK_CHANGED_DEPS }} ]
+         poudriere_make_conf [ {{ poudriere_make_conf | to_nice_yaml }} ]
+         poudriere_pkglist_dir [ {{ poudriere_pkglist_dir }} ]
+         pkg_dict [
+         {{ pkg_dict | to_yaml }} ]
+  debug:
+    msg: "{{ msg.split('\n') }}"
+
+# EOF
+...

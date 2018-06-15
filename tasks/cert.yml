@@ -1,56 +1,70 @@
 ---
 
-- name: Create {{ poudriere_ssl_dir }}
-  file: >
-    path="{{ poudriere_ssl_dir }}"
-    state="directory"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
+- name: "cert: Create {{ poudriere_ssl_dir }}"
+  file:
+    state: "directory"
+    path: "{{ poudriere_ssl_dir }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
   tags: poudriere_ssl_dirs
 
-- name: Create {{ poudriere_ssl_dir }}/crt
-  file: >
-    path="{{ poudriere_ssl_dir }}/crt"
-    state="directory"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
+- name: "cert: Create {{ poudriere_ssl_dir }}/crt"
+  file:
+    state: "directory"
+    path: "{{ poudriere_ssl_dir }}/crt"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_dir_mode }}"
   tags: poudriere_ssl_dirs
 
-- name: Create {{ poudriere_ssl_dir }}/csr
-  file: >
-    path="{{ poudriere_ssl_dir }}/csr"
-    state="directory"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
+- name: "cert: Create {{ poudriere_ssl_dir }}/csr"
+  file:
+    state: "directory"
+    path: "{{ poudriere_ssl_dir }}/csr"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_dir_mode }}"
   tags: poudriere_ssl_dirs
 
-- name: Create {{ poudriere_ssl_dir }}/private
-  file: >
-    path="{{ poudriere_ssl_dir }}/private"
-    state="directory"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
-    mode="0700"
+- name: "cert: Create {{ poudriere_ssl_dir }}/private"
+  file:
+    state: "directory"
+    path: "{{ poudriere_ssl_dir }}/private"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_private_dir_mode }}"
   tags: poudriere_ssl_dirs
 
-- name: Generate an OpenSSL private key (default 4096 bits, RSA)
-  openssl_privatekey: >
-    path="{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+- name: "cert: Generate an OpenSSL private key (default 4096 bits, RSA)"
+  openssl_privatekey:
+    path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_private_key_mode }}"
+  when:
+    - poudriere_cert_create
+    - not ansible_check_mode
   tags: poudriere_crt
 
-- name: Generate an OpenSSL Certificate Signing Request
-  openssl_csr: >
-    path="{{ poudriere_ssl_dir }}/csr/poudriere.csr"
-    privatekey_path="{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
-    common_name="{{ poudriere_cert_CN }}"
+- name: "cert: Generate an OpenSSL Certificate Signing Request"
+  openssl_csr:
+    path: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
+    privatekey_path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+    common_name: "{{ poudriere_cert_CN }}"
+  when:
+    - poudriere_cert_create
+    - not ansible_check_mode
   tags: poudriere_crt
 
-- name: Generate a Self Signed OpenSSL certificate
-  openssl_certificate: >
-    path="{{ poudriere_cert_path }}"
-    privatekey_path="{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
-    csr_path="{{ poudriere_ssl_dir }}/csr/poudriere.csr"
-    provider="selfsigned"
+- name: "cert: Generate a Self Signed OpenSSL certificate"
+  openssl_certificate:
+    path: "{{ poudriere_cert_path }}"
+    privatekey_path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+    csr_path: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
+    provider: "selfsigned"
+  when:
+    - poudriere_cert_create
+    - not ansible_check_mode
   tags: poudriere_crt
 
 # EOF

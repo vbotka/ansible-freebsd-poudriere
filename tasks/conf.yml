@@ -1,32 +1,39 @@
 ---
 
-- name: Configure {{ poudriere_conf }}
-  template: >
-    src="poudriere.conf.j2"
-    dest="{{ poudriere_conf }}"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
-    mode="{{ poudriere_mode }}"
-    backup="yes"
-  tags: poudriere_conf
+- name: "conf: Configure {{ poudriere_conf }}"
+  template:
+    src: "poudriere.conf.j2"
+    dest: "{{ poudriere_conf }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode }}"
+    backup: yes
 
-- name: Create {{ poudriere_pkglist_dir }}
-  file: >
-    path="{{ poudriere_pkglist_dir }}"
-    state="directory"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
-  tags: poudriere_pkglist
+- name: "conf: Create {{ poudriere_conf_DISTFILES_CACHE }}"
+  file:
+    state: "directory"
+    path: "{{ poudriere_conf_DISTFILES_CACHE }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
 
-- name: Create list of packages in {{ poudriere_pkglist_dir }}
-  template: >
-    src="poudriere.pkglist.j2"
-    dest="{{ poudriere_pkglist_dir }}/{{ item.name }}-pkglist"
-    owner="{{ poudriere_owner }}"
-    group="{{ poudriere_group }}"
-    mode="{{ poudriere_mode }}"
+- name: "conf: Create {{ poudriere_pkglist_dir }}"
+  file:
+    state: "directory"
+    path: "{{ poudriere_pkglist_dir }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
+
+- name: "conf: Create list of packages in {{ poudriere_pkglist_dir }}"
+  template:
+    src: "poudriere.pkglist.j2"
+    dest: "{{ poudriere_pkglist_dir }}/{{ item.name }}-pkglist"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode }}"
+    backup: yes
   with_items: "{{ pkg_dict }}"
-  tags: poudriere_pkglist
 
 # EOF
 ...
