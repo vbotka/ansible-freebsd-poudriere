@@ -82,8 +82,8 @@ build the set of packages *setname* listed in *11amd64-pkglist*.
 References
 ----------
 
-- [FreBSD handbook: Building Packages with Poudriere](http://www.freebsd.cz/doc/handbook/ports-poudriere.html)
-- [FreBSD porter's handbook: Poudriere](http://www.freebsd.cz/doc/en/books/porters-handbook/testing-poudriere.html)
+- [FreBSD handbook: Building Packages with Poudriere](http://www.freebsd.org/doc/handbook/ports-poudriere.html)
+- [FreBSD porter's handbook: Poudriere](http://www.freebsd.org/doc/en/books/porters-handbook/testing-poudriere.html)
 - [Poudriere wiki](https://github.com/freebsd/poudriere/wiki)
 - [DigitalOcean: How To Set Up a Poudriere Build System](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers)
 - [Building packages with poudriere](https://stevendouglas.me/?p=71)
