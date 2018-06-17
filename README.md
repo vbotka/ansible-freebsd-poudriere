@@ -24,19 +24,19 @@ Workflow
 1) Change shell to /bin/sh if necessary.
 
 ```
-ansible host -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
+# ansible host -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
 ```
 
 2) Install role.
 
 ```
-ansible-galaxy install vbotka.freebsd-poudriere
+# ansible-galaxy install vbotka.freebsd-poudriere
 ```
 
 3) Fit variables.
 
 ```
-editor vbotka.freebsd-poudriere/vars/main.yml
+# editor vbotka.freebsd-poudriere/vars/main.yml
 ```
 
 4) Create and run the playbook.
@@ -45,8 +45,6 @@ editor vbotka.freebsd-poudriere/vars/main.yml
 # cat freebsd-poudriere.yml
 
 - hosts: build.example.com
-  become: yes
-  become_method: sudo
   roles:
     - vbotka.freebsd-poudriere
 ```
