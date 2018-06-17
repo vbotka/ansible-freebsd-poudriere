@@ -36,39 +36,56 @@ ansible-galaxy install vbotka.freebsd-poudriere
 3) Fit variables.
 
 ```
-~/.ansible/roles/vbotka.freebsd-poudriere/vars/main.yml
+editor vbotka.freebsd-poudriere/vars/main.yml
 ```
 
 4) Create and run the playbook.
 
 ```
-> cat ~/.ansible/playbooks/freebsd-poudriere.yml
----
-- hosts: host
+# cat freebsd-poudriere.yml
+
+- hosts: build.example.com
   become: yes
   become_method: sudo
   roles:
-    - role: vbotka.freebsd-poudriere
-    
-> ansible-playbook ~/.ansible/playbooks/freebsd-poudriere.yml
+    - vbotka.freebsd-poudriere
 ```
+
+```
+# ansible-playbook freebsd-poudriere.yml
+```
+
 
 Build packages
 --------------
 
-ssh to the host, create jail with the required FreeBSD tree and a ports tree, configure and build the packages.
+1) ssh to the host. Optionally copy existing PORT_DBDIR to the directory
+*/usr/local/etc/poudriere.d/jailname-portname-setname-options* and
+review the options.
+
+2) Create the jail *11amd64* with the required FreeBSD tree
+*11.1-RELEASE* and a ports *local* tree, configure the options and
+build the set of packages *setname* listed in *11amd64-pkglist*.
+
+
 ```
 # poudriere jail -c -j 11amd64 -v 11.1-RELEASE
 # poudriere ports -c -p local
-# poudriere options -j 11amd64 -p local -f 11amd64-pkglist
-# poudriere bulk -j 11amd64 -p local -f 11amd64-pkglist
+# poudriere options -j 11amd64 -p local -z setname -f 11amd64-pkglist
+# poudriere bulk -j 11amd64 -p local -z setname -f 11amd64-pkglist
 ```
+
+3) Provide the clients with the certificate */usr/local/etc/ssl/crt/poudriere.crt*
+
+4) Install a web server and publish the set of packages
+*/usr/local/poudriere/data/packages/11amd64-local-setname-options*
 
 
 References
 ----------
 
 - [FreBSD handbook: Building Packages with Poudriere](http://www.freebsd.cz/doc/handbook/ports-poudriere.html)
+- [FreBSD porter's handbook: Poudriere](http://www.freebsd.cz/doc/en/books/porters-handbook/testing-poudriere.html)
 - [Poudriere wiki](https://github.com/freebsd/poudriere/wiki)
 - [DigitalOcean: How To Set Up a Poudriere Build System](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers)
 - [Building packages with poudriere](https://stevendouglas.me/?p=71)
