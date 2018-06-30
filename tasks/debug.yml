@@ -44,6 +44,13 @@
          poudriere_conf_CHECK_CHANGED_DEPS [ {{ poudriere_conf_CHECK_CHANGED_DEPS }} ]
          poudriere_make_conf [ {{ poudriere_make_conf | to_nice_yaml }} ]
          poudriere_pkglist_dir [ {{ poudriere_pkglist_dir }} ]
+         apache_version [ {{ apache_version }} ]
+         apache_php_version [ {{ apache_php_version }} ]
+         bsd_php_version [ {{ bsd_php_version }} ]
+         bsd_dhcp_version [ {{ bsd_dhcp_version }} ]
+         bsd_bind_version [ {{ bsd_bind_version }} ]
+         bsd_mysql_version [ {{ bsd_mysql_version }} ]
+         bsd_python_version [ {{ bsd_python_version }} ]
          pkg_dict [
          {{ pkg_dict | to_yaml }} ]
   debug:
