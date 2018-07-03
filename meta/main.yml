@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Vladimir Botka
-  description: Install and configure Poudriere Build System in FreeBSD
+  description: FreeBSD. Install and configure Poudriere Build System.
   company: https://botka.link
   github_branch: master
   license: BSD
@@ -9,7 +9,7 @@ galaxy_info:
   platforms:
     - name: FreeBSD
       versions:
-        - 11.1
+        - 11.2
   galaxy_tags:
     - freebsd
     - poudriere

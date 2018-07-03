@@ -9,7 +9,7 @@ freebsd-poudriere
 Requirements
 ------------
 
-No requiremenst.
+No requiremenst. Tested with FreeBSD 11.2
 
 
 Variables
@@ -57,26 +57,42 @@ Workflow
 Build packages
 --------------
 
-1) ssh to the host. Optionally copy existing PORT_DBDIR to the directory
-*/usr/local/etc/poudriere.d/jailname-portname-setname-options* and
-review the options.
+1) ssh to the host.
 
-2) Create the jail *11amd64* with the required FreeBSD tree
-*11.1-RELEASE* and a ports *local* tree, configure the options and
-build the set of packages *setname* listed in *11amd64-pkglist*.
+2) Optionally copy existing PORT_DBDIR to the directory
+*/usr/local/etc/poudriere.d/options* and review the options.
 
+3) Create the jail *11amd64* with the required FreeBSD tree
+*11.2-RELEASE*
 
 ```
-# poudriere jail -c -j 11amd64 -v 11.1-RELEASE
+# poudriere jail -c -j 11amd64 -v 11.2-RELEASE
+```
+
+4) Create ports tree *local*
+
+```
 # poudriere ports -c -p local
-# poudriere options -j 11amd64 -p local -z setname -f 11amd64-pkglist
-# poudriere bulk -j 11amd64 -p local -z setname -f 11amd64-pkglist
+```
+
+
+5) Configure the options for the packages *pkglist*. This will
+supperseed the options from step 2.
+
+```
+# poudriere options -j 11amd64 -p local -z setname -f pkglist
+```
+
+6) Build the set of packages *setname* listed in *pkglist*.
+
+```
+# poudriere bulk -j 11amd64 -p local -z setname -f pkglist
 ```
 
 3) Provide the clients with the certificate */usr/local/etc/ssl/crt/poudriere.crt*
 
-4) Install a web server and publish the set of packages
-*/usr/local/poudriere/data/packages/11amd64-local-setname-options*
+4) Install a web server and publish the packages
+*/usr/local/poudriere/data/packages/11amd64-local-setname*
 
 
 References
