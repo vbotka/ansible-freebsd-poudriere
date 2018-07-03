@@ -89,9 +89,9 @@ supperseed the options from step 2.
 # poudriere bulk -j 11amd64 -p local -z setname -f pkglist
 ```
 
-3) Provide the clients with the certificate */usr/local/etc/ssl/crt/poudriere.crt*
+7) Provide the clients with the certificate */usr/local/etc/ssl/crt/poudriere.crt*
 
-4) Install a web server and publish the packages
+8) Install a web server and publish the packages
 */usr/local/poudriere/data/packages/11amd64-local-setname*
 
 
