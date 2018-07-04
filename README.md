@@ -75,7 +75,6 @@ Build packages
 # poudriere ports -c -p local
 ```
 
-
 5) Configure the options for the packages *pkglist*. This will
 supperseed the options from step 2.
 
@@ -93,6 +92,14 @@ supperseed the options from step 2.
 
 8) Install a web server and publish the packages
 */usr/local/poudriere/data/packages/11amd64-local-setname*
+
+
+Clients
+-------
+
+1) Configure the repositories with [Ansible role freebsd-packages](https://galaxy.ansible.com/vbotka/freebsd-packages/) and install the packages (with Ansible module pkgng).
+
+2) Alternatively set *freebsd_use_packages:yes* and install the packages with [Ansible role freebsd-ports](https://galaxy.ansible.com/vbotka/freebsd-ports/) (with Ansible module portinstall).
 
 
 References

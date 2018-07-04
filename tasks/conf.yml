@@ -11,7 +11,7 @@
 
 - name: "conf: Create {{ poudriere_conf_DISTFILES_CACHE }}"
   file:
-    state: "directory"
+    state: directory
     path: "{{ poudriere_conf_DISTFILES_CACHE }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
@@ -19,7 +19,7 @@
 
 - name: "conf: Create {{ poudriere_pkglist_dir }}"
   file:
-    state: "directory"
+    state: directory
     path: "{{ poudriere_pkglist_dir }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
@@ -28,7 +28,7 @@
 - name: "conf: Create list of packages in {{ poudriere_pkglist_dir }}"
   template:
     src: "poudriere.pkglist.j2"
-    dest: "{{ poudriere_pkglist_dir }}/{{ item.name }}-pkglist"
+    dest: "{{ poudriere_pkglist_dir }}/{{ item.pkglist }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
