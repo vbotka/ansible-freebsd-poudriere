@@ -3,7 +3,7 @@ freebsd-poudriere
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-poudriere.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-poudriere)
 
-[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd-poudriere/) Install and configure Poudriere Build System in FreeBSD.
+[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd-poudriere/) FreeBSD. Install and configure Poudriere Build System.
 
 
 Requirements
