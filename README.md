@@ -1,9 +1,9 @@
-freebsd-poudriere
+freebsd_poudriere
 =================
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-poudriere.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-poudriere)
 
-[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd-poudriere/) FreeBSD. Install and configure Poudriere Build System.
+[Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_poudriere/) FreeBSD. Install and configure Poudriere Build System.
 
 
 Requirements
@@ -15,7 +15,7 @@ No requiremenst. Tested with FreeBSD 11.2
 Variables
 ---------
 
-TBD (Check the defaults).
+TBD. Review the defaults and examples in vars.
 
 
 Workflow
@@ -30,13 +30,13 @@ Workflow
 2) Install role.
 
 ```
-# ansible-galaxy install vbotka.freebsd-poudriere
+# ansible-galaxy install vbotka.freebsd_poudriere
 ```
 
 3) Fit variables.
 
 ```
-# editor vbotka.freebsd-poudriere/vars/main.yml
+# editor vbotka.freebsd_poudriere/vars/main.yml
 ```
 
 4) Create and run the playbook.
@@ -46,7 +46,7 @@ Workflow
 
 - hosts: build.example.com
   roles:
-    - vbotka.freebsd-poudriere
+    - vbotka.freebsd_poudriere
 ```
 
 ```
@@ -97,9 +97,9 @@ supperseed the options from step 2.
 Clients
 -------
 
-1) Configure the repositories with [Ansible role freebsd-packages](https://galaxy.ansible.com/vbotka/freebsd-packages/) and install the packages (with Ansible module pkgng).
+1) Configure the repositories with [Ansible role freebsd_packages](https://galaxy.ansible.com/vbotka/freebsd_packages/) and install the packages (with Ansible module pkgng).
 
-2) Alternatively set *freebsd_use_packages:yes* and install the packages with [Ansible role freebsd-ports](https://galaxy.ansible.com/vbotka/freebsd-ports/) (with Ansible module portinstall).
+2) Alternatively set *freebsd_use_packages:yes* and install the packages with [Ansible role freebsd_ports](https://galaxy.ansible.com/vbotka/freebsd_ports/) (with Ansible module portinstall).
 
 
 References

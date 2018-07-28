@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: freebsd_poudriere
   author: Vladimir Botka
   description: FreeBSD. Install and configure Poudriere Build System.
   company: https://botka.link
