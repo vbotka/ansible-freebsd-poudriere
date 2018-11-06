@@ -3,7 +3,7 @@
 
 - import_tasks: debug.yml
   when: poudriere_debug
-  tags: poudriere_debug
+  tags: [poudriere_debug, always]
 
 - import_tasks: packages.yml
   tags: poudriere_packages

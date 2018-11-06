@@ -1,6 +1,6 @@
 ---
 
-- name: Debug
+- name: "Poudriere Debug"
   vars:
     msg: |
          ansible_architecture [ {{ ansible_architecture }} ]

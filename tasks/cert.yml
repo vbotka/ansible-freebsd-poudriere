@@ -2,7 +2,7 @@
 
 - name: "cert: Create {{ poudriere_ssl_dir }}"
   file:
-    state: "directory"
+    state: directory
     path: "{{ poudriere_ssl_dir }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
@@ -10,7 +10,7 @@
 
 - name: "cert: Create {{ poudriere_ssl_dir }}/crt"
   file:
-    state: "directory"
+    state: directory
     path: "{{ poudriere_ssl_dir }}/crt"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
@@ -19,7 +19,7 @@
 
 - name: "cert: Create {{ poudriere_ssl_dir }}/csr"
   file:
-    state: "directory"
+    state: directory
     path: "{{ poudriere_ssl_dir }}/csr"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
@@ -28,7 +28,7 @@
 
 - name: "cert: Create {{ poudriere_ssl_dir }}/private"
   file:
-    state: "directory"
+    state: directory
     path: "{{ poudriere_ssl_dir }}/private"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
@@ -61,7 +61,7 @@
     path: "{{ poudriere_cert_path }}"
     privatekey_path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
     csr_path: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
-    provider: "selfsigned"
+    provider: selfsigned
   when:
     - poudriere_cert_create
     - not ansible_check_mode

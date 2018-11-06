@@ -2,30 +2,26 @@
 
 - name: "packages: Install poudriere packages"
   pkgng:
-    name: "{{ item }}"
-  with_items: "{{ poudriere_packages }}"
+    name: "{{ poudriere_packages }}"
   when: freebsd_install_method == "packages"
 
 - name: "packages: Install poudriere ports"
   portinstall:
-    name: "{{ item }}"
+    name: "{{ poudriere_packages }}"
     use_packages: "{{ freebsd_use_packages }}"
-  with_items: "{{ poudriere_packages }}"
   when: freebsd_install_method == "ports"
 
 - name: "packages: Install packages to create certificate"
   pkgng:
-    name: "{{ item }}"
-  with_items: "{{ poudriere_packages_cert }}"
+    name: "{{ poudriere_packages_cert }}"
   when:
     - poudriere_cert_create
     - freebsd_install_method == "packages"
 
 - name: "packages: Install ports to create certificate"
   portinstall:
-    name: "{{ item }}"
+    name: "{{ poudriere_packages_cert }}"
     use_packages: "{{ freebsd_use_packages }}"
-  with_items: "{{ poudriere_packages_cert }}"
   when:
     - poudriere_cert_create
     - freebsd_install_method == "ports"

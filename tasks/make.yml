@@ -3,7 +3,7 @@
 # Note: Review poudriere CUSTOMISATION
 - name: "make: Configure {{ poudriere_conf_dir }}/make.conf"
   template:
-    src: "make.conf.j2"
+    src: make.conf.j2
     dest: "{{ poudriere_conf_dir }}/make.conf"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
