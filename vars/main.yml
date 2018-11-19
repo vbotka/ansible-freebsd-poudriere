@@ -1,28 +1,28 @@
 ---
 # vars for freebsd-poudriere
 
-#freebsd_install_method: "ports"
-#freebsd_use_packages: "yes"
+# freebsd_install_method: "ports"
+# freebsd_use_packages: "yes"
 
-#poudriere_cert_CN: "builder.example.com"
-#poudriere_conf_NO_ZFS: "no"
+# poudriere_cert_CN: "builder.example.com"
+# poudriere_conf_NO_ZFS: "no"
 # DO image=freebsd-11-1-x64-zfs; size=8gb
-#poudriere_conf_ZPOOL: "zroot"
+# poudriere_conf_ZPOOL: "zroot"
 
-#poudriere_make_conf:
+# poudriere_make_conf:
 #  - "OPTIONS_UNSET+= DOCS NLS X11 EXAMPLES"
 #  - "DEFAULT_VERSIONS+=ssl=openssl"
 #  - "DEFAULT_VERSIONS+=emacs=nox"
 
-#apache_version: "24"
-#apache_php_version: "56"
-#bsd_php_version: "56"
-#bsd_dhcp_version: "43"
-#bsd_bind_version: "99"
-#bsd_mysql_version: "56"
-#bsd_python_version: "27"
+# apache_version: "24"
+# apache_php_version: "56"
+# bsd_php_version: "56"
+# bsd_dhcp_version: "43"
+# bsd_bind_version: "99"
+# bsd_mysql_version: "56"
+# bsd_python_version: "27"
 
-#pkg_dict:
+# pkg_dict:
 #  - name: pf
 #    packages:
 #      - security/sshguard
@@ -78,8 +78,8 @@
 #  - name: roundcube
 #    packages:
 #      - mail/roundcube
-#      - databases/mysql{{bsd_mysql_version}}-client
-#      - databases/mysql{{bsd_mysql_version}}-server
+#      - databases/mysql{{ bsd_mysql_version }}-client
+#      - databases/mysql{{ bsd_mysql_version }}-server
 #      - www/mod_php{{ bsd_php_version }}
 #      - lang/php{{ bsd_php_version }}
 #      - archivers/php{{ bsd_php_version }}-bz2
