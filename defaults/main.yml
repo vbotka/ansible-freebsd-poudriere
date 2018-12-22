@@ -49,7 +49,9 @@ poudriere_conf_CHECK_CHANGED_DEPS: "yes"
 poudriere_make_conf: []
 
 poudriere_pkglist_dir: "{{ poudriere_conf_dir }}/pkglist"
-pkg_dict: {}
+poudriere_pkg_arch: []
+pkg_dict: []
+
 
 # EOF
 ...

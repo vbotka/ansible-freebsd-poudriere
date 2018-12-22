@@ -51,8 +51,8 @@
          bsd_bind_version [ {{ bsd_bind_version }} ]
          bsd_mysql_version [ {{ bsd_mysql_version }} ]
          bsd_python_version [ {{ bsd_python_version }} ]
-         pkg_dict [
-         {{ pkg_dict | to_yaml }} ]
+         poudriere_pkg_arch [
+         {{ poudriere_pkg_arch | to_yaml }} ]
   debug:
     msg: "{{ msg.split('\n') }}"
 

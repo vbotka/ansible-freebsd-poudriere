@@ -1,0 +1,22 @@
+---
+
+- name: "conf: Create {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+  file:
+    state: directory
+    path: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
+
+- name: "conf: Create list of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+  template:
+    src: "poudriere.pkglist.j2"
+    dest: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}/{{ item.pkglist }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode }}"
+    backup: yes
+  loop: "{{ lookup('vars', 'pkg_dict_' + pkg_arch) }}"
+
+# EOF
+...
