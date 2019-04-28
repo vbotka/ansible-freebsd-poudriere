@@ -16,6 +16,7 @@
          {{ poudriere_packages | to_nice_yaml }} ]
          poudriere_packages_cert [
          {{ poudriere_packages_cert | to_nice_yaml }} ]
+         poudriere_backup_conf [ {{ poudriere_backup_conf|bool }} ]
          poudriere_owner [ {{ poudriere_owner }} ]
          poudriere_group [ {{ poudriere_group }} ]
          poudriere_mode [ {{ poudriere_mode }} ]

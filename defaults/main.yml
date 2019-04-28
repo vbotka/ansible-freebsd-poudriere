@@ -2,6 +2,7 @@
 # defaults freebsd-poudriere
 
 poudriere_debug: False
+poudriere_backup_conf: yes
 
 # freebsd_install_method: "packages"
 freebsd_install_method: "ports"

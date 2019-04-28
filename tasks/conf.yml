@@ -7,7 +7,7 @@
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
-    backup: yes
+    backup: "{{ poudriere_backup_conf|bool }}"
 
 - name: "conf: Create {{ poudriere_conf_DISTFILES_CACHE }}"
   file:
