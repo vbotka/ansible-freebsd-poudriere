@@ -1,8 +1,8 @@
 ---
 # defaults freebsd-poudriere
 
-poudriere_debug: False
-poudriere_backup_conf: yes
+poudriere_debug: false
+poudriere_backup_conf: true
 
 # freebsd_install_method: "packages"
 freebsd_install_method: "ports"
@@ -24,7 +24,7 @@ poudriere_group: "wheel"
 poudriere_mode: "0644"
 poudriere_mode_dir: "0755"
 # ssl
-poudriere_cert_create: True
+poudriere_cert_create: true
 poudriere_ssl_dir: "/usr/local/etc/ssl"
 poudriere_ssl_dir_mode: "0755"
 poudriere_ssl_private_dir_mode: "0700"
