@@ -2,10 +2,11 @@
 # tasks freebsd-poudriere
 
 - import_tasks: debug.yml
-  when: poudriere_debug
+  when: poudriere_debug|bool
   tags: [poudriere_debug, always]
 
 - import_tasks: packages.yml
+  when: poudriere_install|bool
   tags: poudriere_packages
 
 - import_tasks: cert.yml

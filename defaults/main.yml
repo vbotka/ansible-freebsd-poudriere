@@ -1,6 +1,7 @@
 ---
 # defaults freebsd-poudriere
 
+poudriere_install: true
 poudriere_debug: false
 poudriere_backup_conf: true
 

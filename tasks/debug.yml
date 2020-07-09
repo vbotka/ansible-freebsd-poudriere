@@ -13,6 +13,7 @@
 
          freebsd_install_method [{{ freebsd_install_method }}]
          freebsd_use_packages [{{ freebsd_use_packages }}]
+         poudriere_install [{{ poudriere_install }}]
          poudriere_packages
          {{ poudriere_packages|to_nice_yaml }}
          poudriere_packages_cert
@@ -57,7 +58,7 @@
          poudriere_pkg_arch
          {{ poudriere_pkg_arch|to_yaml }}
   debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ msg.split('\n')[:-1] }}"
 
 # EOF
 ...

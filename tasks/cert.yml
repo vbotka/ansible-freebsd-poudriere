@@ -42,7 +42,7 @@
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_ssl_private_key_mode }}"
   when:
-    - poudriere_cert_create
+    - poudriere_cert_create|bool
     - not ansible_check_mode
   tags: poudriere_crt
 
