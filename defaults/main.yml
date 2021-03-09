@@ -1,53 +1,53 @@
 ---
-# defaults freebsd-poudriere
+# defaults freebsd_poudriere
 
 poudriere_install: true
 poudriere_debug: false
 poudriere_backup_conf: true
 
-# freebsd_install_method: "packages"
-freebsd_install_method: "ports"
-freebsd_use_packages: "yes"
+# freebsd_install_method: packages
+freebsd_install_method: ports
+freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
 poudriere_packages:
-  - "ports-mgmt/poudriere"
-  - "ports-mgmt/portmaster"
-  - "devel/ccache"
+  - ports-mgmt/poudriere
+  - ports-mgmt/portmaster
+  - devel/ccache
 poudriere_packages_cert:
-  - "security/py-openssl"
-  - "security/py-acme-tiny"
+  - security/py-openssl
+  - security/py-acme-tiny
 
 # owner, group, mode
-poudriere_owner: "root"
-poudriere_group: "wheel"
+poudriere_owner: root
+poudriere_group: wheel
 poudriere_mode: "0644"
 poudriere_mode_dir: "0755"
 # ssl
 poudriere_cert_create: true
-poudriere_ssl_dir: "/usr/local/etc/ssl"
+poudriere_ssl_dir: /usr/local/etc/ssl
 poudriere_ssl_dir_mode: "0755"
 poudriere_ssl_private_dir_mode: "0700"
 poudriere_ssl_private_key_mode: "0600"
-poudriere_cert_CN: "builder.example.com"
+poudriere_cert_CN: builder.example.com
 poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
 # poudriere.conf (see /usr/local/etc/poudriere.conf.sample)
-poudriere_conf: "/usr/local/etc/poudriere.conf"
-poudriere_conf_dir: "/usr/local/etc/poudriere.d"
+poudriere_conf: /usr/local/etc/poudriere.conf
+poudriere_conf_dir: /usr/local/etc/poudriere.d
 poudriere_conf_NO_ZFS: "yes"
-poudriere_conf_ZPOOL: "tank"
-poudriere_conf_ZROOTFS: "/poudriere"
-poudriere_conf_FREEBSD_HOST: "https://download.freebsd.org"
-poudriere_conf_RESOLV_CONF: "/etc/resolv.conf"
-poudriere_conf_BASEFS: "/usr/local/poudriere"
+poudriere_conf_ZPOOL: tank
+poudriere_conf_ZROOTFS: /poudriere
+poudriere_conf_FREEBSD_HOST: https://download.freebsd.org
+poudriere_conf_RESOLV_CONF: /etc/resolv.conf
+poudriere_conf_BASEFS: /usr/local/poudriere
 poudriere_conf_POUDRIERE_DATA: "{{ poudriere_conf_BASEFS }}/data"
 poudriere_conf_USE_PORTLINT: "no"
 poudriere_conf_USE_TMPFS: "yes"
-poudriere_conf_DISTFILES_CACHE: "/usr/ports/distfiles"
+poudriere_conf_DISTFILES_CACHE: /usr/ports/distfiles
 poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/poudriere.pem"
 poudriere_conf_URL_BASE: "{{ ansible_default_ipv4.address | default('127.0.0.1') }}"
-poudriere_conf_CHECK_CHANGED_OPTIONS: "verbose"
+poudriere_conf_CHECK_CHANGED_OPTIONS: verbose
 poudriere_conf_CHECK_CHANGED_DEPS: "yes"
 
 # {{ poudriere_conf_dir }}/make.conf

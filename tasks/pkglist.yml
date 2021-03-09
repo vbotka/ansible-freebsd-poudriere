@@ -16,7 +16,7 @@
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
     backup: "{{ poudriere_backup_conf|bool }}"
-  loop: "{{ lookup('vars', 'pkg_dict_' + pkg_arch) }}"
+  loop: "{{ lookup('vars', 'pkg_dict_' ~ pkg_arch) }}"
 
 # EOF
 ...

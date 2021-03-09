@@ -6,6 +6,7 @@
     path: "{{ poudriere_ssl_dir }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
   tags: poudriere_ssl_dirs
 
 - name: "cert: Create {{ poudriere_ssl_dir }}/crt"

@@ -1,134 +1,66 @@
 ---
-# vars for freebsd-poudriere
+# vars for freebsd_poudriere
 
-# freebsd_install_method: "ports"
-# freebsd_use_packages: "yes"
+# poudriere_install: true
+# poudriere_debug: false
+# poudriere_backup_conf: true
 
-# poudriere_cert_CN: "builder.example.com"
+# freebsd_install_method: packages
+
+# poudriere_conf_URL_BASE: 10.1.0.17
+# poudriere_cert_CN: build.d3.example.com
 # poudriere_conf_NO_ZFS: "no"
-# DO image=freebsd-11-1-x64-zfs; size=8gb
-# poudriere_conf_ZPOOL: "zroot"
+# poudriere_conf_ZPOOL: zroot
+# poudriere_conf_USE_TMPFS: "no"
 
 # poudriere_make_conf:
-#  - "OPTIONS_UNSET+= DOCS NLS X11 EXAMPLES"
-#  - "DEFAULT_VERSIONS+=ssl=openssl"
-#  - "DEFAULT_VERSIONS+=emacs=nox"
+#   - "OPTIONS_UNSET+=\t\t\tDOCS NLS X11 EXAMPLES"
+#   - "OPTIONS_UNSET+=\t\t\tGSSAPI_BASE KRB_BASE KERBEROS"
+#   - "OPTIONS_SET+=\t\t\tGSSAPI_NONE KRB_NONE"
+#   - "DEFAULT_VERSIONS+=\t\temacs=nox"
+#   - "DEFAULT_VERSIONS+=\t\tphp=7.2"
+#   - "DEFAULT_VERSIONS+=\t\tssl=openssl"
 
-# apache_version: "24"
-# apache_php_version: "56"
-# bsd_php_version: "56"
-# bsd_dhcp_version: "43"
-# bsd_bind_version: "99"
-# bsd_mysql_version: "56"
-# bsd_python_version: "27"
+# poudriere_pkg_arch:
+#   - i386
+#   - amd64
 
-# pkg_dict:
-#  - name: pf
-#    packages:
-#      - security/sshguard
-#  - name: postinstall
-#    packages:
-#      - shells/bash
-#      - editors/emacs
-#      - devel/git
-#      - archivers/gtar
-#      - ports-mgmt/pkg
-#      - ports-mgmt/portmaster
-#      - ports-mgmt/portupgrade
-#      - security/py-certbot
-#      - net/rsync
-#  - name: apache
-#    packages:
-#      - www/apache{{ apache_version }}
-#      - www/mod_php{{ apache_php_version }}
-#  - name: mailserver
-#    packages:
-#      - mail/postfix-sasl
-#      - mail/dovecot
-#      - security/cyrus-sasl2
-#  - name: mailserver_sieve
-#    packages:
-#      - mail/dovecot-pigeonhole
-#  - name: mailserver_spamassasin
-#    packages:
-#      - mail/spamassassin
-#      - mail/sa-utils
-#  - name:  mysql
-#    packages:
-#      - databases/mysql{{ bsd_mysql_version }}-client
-#      - databases/mysql{{ bsd_mysql_version }}-server
-#      - databases/py-MySQLdb{{ bsd_mysql_version }}
-#  - name: dhcp
-#    packages:
-#      - net/isc-dhcp{{ bsd_dhcp_version }}-server
-#  - name: dns
-#    packages:
-#      - dns/bind{{ bsd_bind_version }}
-#  - name: yazvs
-#    packages:
-#      - dns/p5-Net-DNS
-#      - dns/p5-Net-DNS-SEC
-#      - dns/p5-Net-DNS-ZoneFile-Fast
-#      - lang/p5-Switch
-#      - misc/p5-List-Compare
-#  - name: roundcube_aspell
-#    packages:
-#      - textproc/aspell
-#      - textproc/en-aspell
-#  - name: roundcube
-#    packages:
-#      - mail/roundcube
-#      - databases/mysql{{ bsd_mysql_version }}-client
-#      - databases/mysql{{ bsd_mysql_version }}-server
-#      - www/mod_php{{ bsd_php_version }}
-#      - lang/php{{ bsd_php_version }}
-#      - archivers/php{{ bsd_php_version }}-bz2
-#      - textproc/php{{ bsd_php_version }}-ctype
-#      - ftp/php{{ bsd_php_version }}-curl
-#      - textproc/php{{ bsd_php_version }}-dom
-#      - graphics/php{{ bsd_php_version }}-exif
-#      - lang/php{{ bsd_php_version }}-extensions
-#      - sysutils/php{{ bsd_php_version }}-fileinfo
-#      - security/php{{ bsd_php_version }}-filter
-#      - ftp/php{{ bsd_php_version }}-ftp
-#      - graphics/php{{ bsd_php_version }}-gd
-#      - security/php{{ bsd_php_version }}-hash
-#      - converters/php{{ bsd_php_version }}-iconv
-#      - devel/php{{ bsd_php_version }}-json
-#      - net/php{{ bsd_php_version }}-ldap
-#      - converters/php{{ bsd_php_version }}-mbstring
-#      - security/php{{ bsd_php_version }}-mcrypt
-#      - databases/php{{ bsd_php_version }}-mysql
-#      - databases/php{{ bsd_php_version }}-mysqli
-#      - www/php{{ bsd_php_version }}-opcache
-#      - security/php{{ bsd_php_version }}-openssl
-#      - databases/php{{ bsd_php_version }}-pdo
-#      - databases/php{{ bsd_php_version }}-pdo_mysql
-#      - databases/php{{ bsd_php_version }}-pdo_sqlite
-#      - archivers/php{{ bsd_php_version }}-phar
-#      - sysutils/php{{ bsd_php_version }}-posix
-#      - textproc/php{{ bsd_php_version }}-pspell
-#      - www/php{{ bsd_php_version }}-session
-#      - textproc/php{{ bsd_php_version }}-simplexml
-#      - databases/php{{ bsd_php_version }}-sqlite3
-#      - devel/php{{ bsd_php_version }}-tokenizer
-#      - textproc/php{{ bsd_php_version }}-wddx
-#      - textproc/php{{ bsd_php_version }}-xml
-#      - textproc/php{{ bsd_php_version }}-xmlreader
-#      - textproc/php{{ bsd_php_version }}-xmlwriter
-#      - textproc/php{{ bsd_php_version }}-xsl
-#      - archivers/php{{ bsd_php_version }}-zip
-#      - archivers/php{{ bsd_php_version }}-zlib
-#  - name: leutils
-#    packages:
-#      - shells/bash
-#      - devel/git
-#      - security/py-certbot
-#  - name: integrity
-#    packages:
-#      - shells/bash
-#      - devel/git
-#      - archivers/gtar
-#      - security/md5deep
+# SEE: Role vbotka.freebsd_postinstall variables /defaults/main/pkgdict_*.yml
+
+# pkg_list_amd64: []
+# pkg_dict_amd64:
+#   - pkglist: minimal
+#     packages:
+#       - shells/bash
+#       - devel/git
+#       - archivers/gtar
+#       - ports-mgmt/pkg
+#       - ports-mgmt/portmaster
+#       - ports-mgmt/portupgrade
+#       - net/rsync
+#       - ftp/wget
+#   - pkglist: ansible
+#     packages:
+#       - sysutils/ansible
+#       - sysutils/py-ansible-lint
+#       - sysutils/py-ansible-runner
+
+# pkg_list_i386: []
+# pkg_dict_i386:
+#   - pkglist: minimal
+#     packages:
+#       - shells/bash
+#       - devel/git
+#       - archivers/gtar
+#       - ports-mgmt/pkg
+#       - ports-mgmt/portmaster
+#       - ports-mgmt/portupgrade
+#       - net/rsync
+#       - ftp/wget
+#   - pkglist: ansible
+#     packages:
+#       - sysutils/ansible
+#       - sysutils/py-ansible-lint
+#       - sysutils/py-ansible-runner
 
 # EOF

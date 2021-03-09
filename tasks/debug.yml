@@ -13,11 +13,15 @@
 
          freebsd_install_method [{{ freebsd_install_method }}]
          freebsd_use_packages [{{ freebsd_use_packages }}]
+         freebsd_install_retries [{{ freebsd_install_retries }}]
+         freebsd_install_delay [{{ freebsd_install_delay }}]
          poudriere_install [{{ poudriere_install }}]
+
          poudriere_packages
          {{ poudriere_packages|to_nice_yaml }}
          poudriere_packages_cert
          {{ poudriere_packages_cert|to_nice_yaml }}
+         poudriere_pkg_arch {{ poudriere_pkg_arch|to_yaml }}
          poudriere_backup_conf [{{ poudriere_backup_conf|bool }}]
          poudriere_owner [{{ poudriere_owner }}]
          poudriere_group [{{ poudriere_group }}]
@@ -45,7 +49,8 @@
          poudriere_conf_URL_BASE [{{ poudriere_conf_URL_BASE }}]
          poudriere_conf_CHECK_CHANGED_OPTIONS [{{ poudriere_conf_CHECK_CHANGED_OPTIONS }}]
          poudriere_conf_CHECK_CHANGED_DEPS [{{ poudriere_conf_CHECK_CHANGED_DEPS }}]
-         poudriere_make_conf [{{ poudriere_make_conf|to_nice_yaml }}]
+         poudriere_make_conf
+         {{ poudriere_make_conf|to_nice_yaml }}
          poudriere_pkglist_dir [{{ poudriere_pkglist_dir }}]
 
          apache_version [{{ apache_version }}]
@@ -55,8 +60,6 @@
          bsd_bind_version [{{ bsd_bind_version }}]
          bsd_mysql_version [{{ bsd_mysql_version }}]
          bsd_python_version [{{ bsd_python_version }}]
-         poudriere_pkg_arch
-         {{ poudriere_pkg_arch|to_yaml }}
   debug:
     msg: "{{ msg.split('\n')[:-1] }}"
 

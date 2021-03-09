@@ -1,6 +1,5 @@
 ---
 
-# Note: Review poudriere CUSTOMISATION
 - name: "make: Configure {{ poudriere_conf_dir }}/make.conf"
   template:
     src: make.conf.j2
@@ -9,6 +8,9 @@
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
     backup: "{{ poudriere_backup_conf|bool }}"
+
+# See 10.5.10. Providing a Custom make.conf File
+# https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html
 
 # EOF
 ...

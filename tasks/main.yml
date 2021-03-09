@@ -1,5 +1,5 @@
 ---
-# tasks freebsd-poudriere
+# tasks freebsd_poudriere
 
 - import_tasks: debug.yml
   when: poudriere_debug|bool
