@@ -21,25 +21,25 @@ Review the defaults and examples in vars.
 
 ## Workflow
 
-1) Change shell to /bin/sh if necessary
+* Change the login shell for the remote_user at the remote host build.example.com to /bin/sh if necessary
 
 ```
-shell> ansible host -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
+shell> ansible build.example.com -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
 ```
 
-2) Install role
+* Install role
 
 ```
 shell> ansible-galaxy install vbotka.freebsd_poudriere
 ```
 
-3) Fit variables
+* Fit variables
 
 ```
 shell> editor vbotka.freebsd_poudriere/vars/main.yml
 ```
 
-4) Create and run the playbook
+* Create and run the playbook
 
 ```
 shell> cat freebsd-poudriere.yml
@@ -54,56 +54,93 @@ shell> ansible-playbook freebsd-poudriere.yml
 ```
 
 
-## Build packages
+## Example: Build packages for amd64 in 11.2-RELEASE
 
-1) ssh to the host.
+* ssh to the host build.example.com
 
-2) Optionally copy existing PORT_DBDIR to the directory */usr/local/etc/poudriere.d/options* and review the options.
+* Optionally copy existing PORT_DBDIR to the directory */usr/local/etc/poudriere.d/options* and
+  review the options.
 
-3) Create the jail *11amd64* with the required FreeBSD tree *11.2-RELEASE*
+* Create the jail *11amd64* with the required FreeBSD tree *11.2-RELEASE*
 
 ```
 shell> poudriere jail -c -j 11amd64 -v 11.2-RELEASE
 ```
 
-4) Create ports tree *local*
+* Create ports tree *local*
 
 ```
 shell> poudriere ports -c -p local
 ```
 
-5) Configure the options for the packages *pkglist*. This will supersede the options from step 2.
+* Review the lists of the packages. (default poudriere_pkglist_dir)
+
+```
+shell: ls -la /usr/local/etc/poudriere.d/pkglist_amd64
+```
+
+  For example
+
+```
+shell> cat /usr/local/etc/poudriere.d/pkglist_amd64/minimal
+shells/bash
+devel/git
+archivers/gtar
+ports-mgmt/pkg
+ports-mgmt/portmaster
+ports-mgmt/portupgrade
+net/rsync
+ftp/wget
+```
+
+* Optionally configure the options for the packages *pkglist*. This will supersede the options from
+  step 2. See Handbook 10.5.9. Using Sets
 
 ```
 shell> poudriere options -j 11amd64 -p local -z setname -f pkglist
 ```
 
-6) Build the set of packages *setname* listed in *pkglist*.
+* Build the set of packages *setname* listed in the file /usr/local/etc/poudriere.d/pkglist_amd64/minimal
 
 ```
-shell> poudriere bulk -j 11amd64 -p local -z setname -f pkglist
+shell> poudriere bulk -j 11amd64 -p local -z setname -f /usr/local/etc/poudriere.d/pkglist_amd64/minimal
 ```
 
-7) Provide the clients with the certificate */usr/local/etc/ssl/crt/poudriere.crt*
+* ,or build the set of packages *setname* listed in in the files /usr/local/etc/poudriere.d/pkglist_amd64/*
 
-8) Install a web server and publish the packages
-*/usr/local/poudriere/data/packages/11amd64-local-setname*
+```
+shell> for i in /usr/local/etc/poudriere.d/pkglist_amd64/*; do poudriere bulk -j 11amd64 -p local -z setname -f $i; done
+```
+
+* Provide the clients with the certificate. (default poudriere_cert_path)
+
+```
+/usr/local/etc/ssl/crt/poudriere.crt
+```
+
+* Install a web server and publish the packages
+
+```
+/usr/local/poudriere/data/packages/11amd64-local-setname
+```
 
 
 ## Clients
 
-1) Configure the repositories with [Ansible role freebsd_packages](https://galaxy.ansible.com/vbotka/freebsd_packages/) and install the packages (with Ansible module pkgng).
+* Use [Ansible role freebsd_packages](https://galaxy.ansible.com/vbotka/freebsd_packages/) to
+  configure the repositories and to install the packages using Ansible module pkgng.
 
-2) Alternatively set *freebsd_use_packages:yes* and install the packages with [Ansible role freebsd_ports](https://galaxy.ansible.com/vbotka/freebsd_ports/) (with Ansible module portinstall).
+* Alternatively set *freebsd_use_packages=true* and use [Ansible role freebsd_ports](https://galaxy.ansible.com/vbotka/freebsd_ports/) to install the packages using
+  Ansible module portinstall.
 
 
 ## References
 
-- [FreBSD handbook: Building Packages with Poudriere](http://www.freebsd.org/doc/handbook/ports-poudriere.html)
-- [FreBSD porter's handbook: Poudriere](http://www.freebsd.org/doc/en/books/porters-handbook/testing-poudriere.html)
-- [Poudriere wiki](https://github.com/freebsd/poudriere/wiki)
+- [FreBSD Handbook: Building Packages with Poudriere](http://www.freebsd.org/doc/handbook/ports-poudriere.html)
+- [FreBSD Porter's Handbook: Poudriere](http://www.freebsd.org/doc/en/books/porters-handbook/testing-poudriere.html)
+- [Poudriere Wiki](https://github.com/freebsd/poudriere/wiki)
 - [DigitalOcean: How To Set Up a Poudriere Build System](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers)
-- [Building packages with poudriere](https://stevendouglas.me/?p=71)
+- [Building packages with Poudriere](https://stevendouglas.me/?p=71)
 
 
 ## License
