@@ -1,0 +1,40 @@
+---
+mytemplates:
+
+  - file: make.conf.j2
+    link: template_make.conf.j2
+    path: templates/make.conf.j2
+    synopsis: |
+      Template make.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: poudriere.conf.j2
+    link: template_poudriere.conf.j2
+    path: templates/poudriere.conf.j2
+    synopsis: |
+      Template poudriere.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: poudriere.pkglist.j2
+    link: template_poudriere.pkglist.j2
+    path: templates/poudriere.pkglist.j2
+    synopsis: |
+      Template poudriere.pkglist.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+...

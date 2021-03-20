@@ -1,0 +1,15 @@
+---
+myhandlers:
+  - file: main.yml
+    link: handlers-main.yml
+    path: handlers/main.yml
+    synopsis: |
+      Main task.
+    description: |
+      Import handlers.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+
+...
