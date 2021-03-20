@@ -1,12 +1,17 @@
 # freebsd_poudriere
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_poudriere)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-poudriere.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-poudriere)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_poudriere)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-poudriere.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-poudriere)[![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-freebsd-popoudriere.readthedocs.io/en/latest/)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_poudriere/) FreeBSD. Install and configure Poudriere Build System.
 
-Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-poudriere/issues).
+[Documentation at readthedocs.io]( https://ansible-freebsd-poudriere.readthedocs.io)
 
-[Contributions are welcome](https://github.com/firstcontributions/first-contributions).
+Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-poudriere/issues). [Contributions are welcome](https://github.com/firstcontributions/first-contributions).
+
+
+## Supported platforms
+
+This role has been developed and tested with [FreeBSD Supported Releases](https://www.freebsd.org/releases/).
 
 
 ## Requirements
@@ -14,7 +19,7 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 None.
 
 
-## Role Variables
+## Variables
 
 Review the defaults and examples in vars.
 
@@ -73,7 +78,8 @@ shell> poudriere jail -c -j 11amd64 -v 11.2-RELEASE
 shell> poudriere ports -c -p local
 ```
 
-* Review the lists of the packages. (default poudriere_pkglist_dir)
+* Review the lists of the packages. See tasks/pkglist.yml
+  (default: {{ poudriere_pkglist_dir }}_{{ pkg_arch }})
 
 ```
 shell: ls -la /usr/local/etc/poudriere.d/pkglist_amd64
