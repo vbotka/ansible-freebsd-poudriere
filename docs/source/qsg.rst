@@ -3,8 +3,9 @@
 Quick start guide
 *****************
 
-For the users who want to try the role quickly, this guide provides
-an example of how to ...
+For the users who want to try the role quickly, this guide provides an example of how to install,
+configure and run `Poudriere
+<https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_
 
 
 * Install the role ``vbotka.freebsd_poudriere`` ::
@@ -12,70 +13,94 @@ an example of how to ...
     shell> ansible-galaxy install vbotka.freebsd_poudriere
 
 
-* Create the playbook ``playbook.yml`` for single host srv.example.com (2)
+* Create the playbook ``pb.yml`` for single host build.example.com (2)
 
 .. code-block:: bash
-   :emphasize-lines: 2
+   :emphasize-lines: 3
    :linenos:
 
-   shell> cat playbook.yml
-   - hosts: srv.example.com
-     gather_facts: true
-     connection: ssh
-     remote_user: admin
+   shell> cat pb.yml
+   ---
+   - hosts: build.example.com
      become: true
-     become_user: root
-     become_method: sudo
      roles:
        - vbotka.freebsd_poudriere
 
 
-* Create ``host_vars`` with customized variables
+* Customized variables
 
 .. code-block:: bash
-   :emphasize-lines: 2
+   :emphasize-lines: 3
    :linenos:
 
-   shell> ls -1 host_vars/srv.example.com/XY-*
-   host_vars/srv.example.com/XY-*.yml
+   shell> cat host_vars/build.example.com/poudriere.yml
+   ---
+   poudriere_conf_URL_BASE: build.example.com
+   poudriere_cert_CN: build.example.com
+   poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/{{ poudriere_cert_CN }}.key"
+   poudriere_conf_NO_ZFS: "no"
+   poudriere_conf_ZPOOL: zroot
+   poudriere_conf_USE_TMPFS: "no"
+   poudriere_pkg_arch: [amd64]
+   poudriere_csr_path: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_CN }}.csr"
+   poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/{{ poudriere_cert_CN }}.crt"
 
 
-* To speedup the execution let's set some variables (2-4) to *false*
+* Create lists of the packages
 
 .. code-block:: bash
-   :emphasize-lines: 2-4
+   :emphasize-lines: 4,14
    :linenos:
 
-   shell> cat host_vars/srv.example.com/XY-common.yml
-   XY_debug: false
-   XY_backup_conf: false
-   XY_flavors_enable: false
+   shell> cat host_vars/build.example.com/poudriere.yml
+   ---
+   pkg_dict_amd64:
+     - pkglist: minimal
+       packages:
+         - shells/bash
+         - devel/git
+         - archivers/gtar
+         - ports-mgmt/pkg
+         - ports-mgmt/portmaster
+         - ports-mgmt/portupgrade
+         - net/rsync
+         - ftp/wget
+     - pkglist: ansible
+       packages:
+         - sysutils/ansible
+         - sysutils/py-ansible-lint
+         - sysutils/py-ansible-runner
 
 
 * Test syntax ::
 
-    shell> ansible-playbook playbook.yml --syntax-check
+    shell> ansible-playbook pb.yml --syntax-check
 
 
 * See what variables will be included ::
 
-    shell> ansible-playbook playbook.yml -t XY_debug -e XY_debug=true
+    shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
 
 
 * Install packages ::
 
-    shell> ansible-playbook playbook.yml -t XY_packages
+    shell> ansible-playbook pb.yml -t poudriere_packages
 
 
 * Dry-run, display differences and display variables ::
 
-    shell> ansible-playbook playbook.yml -e XY_debug=true --check --diff
+    shell> ansible-playbook pb.yml -e poudriere_debug=true --check --diff
 
 
-* Run the playbook ::
+* If all seems to be right run the playbook ::
 
-    shell> ansible-playbook playbook.yml
+    shell> ansible-playbook pb.yml
 
+* If the command above completed without errors Poudriere should have been installed and
+  configured. Login into build.example.com and proceed according the `Poudriere documentation <https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_ , e.g. ::
 
-.. warning:: The host has not been secured by this playbook and should
-             be used for testing only.
+   shell> poudriere jail -c -j 12amd64 -v 12.2-RELEASE
+   shell> poudriere ports -c -p local
+   shell> poudriere bulk -j 12amd64 -p local -z devel \
+          -f /usr/local/etc/poudriere.d/pkglist_amd64/minimal
+

@@ -1,5 +1,5 @@
 Ansible role freebsd_poudriere
-===============================
+==============================
 
 This `role <https://galaxy.ansible.com/vbotka/freebsd_poudriere/>`_ and the
 documentation is work in progess. Feel free to `share your feedback and report issues

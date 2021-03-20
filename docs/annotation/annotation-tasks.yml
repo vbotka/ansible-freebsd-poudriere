@@ -64,6 +64,19 @@ mytasks:
     hints: []
     warnings: []
 
+  - file: pkglists.yml
+    link: pkglists.yml
+    path: tasks/pkglists.yml
+    synopsis: |
+      Configure pkglists.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
   - file: pkglist.yml
     link: pkglist.yml
     path: tasks/pkglist.yml

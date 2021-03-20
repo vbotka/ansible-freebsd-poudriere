@@ -9,11 +9,13 @@
     _pkglist_enable: "{{ lookup('vars', 'pkglist_enable_' ~ pkg_arch, default={}) }}"
     _current_enable: "{{ item.enable|default(true) }}"
     _combine_enable: "{{ _pkglist_enable[item.pkglist]|default(_current_enable) }}"
+  tags: poudriere_pkglist_create_var
 
 - name: "conf: Debug _pkg_dict"
   debug:
     var: _pkg_dict
   when: poudriere_debug|bool
+  tags: poudriere_pkglist_create_var
 
 # Create directories
 - name: "conf: Create directories {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
@@ -26,6 +28,7 @@
   loop:
     - "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
     - "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
+  tags: poudriere_pkglist_create_dirs
 
 # Disabled lists of packages
 - name: "conf: Remove lists of packages from {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
@@ -36,6 +39,7 @@
   loop_control:
     label: "{{ item.pkglist }}"
   when: not item.enable
+  tags: poudriere_pkglist_disabled
 
 - name: "conf: Create lists of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
   template:
@@ -49,6 +53,7 @@
   loop_control:
     label: "{{ item.pkglist }}"
   when: not item.enable
+  tags: poudriere_pkglist_disabled
 
 # Enabled lists of packages
 - name: "conf: Remove lists of packages from {{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
@@ -59,6 +64,7 @@
   loop_control:
     label: "{{ item.pkglist }}"
   when: item.enable
+  tags: poudriere_pkglist_enabled
 
 - name: "conf: Create lists of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
   template:
@@ -72,6 +78,7 @@
   loop_control:
     label: "{{ item.pkglist }}"
   when: item.enable
+  tags: poudriere_pkglist_enabled
 
 # EOF
 ...

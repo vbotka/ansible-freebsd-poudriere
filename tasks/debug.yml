@@ -15,14 +15,18 @@
          freebsd_use_packages [{{ freebsd_use_packages }}]
          freebsd_install_retries [{{ freebsd_install_retries }}]
          freebsd_install_delay [{{ freebsd_install_delay }}]
+
          poudriere_install [{{ poudriere_install }}]
+         poudriere_cert [{{ poudriere_cert }}]
+         poudriere_conf [{{ poudriere_conf }}]
+         poudriere_pkglists [{{ poudriere_pkglists }}]
+         poudriere_make [{{ poudriere_make }}]
+         poudriere_backup_conf [{{ poudriere_backup_conf|bool }}]
 
          poudriere_packages
          {{ poudriere_packages|to_nice_yaml }}
          poudriere_packages_cert
          {{ poudriere_packages_cert|to_nice_yaml }}
-         poudriere_pkg_arch {{ poudriere_pkg_arch|to_yaml }}
-         poudriere_backup_conf [{{ poudriere_backup_conf|bool }}]
          poudriere_owner [{{ poudriere_owner }}]
          poudriere_group [{{ poudriere_group }}]
          poudriere_mode [{{ poudriere_mode }}]
@@ -31,12 +35,15 @@
          poudriere_ssl_dir_mode [{{ poudriere_ssl_dir_mode }}]
          poudriere_ssl_private_dir_mode [{{ poudriere_ssl_private_dir_mode }}]
          poudriere_ssl_private_key_mode [{{ poudriere_ssl_private_key_mode }}]
-         poudriere_cert_create [{{ poudriere_cert_create }}]
          poudriere_cert_CN [{{ poudriere_cert_CN }}]
+         poudriere_csr_path [{{ poudriere_csr_path }}]
          poudriere_cert_path [{{ poudriere_cert_path }}]
-         poudriere_conf [{{ poudriere_conf }}]
+         poudriere_cert_dirs
+         {{ poudriere_cert_dirs|to_nice_yaml }}
+         poudriere_conf_file [{{ poudriere_conf_file }}]
          poudriere_conf_dir [{{ poudriere_conf_dir }}]
          poudriere_conf_NO_ZFS [{{ poudriere_conf_NO_ZFS }}]
+         poudriere_conf_ZPOOL [{{ poudriere_conf_ZPOOL }}]
          poudriere_conf_ZROOTFS [{{ poudriere_conf_ZROOTFS }}]
          poudriere_conf_FREEBSD_HOST [{{ poudriere_conf_FREEBSD_HOST }}]
          poudriere_conf_RESOLV_CONF [{{ poudriere_conf_RESOLV_CONF }}]
@@ -49,17 +56,14 @@
          poudriere_conf_URL_BASE [{{ poudriere_conf_URL_BASE }}]
          poudriere_conf_CHECK_CHANGED_OPTIONS [{{ poudriere_conf_CHECK_CHANGED_OPTIONS }}]
          poudriere_conf_CHECK_CHANGED_DEPS [{{ poudriere_conf_CHECK_CHANGED_DEPS }}]
+         poudriere_conf_dirs
+         {{ poudriere_conf_dirs|to_nice_yaml }}
+         poudriere_make_file [{{ poudriere_make_file }}]
          poudriere_make_conf
          {{ poudriere_make_conf|to_nice_yaml }}
          poudriere_pkglist_dir [{{ poudriere_pkglist_dir }}]
+         poudriere_pkg_arch {{ poudriere_pkg_arch|to_yaml }}
 
-         apache_version [{{ apache_version }}]
-         apache_php_version [{{ apache_php_version }}]
-         bsd_php_version [{{ bsd_php_version }}]
-         bsd_dhcp_version [{{ bsd_dhcp_version }}]
-         bsd_bind_version [{{ bsd_bind_version }}]
-         bsd_mysql_version [{{ bsd_mysql_version }}]
-         bsd_python_version [{{ bsd_python_version }}]
   debug:
     msg: "{{ msg.split('\n') }}"
 

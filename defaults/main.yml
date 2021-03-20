@@ -5,12 +5,13 @@ poudriere_install: true
 poudriere_debug: false
 poudriere_backup_conf: true
 
-# freebsd_install_method: packages
-freebsd_install_method: ports
+freebsd_install_method: packages
+# freebsd_install_method: ports
 freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
+# packages
 poudriere_packages:
   - ports-mgmt/poudriere
   - ports-mgmt/portmaster
@@ -24,16 +25,38 @@ poudriere_owner: root
 poudriere_group: wheel
 poudriere_mode: "0644"
 poudriere_mode_dir: "0755"
-# ssl
-poudriere_cert_create: true
+
+# certificate
+poudriere_cert: true
 poudriere_ssl_dir: /usr/local/etc/ssl
 poudriere_ssl_dir_mode: "0755"
 poudriere_ssl_private_dir_mode: "0700"
 poudriere_ssl_private_key_mode: "0600"
 poudriere_cert_CN: builder.example.com
+poudriere_csr_path: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
 poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
-# poudriere.conf (see /usr/local/etc/poudriere.conf.sample)
-poudriere_conf: /usr/local/etc/poudriere.conf
+poudriere_cert_dirs:
+  - dir: "{{ poudriere_ssl_dir }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_dir_mode }}"
+  - dir: "{{ poudriere_ssl_dir }}/crt"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_dir_mode }}"
+  - dir: "{{ poudriere_ssl_dir }}/csr"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_dir_mode }}"
+  - dir: "{{ poudriere_ssl_dir }}/private"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_private_dir_mode }}"
+
+# configuration
+# (see /usr/local/etc/poudriere.conf.sample)
+poudriere_conf: true
+poudriere_conf_file: /usr/local/etc/poudriere.conf
 poudriere_conf_dir: /usr/local/etc/poudriere.d
 poudriere_conf_NO_ZFS: "yes"
 poudriere_conf_ZPOOL: tank
@@ -46,17 +69,24 @@ poudriere_conf_USE_PORTLINT: "no"
 poudriere_conf_USE_TMPFS: "yes"
 poudriere_conf_DISTFILES_CACHE: /usr/ports/distfiles
 poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/poudriere.pem"
-poudriere_conf_URL_BASE: "{{ ansible_default_ipv4.address | default('127.0.0.1') }}"
+poudriere_conf_URL_BASE: "{{ ansible_default_ipv4.address|default('127.0.0.1') }}"
 poudriere_conf_CHECK_CHANGED_OPTIONS: verbose
 poudriere_conf_CHECK_CHANGED_DEPS: "yes"
+poudriere_conf_dirs:
+  - dir: "{{ poudriere_conf_DISTFILES_CACHE }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
 
-# {{ poudriere_conf_dir }}/make.conf
-poudriere_make_conf: []
-
+# lists of packages
+poudriere_pkglists: true
 poudriere_pkglist_dir: "{{ poudriere_conf_dir }}/pkglist"
 poudriere_pkg_arch: []
-pkg_dict: []
 
+# make
+poudriere_make: true
+poudriere_make_file: "{{ poudriere_conf_dir }}/make.conf"
+poudriere_make_conf: []
 
 # EOF
 ...

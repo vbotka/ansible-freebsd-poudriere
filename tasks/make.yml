@@ -1,9 +1,9 @@
 ---
 
-- name: "make: Configure {{ poudriere_conf_dir }}/make.conf"
+- name: "make: Configure {{ poudriere_make_file }}"
   template:
     src: make.conf.j2
-    dest: "{{ poudriere_conf_dir }}/make.conf"
+    dest: "{{ poudriere_make_file }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"

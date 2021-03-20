@@ -1,27 +1,24 @@
 ---
 
-- name: "conf: Configure {{ poudriere_conf }}"
+- name: "conf: Create directories"
+  file:
+    state: directory
+    path: "{{ item.dir }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  loop: "{{ poudriere_conf_dirs }}"
+  tags: poudriere_conf_dirs
+
+- name: "conf: Configure {{ poudriere_conf_file }}"
   template:
     src: "poudriere.conf.j2"
-    dest: "{{ poudriere_conf }}"
+    dest: "{{ poudriere_conf_file }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
     backup: "{{ poudriere_backup_conf|bool }}"
-
-- name: "conf: Create {{ poudriere_conf_DISTFILES_CACHE }}"
-  file:
-    state: directory
-    path: "{{ poudriere_conf_DISTFILES_CACHE }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_mode_dir }}"
-
-- name: "conf: Create list of packages"
-  include_tasks: pkglist.yml
-  loop: "{{ poudriere_pkg_arch }}"
-  loop_control:
-    loop_var: pkg_arch
+  tags: poudriere_conf_file
 
 # EOF
 ...

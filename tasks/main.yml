@@ -10,12 +10,19 @@
   tags: poudriere_packages
 
 - import_tasks: cert.yml
+  when: poudriere_cert|bool
   tags: poudriere_cert
 
 - import_tasks: conf.yml
+  when: poudriere_conf|bool
   tags: poudriere_conf
 
+- import_tasks: pkglists.yml
+  when: poudriere_pkglists|bool
+  tags: poudriere_pkglists
+
 - import_tasks: make.yml
+  when: poudriere_make|bool
   tags: poudriere_make
 
 # EOF

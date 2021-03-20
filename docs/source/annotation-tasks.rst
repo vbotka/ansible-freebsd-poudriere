@@ -121,6 +121,30 @@ Description of the task.
 
 
 
+.. _as_pkglists.yml:
+
+pkglists.yml
+------------
+
+Synopsis: Configure pkglists.
+
+
+Description of the task.
+
+
+[`tasks/pkglists.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglists.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/pkglists.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
 .. _as_pkglist.yml:
 
 pkglist.yml
