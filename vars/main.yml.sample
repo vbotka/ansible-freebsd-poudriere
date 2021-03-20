@@ -63,4 +63,16 @@
 #       - sysutils/py-ansible-lint
 #       - sysutils/py-ansible-runner
 
+# pkglist_enable_amd64:
+#   apcups: false
+#   linux: false
+#   devel: false
+#   joomla: false
+#   yazvs: false
+#   nginx: false
+#   docker: false
+#   snmpd: false
+
+# pkglist_enable_i386: "{{ pkglist_enable_amd64 }}"
+
 # EOF

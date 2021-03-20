@@ -1,14 +1,66 @@
 ---
 
-- name: "conf: Create {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+# Enable or disable dictionaries in the list _pkg_dict
+- name: "conf: Create list _pkg_dict"
+  set_fact:
+    _pkg_dict: "{{ _pkg_dict|default([]) + [item|combine({'enable': _combine_enable})] }}"
+  loop: "{{ lookup('vars', 'pkg_dict_' ~ pkg_arch) }}"
+  vars:
+    _pkglist_enable: "{{ lookup('vars', 'pkglist_enable_' ~ pkg_arch, default={}) }}"
+    _current_enable: "{{ item.enable|default(true) }}"
+    _combine_enable: "{{ _pkglist_enable[item.pkglist]|default(_current_enable) }}"
+
+- name: "conf: Debug _pkg_dict"
+  debug:
+    var: _pkg_dict
+  when: poudriere_debug|bool
+
+# Create directories
+- name: "conf: Create directories {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
   file:
     state: directory
     path: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode_dir }}"
+  loop:
+    - "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+    - "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
 
-- name: "conf: Create list of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+# Disabled lists of packages
+- name: "conf: Remove lists of packages from {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+  file:
+    state: absent
+    path: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}/{{ item.pkglist }}"
+  loop: "{{ _pkg_dict }}"
+  loop_control:
+    label: "{{ item.pkglist }}"
+  when: not item.enable
+
+- name: "conf: Create lists of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
+  template:
+    src: "poudriere.pkglist.j2"
+    dest: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled/{{ item.pkglist }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode }}"
+    backup: "{{ poudriere_backup_conf|bool }}"
+  loop: "{{ _pkg_dict }}"
+  loop_control:
+    label: "{{ item.pkglist }}"
+  when: not item.enable
+
+# Enabled lists of packages
+- name: "conf: Remove lists of packages from {{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
+  file:
+    state: absent
+    path: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled/{{ item.pkglist }}"
+  loop: "{{ _pkg_dict }}"
+  loop_control:
+    label: "{{ item.pkglist }}"
+  when: item.enable
+
+- name: "conf: Create lists of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
   template:
     src: "poudriere.pkglist.j2"
     dest: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}/{{ item.pkglist }}"
@@ -16,7 +68,10 @@
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
     backup: "{{ poudriere_backup_conf|bool }}"
-  loop: "{{ lookup('vars', 'pkg_dict_' ~ pkg_arch) }}"
+  loop: "{{ _pkg_dict }}"
+  loop_control:
+    label: "{{ item.pkglist }}"
+  when: item.enable
 
 # EOF
 ...
