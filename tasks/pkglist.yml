@@ -1,9 +1,14 @@
 ---
 
 # Enable or disable dictionaries in the list _pkg_dict
-- name: "conf: Create list _pkg_dict"
+- name: "conf: Create empty list _pkg_dict"
   set_fact:
-    _pkg_dict: "{{ _pkg_dict|default([]) + [item|combine({'enable': _combine_enable})] }}"
+    _pkg_dict: []
+  tags: poudriere_pkglist_create_var
+
+- name: "conf: Add items to the list _pkg_dict"
+  set_fact:
+    _pkg_dict: "{{ _pkg_dict + [item|combine({'enable': _combine_enable})] }}"
   loop: "{{ lookup('vars', 'pkg_dict_' ~ pkg_arch) }}"
   loop_control:
     label: "{{ item.pkglist }}"
