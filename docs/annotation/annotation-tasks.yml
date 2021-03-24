@@ -90,6 +90,19 @@ mytasks:
     hints: []
     warnings: []
 
+  - file: options.yml
+    link: options.yml
+    path: tasks/options.yml
+    synopsis: |
+      Configure options.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
   - file: make.yml
     link: make.yml
     path: tasks/make.yml

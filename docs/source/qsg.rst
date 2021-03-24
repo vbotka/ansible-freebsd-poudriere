@@ -13,94 +13,61 @@ configure and run `Poudriere
     shell> ansible-galaxy install vbotka.freebsd_poudriere
 
 
-* Create the playbook ``pb.yml`` for single host build.example.com (2)
+* Create the playbook ``pb.yml`` for single host build.example.com (3)
 
-.. code-block:: bash
-   :emphasize-lines: 3
-   :linenos:
+.. include:: example-playbook.rst
 
-   shell> cat pb.yml
-   ---
-   - hosts: build.example.com
-     become: true
-     roles:
-       - vbotka.freebsd_poudriere
+* Customize variables. Disable the installation of packages (3), generation of the certificate (4),
+  and update of make.conf (5)
 
+.. include:: example-vars-poudriere.rst
 
-* Customized variables
+* Create lists of the ports
 
-.. code-block:: bash
-   :emphasize-lines: 3
-   :linenos:
-
-   shell> cat host_vars/build.example.com/poudriere.yml
-   ---
-   poudriere_conf_URL_BASE: build.example.com
-   poudriere_cert_CN: build.example.com
-   poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/{{ poudriere_cert_CN }}.key"
-   poudriere_conf_NO_ZFS: "no"
-   poudriere_conf_ZPOOL: zroot
-   poudriere_conf_USE_TMPFS: "no"
-   poudriere_pkg_arch: [amd64]
-   poudriere_csr_path: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_CN }}.csr"
-   poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/{{ poudriere_cert_CN }}.crt"
-
-
-* Create lists of the packages
-
-.. code-block:: bash
-   :emphasize-lines: 4,14
-   :linenos:
-
-   shell> cat host_vars/build.example.com/poudriere.yml
-   ---
-   pkg_dict_amd64:
-     - pkglist: minimal
-       packages:
-         - shells/bash
-         - devel/git
-         - archivers/gtar
-         - ports-mgmt/pkg
-         - ports-mgmt/portmaster
-         - ports-mgmt/portupgrade
-         - net/rsync
-         - ftp/wget
-     - pkglist: ansible
-       packages:
-         - sysutils/ansible
-         - sysutils/py-ansible-lint
-         - sysutils/py-ansible-runner
-
+.. include:: example-vars-pkgdict.rst
 
 * Test syntax ::
 
     shell> ansible-playbook pb.yml --syntax-check
 
+    playbook: pb.yml
 
-* See what variables will be included ::
+* Display the included variables. Enable debug ``poudriere_debug=true``
 
-    shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+.. include:: example-debug.rst
 
+* Configure ZFS ::
 
-* Install packages ::
+    <TBD>
 
-    shell> ansible-playbook pb.yml -t poudriere_packages
+* Install packages. Enable the installation ``poudriere_install=true``
 
+.. include:: example-packages.rst
 
-* Dry-run, display differences and display variables ::
+* Create certificate. Enable the generation ``poudriere_cert=true`` (default=false)
 
-    shell> ansible-playbook pb.yml -e poudriere_debug=true --check --diff
+.. include:: example-cert.rst
 
+* Configure poudriere
 
-* If all seems to be right run the playbook ::
+.. include:: example-conf.rst
+
+* Create directories (22-23) and create the lists of the ports (37-39)
+
+.. include:: example-pkglists.rst
+
+* At this point, Poudriere is installed and configured. The role, except of the certificate's
+  generation, is idempotent, i.e. there should be no changes reported when the playbook is run
+  repeatedly with the same data ::
 
     shell> ansible-playbook pb.yml
 
-* If the command above completed without errors Poudriere should have been installed and
-  configured. Login into build.example.com and proceed according the `Poudriere documentation <https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_ , e.g. ::
+* If the commands above completed without errors Poudriere is ready to create the build system and
+  build the packages. Login into the host build.example.com and proceed according the `Poudriere
+  documentation <https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_ ,
+  e.g. ::
 
    shell> poudriere jail -c -j 12amd64 -v 12.2-RELEASE
    shell> poudriere ports -c -p local
    shell> poudriere bulk -j 12amd64 -p local -z devel \
           -f /usr/local/etc/poudriere.d/pkglist_amd64/minimal
-

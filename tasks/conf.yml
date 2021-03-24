@@ -8,6 +8,8 @@
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
   loop: "{{ poudriere_conf_dirs }}"
+  loop_control:
+    label: "{{ item.dir }}"
   tags: poudriere_conf_dirs
 
 - name: "conf: Configure {{ poudriere_conf_file }}"

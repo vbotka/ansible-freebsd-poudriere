@@ -4,4 +4,5 @@ cert.yml
 conf.yml
 pkglists.yml
 pkglist.yml
+options.yml
 make.yml

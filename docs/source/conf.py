@@ -31,8 +31,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ansible-role-freebsd-poudriere'
-copyright = '2022, Vladimir Botka'
+project = 'ansible-freebsd-poudriere'
+copyright = '2021, Vladimir Botka'
 author = 'Vladimir Botka'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -98,7 +98,7 @@ html_static_path = []
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ansible-role-freebsd-poudriere-doc'
+htmlhelp_basename = 'ansible-freebsd-poudriere-doc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -125,7 +125,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ansible-role-freebsd-poudriere.tex', 'ansible-role-freebsd-poudriere Documentation',
+    (master_doc, 'ansible-freebsd-poudriere.tex', 'ansible-freebsd-poudriere Documentation',
      'Vladimir Botka', 'manual'),
 ]
 
@@ -135,7 +135,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ansible-role-freebsd-poudriere', 'ansible-role-freebsd-poudriere Documentation',
+    (master_doc, 'ansible-freebsd-poudriere', 'ansible-freebsd-poudriere Documentation',
      [author], 1)
 ]
 
@@ -146,7 +146,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ansible-role-freebsd-poudriere', 'ansible-role-freebsd-poudriere Documentation',
-     author, 'ansible-role-freebsd-poudriere', 'One line description of project.',
+    (master_doc, 'ansible-freebsd-poudriere', 'ansible-freebsd-poudriere Documentation',
+     author, 'ansible-freebsd-poudriere', 'One line description of project.',
      'Miscellaneous'),
 ]

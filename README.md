@@ -1,6 +1,6 @@
 # freebsd_poudriere
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_poudriere)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-poudriere.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-poudriere)[![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-freebsd-popoudriere.readthedocs.io/en/latest/)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_poudriere)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-poudriere.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-poudriere)[![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-freebsd-poudriere.readthedocs.io/en/latest/)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_poudriere/) FreeBSD. Install and configure Poudriere Build System.
 

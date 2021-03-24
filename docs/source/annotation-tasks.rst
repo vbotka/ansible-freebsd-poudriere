@@ -169,6 +169,30 @@ Description of the task.
 
 
 
+.. _as_options.yml:
+
+options.yml
+-----------
+
+Synopsis: Configure options.
+
+
+Description of the task.
+
+
+[`tasks/options.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/options.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/options.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
 .. _as_make.yml:
 
 make.yml

@@ -27,7 +27,7 @@ poudriere_mode: "0644"
 poudriere_mode_dir: "0755"
 
 # certificate
-poudriere_cert: true
+poudriere_cert: false
 poudriere_ssl_dir: /usr/local/etc/ssl
 poudriere_ssl_dir_mode: "0755"
 poudriere_ssl_private_dir_mode: "0700"
@@ -82,6 +82,9 @@ poudriere_conf_dirs:
 poudriere_pkglists: true
 poudriere_pkglist_dir: "{{ poudriere_conf_dir }}/pkglist"
 poudriere_pkg_arch: []
+
+# options
+poudriere_options: false
 
 # make
 poudriere_make: true

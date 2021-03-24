@@ -5,6 +5,8 @@
   set_fact:
     _pkg_dict: "{{ _pkg_dict|default([]) + [item|combine({'enable': _combine_enable})] }}"
   loop: "{{ lookup('vars', 'pkg_dict_' ~ pkg_arch) }}"
+  loop_control:
+    label: "{{ item.pkglist }}"
   vars:
     _pkglist_enable: "{{ lookup('vars', 'pkglist_enable_' ~ pkg_arch, default={}) }}"
     _current_enable: "{{ item.enable|default(true) }}"
@@ -21,7 +23,7 @@
 - name: "conf: Create directories {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
   file:
     state: directory
-    path: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
+    path: "{{ item }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode_dir }}"

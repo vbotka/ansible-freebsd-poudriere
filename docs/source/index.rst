@@ -1,4 +1,4 @@
-Ansible role freebsd_poudriere
+Ansible role FreeBSD Poudriere
 ==============================
 
 This `role <https://galaxy.ansible.com/vbotka/freebsd_poudriere/>`_ and the

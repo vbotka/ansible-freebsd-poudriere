@@ -21,6 +21,10 @@
   when: poudriere_pkglists|bool
   tags: poudriere_pkglists
 
+- import_tasks: options.yml
+  when: poudriere_options|bool
+  tags: poudriere_options
+
 - import_tasks: make.yml
   when: poudriere_make|bool
   tags: poudriere_make

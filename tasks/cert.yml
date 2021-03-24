@@ -8,6 +8,8 @@
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
   loop: "{{ poudriere_cert_dirs }}"
+  loop_control:
+    label: "{{ item.dir }}"
   tags: poudriere_cert_dirs
 
 - name: "cert: Generate OpenSSL private key, request, and certificate"
@@ -30,7 +32,7 @@
       openssl_certificate:
         path: "{{ poudriere_cert_path }}"
         privatekey_path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
-        csr_path: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
+        csr_path: "{{ poudriere_csr_path }}"
         provider: selfsigned
 
   tags: poudriere_cert_crt

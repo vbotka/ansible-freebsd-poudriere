@@ -9,9 +9,9 @@ User's guide
 
 .. _ug_introduction:
 
-************
+^^^^^^^^^^^^
 Introduction
-************
+^^^^^^^^^^^^
 
 * Ansible role: `freebsd_poudriere <https://galaxy.ansible.com/vbotka/freebsd_poudriere/>`_
 * Supported systems: `FreeBSD <https://www.freebsd.org/releases/>`_
@@ -20,11 +20,21 @@ Introduction
 Poudriere is a BSD-licensed utility for creating and testing FreeBSD packages. To learn details see the references below
 
 .. seealso::
+
    * FreeBSD Handbook `4.6. Building Packages with Poudriere <https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/ports-poudriere.html>`_
+
    * FreeBSD Porter's Handbook `10.5. Poudriere <https://docs.freebsd.org/en/books/porters-handbook/index.html#testing-poudriere>`_
+
    * FreeBSD Wiki `Poudriere: Getting Started - Tutorial <https://wiki.freebsd.org/VladimirKrstulja/Guides/Poudriere>`_
+
    * DO Tutorials `How To Set Up a Poudriere Build System to Create Packages for your FreeBSD Servers <https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers>`_
 
+
+.. _ug_role:
+
+^^^^^^^^^^^^
+Ansible role
+^^^^^^^^^^^^
 
 .. _ug_installation:
 
@@ -50,7 +60,9 @@ and install it
     shell> ansible-galaxy install vbotka.freebsd_poudriere
 
 .. seealso::
+
    * To install specific versions from various sources see `Installing content <https://galaxy.ansible.com/docs/using/installing.html>`_
+
    * Take a look at other roles ``shell> ansible-galaxy search --author=vbotka``
 
 
@@ -60,7 +72,7 @@ and install it
 Playbook
 ********
 
-Below is a simple playbook that calls this role (5) at a single host build.example.com (2)
+Below is a simple playbook that calls this role (6) at a single host build.example.com (3)
 
 .. code-block:: yaml
    :emphasize-lines: 3,6
@@ -74,7 +86,10 @@ Below is a simple playbook that calls this role (5) at a single host build.examp
        - vbotka.freebsd_poudriere
 
 .. seealso::
-   * See also `Understanding Privilege Escalation <https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation>`_ (4)
+
+   * `Understanding Privilege Escalation <https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation>`_ (4)
+
+   * `Working with playbooks <https://docs.ansible.com/ansible/latest/user_guide/playbooks.html>`_
 
 
 .. _ug_debug:
@@ -108,8 +123,11 @@ Enable debug output either in the configuration
 
 
 .. seealso::
+
    * `Playbook Debugger <https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html>`_
+
    * `Debugging modules <https://docs.ansible.com/ansible/latest/dev_guide/debugging.html#debugging-modules>`_
+
    * `Python Debugging With Pdb <https://realpython.com/python-debugging-pdb/>`_
 
 
@@ -154,6 +172,9 @@ Variables
 *********
 
 .. seealso::
+
+   * `Using Variables <https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#using-variables>`_
+
    * `Ansible variable precedence: Where should I put a variable?
      <https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable>`_
 
@@ -161,18 +182,32 @@ Variables
 .. include:: vars-defaults.rst
 
 
-.. _ug_examples:
+.. _ug_tasks:
 
 *****
 Tasks
 *****
 
-The description of the tasks is not complete. The `role <https://galaxy.ansible.com/vbotka/freebsd_poudriere/>`_ and the documentation is work in progress. Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-freebsd-poudriere/issues>`_.
+The groups of tasks stored in separate files comprise
 
-`Contributions are welcome <https://github.com/firstcontributions/first-contributions>`_.
+* Display values of the variables. By default disabled (poudriere_debug: false)
+* Install packages or ports. By default enabled (poudriere_install: true)
+* Generate SSL certificate. By default disabled (poudriere_cert: false)
+* Configure Poudriere. By default enabled (poudriere_conf: true)
+* Create lists of ports. By default enabled (poudriere_pkglists: true)
+* Configure ports' options. By default disabled (poudriere_options: false)
+* Customize make. By default enabled (poudriere_make: true)
+
 
 .. seealso::
+
    * Source code :ref:`as_main.yml`
+
+.. note::
+
+   * Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-freebsd-poudriere/issues>`_
+
+   * `Contributions are welcome <https://github.com/firstcontributions/first-contributions>`_
 
 
 .. _ug_task_packages:
@@ -183,14 +218,110 @@ The description of the tasks is not complete. The `role <https://galaxy.ansible.
 .. include:: task-conf.rst
 .. _ug_task_pkglist:
 .. include:: task-pkglist.rst
+.. _ug_task_options:
+.. include:: task-options.rst
 .. _ug_task_make:
 .. include:: task-make.rst
 
 
-Examples
---------
-.. toctree::
-   :name: task1_toc
+.. _ug_idempotent:
 
-   task-task1-ex1
-   task-task1-ex2
+**********************
+The role is idempotent
+**********************
+
+Except of the certificate's generation, the role is idempotent. The goal is to run the playbook
+without any changes after Poudrier is installed and configured, e.g. ::
+
+  shell> ANSIBLE_DISPLAY_OK_HOSTS=false ANSIBLE_DISPLAY_SKIPPED_HOSTS=false ansible-playbook pb.yml
+
+  PLAY [build.example.com] *******************************************************************************
+  included: /home/admin/.ansible/roles/vbotka.freebsd_poudriere/tasks/pkglist.yml for build.example.com
+
+  PLAY RECAP *********************************************************************************************
+  build.example.com: ok=10   changed=0    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0
+
+
+.. _ug_poudriere:
+
+^^^^^^^^^
+Poudriere
+^^^^^^^^^
+
+
+.. _ug_build:
+
+******************
+Build the packages
+******************
+
+.. toctree::
+   :name: ug_examples_toc
+
+   example-poudriere-jail-create
+   example-poudriere-ports-create
+   example-poudriere-options
+   example-poudriere-bulk-minimal
+
+By default, Poudriere stores the data in ``/usr/local/poudriere/data/`` ::
+
+  [root@build /usr/home/admin]# tree -d -L 2 /usr/local/poudriere/data/
+  /usr/local/poudriere/data/
+  |-- cache
+  |   `-- 12amd64-local-devel
+  |-- logs
+  |   `-- bulk
+  `-- packages
+      `-- 12amd64-local-devel
+
+  6 directories
+
+
+.. _ug_export:
+
+***********
+Export data
+***********
+
+Configure a web-server, e.g. Apache ::
+
+  [root@build /usr/local/etc]# cat /usr/local/etc/apache24/Includes/usr-local-poudriere-data.conf
+  <Directory /usr/local/poudriere/data>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+  </Directory>
+
+  [root@build /usr/local/etc]# cat /usr/local/etc/apache24/extra/build.example.com.conf
+     <VirtualHost *:80>
+     ServerName build.example.com
+     DocumentRoot /usr/local/poudriere/data/
+     </VirtualHost>
+
+     <VirtualHost *:443>
+     ServerName build.example.com
+     DocumentRoot /usr/local/poudriere/data/
+     SSLCertificateFile /usr/local/etc/ssl/crt/build.example.com.crt
+     SSLCertificateKeyFile /usr/local/etc/ssl/private/build.example.com.key
+     </VirtualHost>
+
+
+http://build.example.com/logs/bulk/12amd64-local-devel/latest/build.html
+
+.. image:: poudriere-log-bulk-minimal.png
+    :width: 100%
+    :align: center
+    :alt: alternate text
+
+
+.. _ug_client:
+
+*****************
+Configure clients
+*****************
+
+<TBD>
+
+.. seealso::
+
+  * FreeBSD Handbook `4.6.2. Configuring pkg Clients to Use a Poudriere Repository <https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/ports-poudriere.html>`_

@@ -1,7 +1,7 @@
 Templates
 =========
 
-.. _as_template_template_make.conf.j2:
+.. _as_template_make.conf.j2:
 
 make.conf.j2
 ------------
@@ -21,7 +21,7 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
-.. _as_template_template_poudriere.conf.j2:
+.. _as_template_poudriere.conf.j2:
 
 poudriere.conf.j2
 -----------------
@@ -41,7 +41,7 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
-.. _as_template_template_poudriere.pkglist.j2:
+.. _as_template_poudriere.pkglist.j2:
 
 poudriere.pkglist.j2
 --------------------
