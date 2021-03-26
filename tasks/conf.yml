@@ -14,7 +14,7 @@
 
 - name: "conf: Configure {{ poudriere_conf_file }}"
   template:
-    src: "poudriere.conf.j2"
+    src: "{{ poudriere_conf_template }}"
     dest: "{{ poudriere_conf_file }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"

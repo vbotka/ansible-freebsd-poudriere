@@ -1,3 +1,4 @@
 make.conf.j2
 poudriere.conf.j2
+poudriere.conf2.j2
 poudriere.pkglist.j2

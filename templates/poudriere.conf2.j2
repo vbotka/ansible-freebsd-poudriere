@@ -1,0 +1,7 @@
+# {{ ansible_managed }} 
+
+{% for k,v in poudriere_conf_data.items() %}
+{{ k }}={{ v }}
+{% endfor %}
+
+# EOF

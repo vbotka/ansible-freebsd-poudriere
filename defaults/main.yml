@@ -57,9 +57,15 @@ poudriere_cert_dirs:
 # (see /usr/local/etc/poudriere.conf.sample)
 poudriere_conf: true
 poudriere_conf_file: /usr/local/etc/poudriere.conf
+poudriere_conf_template: poudriere.conf.j2
 poudriere_conf_dir: /usr/local/etc/poudriere.d
+poudriere_conf_dirs:
+  - dir: "{{ poudriere_conf_DISTFILES_CACHE }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
+poudriere_conf_ZPOOL: zroot
 poudriere_conf_NO_ZFS: "yes"
-poudriere_conf_ZPOOL: tank
 poudriere_conf_ZROOTFS: /poudriere
 poudriere_conf_FREEBSD_HOST: https://download.freebsd.org
 poudriere_conf_RESOLV_CONF: /etc/resolv.conf
@@ -69,14 +75,24 @@ poudriere_conf_USE_PORTLINT: "no"
 poudriere_conf_USE_TMPFS: "yes"
 poudriere_conf_DISTFILES_CACHE: /usr/ports/distfiles
 poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/poudriere.pem"
-poudriere_conf_URL_BASE: "{{ ansible_default_ipv4.address|default('127.0.0.1') }}"
+poudriere_conf_URL_BASE: "http://{{ ansible_default_ipv4.address|default('127.0.0.1') }}/"
 poudriere_conf_CHECK_CHANGED_OPTIONS: verbose
 poudriere_conf_CHECK_CHANGED_DEPS: "yes"
-poudriere_conf_dirs:
-  - dir: "{{ poudriere_conf_DISTFILES_CACHE }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_mode_dir }}"
+poudriere_conf_data:  # See templates/poudriere.conf2.j2
+  ZPOOL: "{{ poudriere_conf_ZPOOL }}"
+  NO_ZFS: "{{ poudriere_conf_NO_ZFS }}"
+  ZROOTFS: "{{ poudriere_conf_ZROOTFS }}"
+  FREEBSD_HOST: "{{ poudriere_conf_FREEBSD_HOST }}"
+  RESOLV_CONF: "{{ poudriere_conf_RESOLV_CONF }}"
+  BASEFS: "{{ poudriere_conf_BASEFS }}"
+  POUDRIERE_DATA: "{{ poudriere_conf_POUDRIERE_DATA }}"
+  USE_PORTLINT: "{{ poudriere_conf_USE_PORTLINT }}"
+  USE_TMPFS: "{{ poudriere_conf_USE_TMPFS }}"
+  DISTFILES_CACHE: "{{ poudriere_conf_DISTFILES_CACHE }}"
+  PKG_REPO_SIGNING_KEY: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+  URL_BASE: "{{ poudriere_conf_URL_BASE }}"
+  CHECK_CHANGED_OPTIONS: "{{ poudriere_conf_CHECK_CHANGED_OPTIONS }}"
+  CHECK_CHANGED_DEPS: "{{ poudriere_conf_CHECK_CHANGED_DEPS }}"
 
 # lists of packages
 poudriere_pkglists: true
