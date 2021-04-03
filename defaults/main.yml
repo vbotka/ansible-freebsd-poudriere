@@ -67,9 +67,10 @@ poudriere_conf_dirs:
 poudriere_conf_ZPOOL: zroot
 poudriere_conf_NO_ZFS: "yes"
 poudriere_conf_ZROOTFS: /poudriere
-poudriere_conf_FREEBSD_HOST: https://download.freebsd.org
+poudriere_conf_FREEBSD_HOST: https://download.freebsd.org  # Note 1)
 poudriere_conf_RESOLV_CONF: /etc/resolv.conf
 poudriere_conf_BASEFS: /usr/local/poudriere
+poudriere_conf_SVN_HOST: svn.FreeBSD.org  # Note 2)
 poudriere_conf_POUDRIERE_DATA: "{{ poudriere_conf_BASEFS }}/data"
 poudriere_conf_USE_PORTLINT: "no"
 poudriere_conf_USE_TMPFS: "yes"
@@ -85,6 +86,7 @@ poudriere_conf_data:  # See templates/poudriere.conf2.j2
   FREEBSD_HOST: "{{ poudriere_conf_FREEBSD_HOST }}"
   RESOLV_CONF: "{{ poudriere_conf_RESOLV_CONF }}"
   BASEFS: "{{ poudriere_conf_BASEFS }}"
+  SVN_HOST: "{{ poudriere_conf_SVN_HOST }}"
   POUDRIERE_DATA: "{{ poudriere_conf_POUDRIERE_DATA }}"
   USE_PORTLINT: "{{ poudriere_conf_USE_PORTLINT }}"
   USE_TMPFS: "{{ poudriere_conf_USE_TMPFS }}"
@@ -106,6 +108,12 @@ poudriere_options: false
 poudriere_make: true
 poudriere_make_file: "{{ poudriere_conf_dir }}/make.conf"
 poudriere_make_conf: []
+
+# Notes
+#
+# 1) A.2. FTP Sites https://docs.freebsd.org/en/books/handbook/mirrors-ftp.html
+# 2) A.3.6. Subversion Mirror Sites https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/svn.html#svn-mirrors
+
 
 # EOF
 ...
