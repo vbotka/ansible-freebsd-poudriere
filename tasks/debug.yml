@@ -57,6 +57,8 @@
          poudriere_conf_URL_BASE [{{ poudriere_conf_URL_BASE }}]
          poudriere_conf_CHECK_CHANGED_OPTIONS [{{ poudriere_conf_CHECK_CHANGED_OPTIONS }}]
          poudriere_conf_CHECK_CHANGED_DEPS [{{ poudriere_conf_CHECK_CHANGED_DEPS }}]
+         poudriere_conf_data
+         {{ poudriere_conf_data|to_nice_yaml }}
          poudriere_conf_dirs
          {{ poudriere_conf_dirs|to_nice_yaml }}
          poudriere_make_file [{{ poudriere_make_file }}]
