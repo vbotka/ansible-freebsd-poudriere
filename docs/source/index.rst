@@ -8,7 +8,7 @@ documentation is work in progess. Feel free to `share your feedback and report i
 `Contributions are welcome <https://github.com/firstcontributions/first-contributions>`_.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Table of Contents
 
    qsg

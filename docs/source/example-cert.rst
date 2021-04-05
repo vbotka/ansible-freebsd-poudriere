@@ -32,7 +32,7 @@
 
 
 .. code-block:: sh
-   :emphasize-lines: 1,7,9,11
+   :emphasize-lines: 1,6,9,11
    :linenos:
 
    shell> tree /usr/local/etc/ssl/
@@ -40,8 +40,8 @@
    |-- cert.pem
    |-- cert.pem.sample -> ../../share/certs/ca-root-nss.crt
    |-- certs
-   |-- crt
    |   `-- build.example.com.crt
+   |-- crt
    |-- csr
    |   `-- build.example.com.csr
    `-- private

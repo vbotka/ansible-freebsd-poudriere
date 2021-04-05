@@ -51,7 +51,7 @@
      - poudriere_ssl_private_key_mode [0600]
      - poudriere_cert_CN [build.example.com]
      - poudriere_csr_path [/usr/local/etc/ssl/csr/build.example.com.csr]
-     - poudriere_cert_path [/usr/local/etc/ssl/crt/build.example.com.crt]
+     - poudriere_cert_path [/usr/local/etc/ssl/certs/build.example.com.crt]
      - poudriere_cert_dirs
      - '-   dir: /usr/local/etc/ssl'
      - '    group: wheel'

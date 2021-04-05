@@ -1,7 +1,7 @@
-.. _ug_example_bulk_minimal:
+.. _ug_example_bulk_minimal_12amd64:
 
-Build bulk minimal
-==================
+Build bulk list minimal in jail 12amd64
+---------------------------------------
 
 HW and OS info ::
 
