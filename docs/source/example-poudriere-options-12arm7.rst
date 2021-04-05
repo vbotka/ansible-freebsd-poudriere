@@ -1,7 +1,7 @@
 .. _ug_example_poudriere_options_12arm7:
 
-Configure ports' options for jail 12arm7
-----------------------------------------
+options for 12arm7
+""""""""""""""""""
 
 If necessary, manually change options and dependencies for the specified ports ::
 

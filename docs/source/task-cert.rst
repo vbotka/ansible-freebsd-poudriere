@@ -1,5 +1,5 @@
 Generate SSL certificate
-========================
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The generation of the certificate is not idempotent. Therefor, it is disabled by default ::
 

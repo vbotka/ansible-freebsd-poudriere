@@ -1,5 +1,5 @@
 Configure ports' options
-========================
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, the configuration of ports' options is disabled ::
 

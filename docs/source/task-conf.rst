@@ -1,5 +1,5 @@
 Configure Poudriere
-===================
+^^^^^^^^^^^^^^^^^^^
 
 By default, the configuration of Poudriere is enabled ::
 

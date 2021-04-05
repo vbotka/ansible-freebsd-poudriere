@@ -1,7 +1,7 @@
 .. _ug_example_jail_create_12amd64:
 
-Create jail 12amd64
--------------------
+jail create 12amd64
+"""""""""""""""""""
 
 .. code-block:: sh
    :emphasize-lines: 1

@@ -1,5 +1,5 @@
 Install packages or ports
-=========================
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install FreeBSD packages or ports needed by Poudriere ``poudriere_packages`` and also packages
 needed to generate the certificate ``poudriere_packages_cert``.

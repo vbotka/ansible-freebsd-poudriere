@@ -1,7 +1,7 @@
 .. _ug_example_jail_create_12arm7:
 
-Create jail 12arm7
-------------------
+jail create 12arm7
+""""""""""""""""""
 
 Use the mounted image */zroot/poudriere/jails/12arm7*
 

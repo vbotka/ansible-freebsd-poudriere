@@ -1,7 +1,7 @@
 .. _ug_example_bulk_minimal_12arm7:
 
-Build bulk list minimal in jail 12arm7
---------------------------------------
+bulk minimal 12arm7
+"""""""""""""""""""
 
 HW and OS info ::
 

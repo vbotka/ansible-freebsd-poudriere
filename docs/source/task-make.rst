@@ -1,5 +1,5 @@
 Customize make
-==============
+^^^^^^^^^^^^^^
 
 By default, the customization of make.conf is enabled ::
 

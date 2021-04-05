@@ -1,7 +1,7 @@
 .. _ug_example_ports_create:
 
-Create ports
-------------
+ports create
+""""""""""""
 
 .. code-block:: sh
    :emphasize-lines: 1

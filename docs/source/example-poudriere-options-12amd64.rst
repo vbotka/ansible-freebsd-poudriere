@@ -1,7 +1,7 @@
 .. _ug_example_poudriere_options_12amd64:
 
-Configure ports' options for jail 12amd64
------------------------------------------
+options for 12amd64
+"""""""""""""""""""
 
 If necessary, manually change options and dependencies for the specified ports ::
 
