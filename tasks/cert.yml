@@ -1,41 +1,29 @@
 ---
 
-- name: "cert: Create directories"
-  file:
-    state: directory
-    path: "{{ item.dir }}"
-    owner: "{{ item.owner }}"
-    group: "{{ item.group }}"
-    mode: "{{ item.mode }}"
-  loop: "{{ poudriere_cert_dirs }}"
-  loop_control:
-    label: "{{ item.dir }}"
-  tags: poudriere_cert_dirs
-
 - name: "cert: Generate OpenSSL private key, request, and certificate"
   block:
 
-    - name: "cert: Generate an OpenSSL private key (default 4096 bits, RSA)"
+    - name: "cert: Generate private key {{ poudriere_cert_key }}"
       openssl_privatekey:
-        path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+        path: "{{ poudriere_cert_key }}"
         owner: "{{ poudriere_owner }}"
         group: "{{ poudriere_group }}"
         mode: "{{ poudriere_ssl_private_key_mode }}"
 
-    - name: "cert: Generate an OpenSSL Certificate Signing Request"
+    - name: "cert: Generate csr {{ poudriere_cert_csr }}"
       openssl_csr:
-        path: "{{ poudriere_csr_path }}"
-        privatekey_path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+        path: "{{ poudriere_cert_csr }}"
+        privatekey_path: "{{ poudriere_cert_key }}"
         common_name: "{{ poudriere_cert_CN }}"
+      when: not ansible_check_mode|bool
 
-    - name: "cert: Generate a Self Signed OpenSSL certificate"
+    - name: "cert: Generate crt {{ poudriere_cert_path }}"
       openssl_certificate:
         path: "{{ poudriere_cert_path }}"
-        privatekey_path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
-        csr_path: "{{ poudriere_csr_path }}"
+        privatekey_path: "{{ poudriere_cert_key }}"
+        csr_path: "{{ poudriere_cert_csr }}"
         provider: selfsigned
-
-  tags: poudriere_cert_crt
+      when: not ansible_check_mode|bool
 
 # EOF
 ...

@@ -37,7 +37,7 @@ and, optionally, disable some of the lists, e.g. ::
 
 Create the lists ::
 
-  shell> ansible-playbook pb.yml -t poudriere_pkglists -e poudriere_pkglists=true
+  shell> ansible-playbook pb.yml -t poudriere_pkglists
 
 Review the created lists of ports ::
 

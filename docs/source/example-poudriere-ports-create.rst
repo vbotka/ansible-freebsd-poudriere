@@ -12,7 +12,7 @@ ports create
    [00:00:00] Checking out the ports tree... done
 
 
-Optionaly update ports tree if it has already been created
+Optionaly update ports' tree if it has already been created
 
 .. code-block:: sh
    :emphasize-lines: 1

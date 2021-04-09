@@ -4,6 +4,7 @@ Build amd64 packages
 ^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
+   :caption: Examples
    :name: _ug_build_12amd64_toc
 
    example-poudriere-jail-create-12amd64

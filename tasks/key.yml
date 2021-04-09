@@ -1,0 +1,16 @@
+---
+
+- name: "key: Generate signing key {{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+  openssl_privatekey:
+    path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_private_key_mode }}"
+
+- name: "key: Generate signing crt {{ poudriere_key_crt }}"
+  command:
+    cmd: "openssl rsa -in {{ poudriere_conf_PKG_REPO_SIGNING_KEY }} -pubout -out {{ poudriere_key_crt }}"
+    creates: "{{ poudriere_key_crt }}"
+
+# EOF
+...

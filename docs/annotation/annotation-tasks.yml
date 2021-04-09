@@ -38,6 +38,32 @@ mytasks:
     hints: []
     warnings: []
 
+  - file: dirs.yml
+    link: dirs.yml
+    path: tasks/dirs.yml
+    synopsis: |
+      Configure dirs.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: key.yml
+    link: key.yml
+    path: tasks/key.yml
+    synopsis: |
+      Configure key.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
   - file: cert.yml
     link: cert.yml
     path: tasks/cert.yml

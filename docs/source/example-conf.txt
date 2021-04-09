@@ -1,0 +1,24 @@
+shell> cat /usr/local/etc/poudriere.conf
+# Ansible managed 
+
+ZPOOL=zroot
+NO_ZFS=no
+ZROOTFS=/poudriere
+FREEBSD_HOST=https://download.freebsd.org
+RESOLV_CONF=/etc/resolv.conf
+BASEFS=/usr/local/poudriere
+SVN_HOST=svn.FreeBSD.org
+POUDRIERE_DATA=/usr/local/poudriere/data
+USE_PORTLINT=no
+USE_TMPFS=no
+DISTFILES_CACHE=/usr/ports/distfiles
+PKG_REPO_SIGNING_KEY=/usr/local/etc/ssl/private/build.example.com-sk.key
+URL_BASE=http://build.example.com/
+CHECK_CHANGED_OPTIONS=verbose
+CHECK_CHANGED_DEPS=yes
+NOLINUX=yes
+USE_COLORS=yes
+PRESERVE_TIMESTAMP=yes
+BUILDER_HOSTNAME=build
+
+# EOF

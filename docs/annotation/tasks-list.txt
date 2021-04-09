@@ -1,5 +1,7 @@
 debug.yml
 packages.yml
+dirs.yml
+key.yml
 cert.yml
 conf.yml
 pkglists.yml

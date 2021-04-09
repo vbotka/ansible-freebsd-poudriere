@@ -17,50 +17,62 @@ the the current values ::
   ok: [build.example.com] =>
     msg:
   ...
+    - poudriere_conf [True]
     - poudriere_conf_file [/usr/local/etc/poudriere.conf]
+    - poudriere_conf_template [poudriere.conf2.j2]
     - poudriere_conf_dir [/usr/local/etc/poudriere.d]
-    - poudriere_conf_NO_ZFS [no]
+    - poudriere_conf_dirs
+    - '-   dir: /usr/ports/distfiles'
+    - '    group: wheel'
+    - '    mode: ''0755'''
+    - '    owner: root'
+    - ''
     - poudriere_conf_ZPOOL [zroot]
+    - poudriere_conf_NO_ZFS [no]
     - poudriere_conf_ZROOTFS [/poudriere]
     - poudriere_conf_FREEBSD_HOST [https://download.freebsd.org]
     - poudriere_conf_RESOLV_CONF [/etc/resolv.conf]
     - poudriere_conf_BASEFS [/usr/local/poudriere]
+    - poudriere_conf_SVN_HOST [svn.FreeBSD.org]
     - poudriere_conf_POUDRIERE_DATA [/usr/local/poudriere/data]
     - poudriere_conf_USE_PORTLINT [no]
     - poudriere_conf_USE_TMPFS [no]
     - poudriere_conf_DISTFILES_CACHE [/usr/ports/distfiles]
-    - poudriere_conf_PKG_REPO_SIGNING_KEY [/usr/local/etc/ssl/private/build.example.com.key]
-    - poudriere_conf_URL_BASE [build.example.com]
+    - poudriere_conf_URL_BASE [http://build.example.com/]
     - poudriere_conf_CHECK_CHANGED_OPTIONS [verbose]
     - poudriere_conf_CHECK_CHANGED_DEPS [yes]
+    - poudriere_conf_data
+    - 'BASEFS: /usr/local/poudriere'
+    - 'BUILDER_HOSTNAME: build'
+    - 'CHECK_CHANGED_DEPS: ''yes'''
+    - 'CHECK_CHANGED_OPTIONS: verbose'
+    - 'DISTFILES_CACHE: /usr/ports/distfiles'
+    - 'FREEBSD_HOST: https://download.freebsd.org'
+    - 'NOLINUX: ''yes'''
+    - 'NO_ZFS: ''no'''
+    - 'PKG_REPO_SIGNING_KEY: /usr/local/etc/ssl/private/build.example.com-sk.key'
+    - 'POUDRIERE_DATA: /usr/local/poudriere/data'
+    - 'PRESERVE_TIMESTAMP: ''yes'''
+    - 'RESOLV_CONF: /etc/resolv.conf'
+    - 'SVN_HOST: svn.FreeBSD.org'
+    - 'URL_BASE: http://build.example.com/'
+    - 'USE_COLORS: ''yes'''
+    - 'USE_PORTLINT: ''no'''
+    - 'USE_TMPFS: ''no'''
+    - 'ZPOOL: zroot'
+    - 'ZROOTFS: /poudriere'
   ...
 
 Configure Poudriere ::
 
   shell> ansible-playbook pb.yml -t poudriere_conf -e poudriere_conf=true
 
-Review the created configuration ::
+Review the created configuration
 
-  [root@build /usr/home/admin]# cat /usr/local/etc/poudriere.conf
-  # Ansible managed
-
-  ZPOOL=zroot
-  NO_ZFS=no
-  ZROOTFS=/poudriere
-  FREEBSD_HOST=https://download.freebsd.org
-  RESOLV_CONF=/etc/resolv.conf
-  BASEFS=/usr/local/poudriere
-  POUDRIERE_DATA=/usr/local/poudriere/data
-  USE_PORTLINT=no
-  USE_TMPFS=no
-  DISTFILES_CACHE=/usr/ports/distfiles
-  PKG_REPO_SIGNING_KEY=/usr/local/etc/ssl/private/build.example.com.key
-  URL_BASE=http://build.example.com/
-  CHECK_CHANGED_OPTIONS=verbose
-  CHECK_CHANGED_DEPS=yes
-
-  # EOF
-
+.. literalinclude:: example-conf.txt
+   :language: sh
+   :linenos:
+   :emphasize-lines: 1
 
 .. seealso::
    * Source code :ref:`as_conf.yml`

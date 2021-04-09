@@ -9,7 +9,7 @@
    TASK [Gathering Facts] *********************************************************************************
    ok: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : Poudriere Debug] ******************************************************
+   TASK [vbotka.freebsd_poudriere : Poudriere Debug] ************************************************************************************
    ok: [build.example.com] => 
      msg:
      - ansible_architecture [amd64]
@@ -26,10 +26,13 @@
      - freebsd_install_delay [5]
      - ''
      - poudriere_install [False]
+     - poudriere_dirs [True]
+     - poudriere_key [True]
      - poudriere_cert [False]
      - poudriere_conf [True]
      - poudriere_pkglists [True]
-     - poudriere_make [False]
+     - poudriere_options [False]
+     - poudriere_make [True]
      - poudriere_backup_conf [True]
      - ''
      - poudriere_packages
@@ -45,59 +48,86 @@
      - poudriere_group [wheel]
      - poudriere_mode [0644]
      - poudriere_mode_dir [0755]
+     - poudriere_dirs [True]
      - poudriere_ssl_dir [/usr/local/etc/ssl]
      - poudriere_ssl_dir_mode [0755]
+     - poudriere_ssl_private_dir [/usr/local/etc/ssl/private]
      - poudriere_ssl_private_dir_mode [0700]
      - poudriere_ssl_private_key_mode [0600]
-     - poudriere_cert_CN [build.example.com]
-     - poudriere_csr_path [/usr/local/etc/ssl/csr/build.example.com.csr]
-     - poudriere_cert_path [/usr/local/etc/ssl/certs/build.example.com.crt]
-     - poudriere_cert_dirs
-     - '-   dir: /usr/local/etc/ssl'
-     - '    group: wheel'
-     - '    mode: ''0755'''
-     - '    owner: root'
-     - '-   dir: /usr/local/etc/ssl/crt'
-     - '    group: wheel'
-     - '    mode: ''0755'''
-     - '    owner: root'
-     - '-   dir: /usr/local/etc/ssl/csr'
-     - '    group: wheel'
-     - '    mode: ''0755'''
-     - '    owner: root'
-     - '-   dir: /usr/local/etc/ssl/private'
-     - '    group: wheel'
-     - '    mode: ''0700'''
-     - '    owner: root'
+     - poudriere_ssl_dirs
+     - '- /usr/local/etc/ssl'
+     - '- /usr/local/etc/ssl/crt'
+     - '- /usr/local/etc/ssl/csr'
      - ''
+     - poudriere_key [True]
+     - poudriere_key_crt [/usr/local/etc/ssl/crt/build.example.com-sk.crt]
+     - poudriere_conf_PKG_REPO_SIGNING_KEY [/usr/local/etc/ssl/private/build.example.com-sk.key]
+     - ''
+     - poudriere_cert [False]
+     - poudriere_cert_CN [build.example.com]
+     - poudriere_cert_key [/usr/local/etc/ssl/private/build.example.com.key]
+     - poudriere_cert_csr [/usr/local/etc/ssl/csr/build.example.com.csr]
+     - poudriere_cert_path [/usr/local/etc/ssl/certs/build.example.com.crt]
+     - ''
+     - poudriere_conf [True]
      - poudriere_conf_file [/usr/local/etc/poudriere.conf]
+     - poudriere_conf_template [poudriere.conf2.j2]
      - poudriere_conf_dir [/usr/local/etc/poudriere.d]
-     - poudriere_conf_NO_ZFS [no]
-     - poudriere_conf_ZPOOL [zroot]
-     - poudriere_conf_ZROOTFS [/poudriere]
-     - poudriere_conf_FREEBSD_HOST [https://download.freebsd.org]
-     - poudriere_conf_RESOLV_CONF [/etc/resolv.conf]
-     - poudriere_conf_BASEFS [/usr/local/poudriere]
-     - poudriere_conf_POUDRIERE_DATA [/usr/local/poudriere/data]
-     - poudriere_conf_USE_PORTLINT [no]
-     - poudriere_conf_USE_TMPFS [no]
-     - poudriere_conf_DISTFILES_CACHE [/usr/ports/distfiles]
-     - poudriere_conf_PKG_REPO_SIGNING_KEY [/usr/local/etc/ssl/private/build.example.com.key]
-     - poudriere_conf_URL_BASE [build.example.com]
-     - poudriere_conf_CHECK_CHANGED_OPTIONS [verbose]
-     - poudriere_conf_CHECK_CHANGED_DEPS [yes]
      - poudriere_conf_dirs
      - '-   dir: /usr/ports/distfiles'
      - '    group: wheel'
      - '    mode: ''0755'''
      - '    owner: root'
      - ''
-     - poudriere_make_file [/usr/local/etc/poudriere.d/make.conf]
-     - poudriere_make_conf
-     - '[]'
+     - poudriere_conf_ZPOOL [zroot]
+     - poudriere_conf_NO_ZFS [no]
+     - poudriere_conf_ZROOTFS [/poudriere]
+     - poudriere_conf_FREEBSD_HOST [https://download.freebsd.org]
+     - poudriere_conf_RESOLV_CONF [/etc/resolv.conf]
+     - poudriere_conf_BASEFS [/usr/local/poudriere]
+     - poudriere_conf_SVN_HOST [svn.FreeBSD.org]
+     - poudriere_conf_POUDRIERE_DATA [/usr/local/poudriere/data]
+     - poudriere_conf_USE_PORTLINT [no]
+     - poudriere_conf_USE_TMPFS [no]
+     - poudriere_conf_DISTFILES_CACHE [/usr/ports/distfiles]
+     - poudriere_conf_URL_BASE [http://build.example.com/]
+     - poudriere_conf_CHECK_CHANGED_OPTIONS [verbose]
+     - poudriere_conf_CHECK_CHANGED_DEPS [yes]
+     - poudriere_conf_data
+     - 'BASEFS: /usr/local/poudriere'
+     - 'BUILDER_HOSTNAME: build'
+     - 'CHECK_CHANGED_DEPS: ''yes'''
+     - 'CHECK_CHANGED_OPTIONS: verbose'
+     - 'DISTFILES_CACHE: /usr/ports/distfiles'
+     - 'FREEBSD_HOST: https://download.freebsd.org'
+     - 'NOLINUX: ''yes'''
+     - 'NO_ZFS: ''no'''
+     - 'PKG_REPO_SIGNING_KEY: /usr/local/etc/ssl/private/build.example.com-sk.key'
+     - 'POUDRIERE_DATA: /usr/local/poudriere/data'
+     - 'PRESERVE_TIMESTAMP: ''yes'''
+     - 'RESOLV_CONF: /etc/resolv.conf'
+     - 'SVN_HOST: svn.FreeBSD.org'
+     - 'URL_BASE: http://build.example.com/'
+     - 'USE_COLORS: ''yes'''
+     - 'USE_PORTLINT: ''no'''
+     - 'USE_TMPFS: ''no'''
+     - 'ZPOOL: zroot'
+     - 'ZROOTFS: /poudriere'
      - ''
+     - poudriere_pkglists [True]
      - poudriere_pkglist_dir [/usr/local/etc/poudriere.d/pkglist]
      - poudriere_pkg_arch [amd64]
+     - ''
+     - poudriere_options [False]
+     - poudriere_make [False]
+     - poudriere_make_file [/usr/local/etc/poudriere.d/make.conf]
+     - poudriere_make_conf
+     - '- "OPTIONS_UNSET+=\t\t\tDOCS NLS X11 EXAMPLES"'
+     - '- "OPTIONS_UNSET+=\t\t\tGSSAPI_BASE KRB_BASE KERBEROS"'
+     - '- "OPTIONS_SET+=\t\t\tGSSAPI_NONE KRB_NONE"'
+     - '- "DEFAULT_VERSIONS+=\t\temacs=nox"'
+     - '- "DEFAULT_VERSIONS+=\t\tphp=7.4"'
+     - '- "DEFAULT_VERSIONS+=\t\tssl=openssl"'
      - ''
 
    PLAY RECAP *********************************************************************************************

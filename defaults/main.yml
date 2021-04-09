@@ -26,32 +26,29 @@ poudriere_group: wheel
 poudriere_mode: "0644"
 poudriere_mode_dir: "0755"
 
-# certificate
-poudriere_cert: false
+# dirs
+poudriere_dirs: true
 poudriere_ssl_dir: /usr/local/etc/ssl
 poudriere_ssl_dir_mode: "0755"
+poudriere_ssl_private_dir: /usr/local/etc/ssl/private
 poudriere_ssl_private_dir_mode: "0700"
 poudriere_ssl_private_key_mode: "0600"
+poudriere_ssl_dirs:
+  - "{{ poudriere_ssl_dir }}"
+  - "{{ poudriere_ssl_dir }}/crt"
+  - "{{ poudriere_ssl_dir }}/csr"
+
+# ssl signing key
+poudriere_key: true
+poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/poudriere-sk.crt"
+poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
+
+# ssl cert web server
+poudriere_cert: false
 poudriere_cert_CN: builder.example.com
-poudriere_csr_path: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
+poudriere_cert_key: "{{ poudriere_ssl_private_dir }}/poudriere.key"
+poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
 poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
-poudriere_cert_dirs:
-  - dir: "{{ poudriere_ssl_dir }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_ssl_dir_mode }}"
-  - dir: "{{ poudriere_ssl_dir }}/crt"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_ssl_dir_mode }}"
-  - dir: "{{ poudriere_ssl_dir }}/csr"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_ssl_dir_mode }}"
-  - dir: "{{ poudriere_ssl_dir }}/private"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_ssl_private_dir_mode }}"
 
 # configuration
 # (see /usr/local/etc/poudriere.conf.sample)
@@ -75,7 +72,6 @@ poudriere_conf_POUDRIERE_DATA: "{{ poudriere_conf_BASEFS }}/data"
 poudriere_conf_USE_PORTLINT: "no"
 poudriere_conf_USE_TMPFS: "yes"
 poudriere_conf_DISTFILES_CACHE: /usr/ports/distfiles
-poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_dir }}/private/poudriere.pem"
 poudriere_conf_URL_BASE: "http://{{ ansible_default_ipv4.address|default('127.0.0.1') }}/"
 poudriere_conf_CHECK_CHANGED_OPTIONS: verbose
 poudriere_conf_CHECK_CHANGED_DEPS: "yes"

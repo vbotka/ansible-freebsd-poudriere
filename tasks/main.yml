@@ -9,6 +9,14 @@
   when: poudriere_install|bool
   tags: poudriere_packages
 
+- import_tasks: dirs.yml
+  when: poudriere_dirs|bool
+  tags: poudriere_dirs
+
+- import_tasks: key.yml
+  when: poudriere_key|bool
+  tags: poudriere_key
+
 - import_tasks: cert.yml
   when: poudriere_cert|bool
   tags: poudriere_cert

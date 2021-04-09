@@ -1,8 +1,8 @@
 .. code-block:: sh
-   :emphasize-lines: 1
    :linenos:
+   :emphasize-lines: 1
 
-   shell> ansible-playbook pb.yml -t poudriere_conf
+   shell> ansible-playbook pb.yml -t poudriere_key
 
    PLAY [build.example.com] *******************************************************************************
 
@@ -12,17 +12,17 @@
    TASK [vbotka.freebsd_poudriere : Poudriere Debug] ******************************************************
    skipping: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : conf: Create directories] *********************************************
-   ok: [build.example.com] => (item=/usr/ports/distfiles)
+   TASK [vbotka.freebsd_poudriere : key: Generate signing key /usr/local/etc/ssl/private/build.example.com-sk.key]
+   changed: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : conf: Configure /usr/local/etc/poudriere.conf] ************************
+   TASK [vbotka.freebsd_poudriere : key: Generate signing crt /usr/local/etc/ssl/crt/build.example.com-sk.crt]
    changed: [build.example.com]
 
    PLAY RECAP *********************************************************************************************
-   build.example.com: ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+   build.example.com: ok=1    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
 
-.. literalinclude:: example-conf.txt
+.. literalinclude:: example-key-tree.txt
    :language: sh
    :linenos:
    :emphasize-lines: 1

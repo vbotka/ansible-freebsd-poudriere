@@ -73,6 +73,54 @@ Description of the task.
 
 
 
+.. _as_dirs.yml:
+
+dirs.yml
+--------
+
+Synopsis: Configure dirs.
+
+
+Description of the task.
+
+
+[`tasks/dirs.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/dirs.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/dirs.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_key.yml:
+
+key.yml
+-------
+
+Synopsis: Configure key.
+
+
+Description of the task.
+
+
+[`tasks/key.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/key.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/key.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
 .. _as_cert.yml:
 
 cert.yml

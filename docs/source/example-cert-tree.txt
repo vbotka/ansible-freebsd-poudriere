@@ -1,0 +1,13 @@
+shell> tree /usr/local/etc/ssl/
+/usr/local/etc/ssl/
+|-- cert.pem
+|-- cert.pem.sample -> ../../share/certs/ca-root-nss.crt
+|-- certs
+|   `-- build.example.com.crt
+|-- crt
+|   `-- build.example.com-sk.crt
+|-- csr
+|   `-- build.example.com.csr
+`-- private
+    |-- build.example.com-sk.key
+    `-- build.example.com.key

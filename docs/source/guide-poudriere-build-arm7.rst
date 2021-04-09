@@ -47,6 +47,7 @@ and mount it manually or use Ansible role `vbotka.freebsd_postinstall <https://a
 
 
 .. toctree::
+   :caption: Examples
    :name: _ug_build_12rm7_toc
 
    example-poudriere-jail-create-12arm7

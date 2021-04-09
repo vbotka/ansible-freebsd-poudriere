@@ -14,18 +14,18 @@ debug is enabled ``poudriere_debug: true``)
 .. code-block:: console
    :emphasize-lines: 1
 
-    shell> ansible-playbook playbook.yml -t poudriere_debug
+    shell> ansible-playbook pb.yml -t poudriere_debug
 
 See what packages will be installed
 
 .. code-block:: console
    :emphasize-lines: 1
 
-    shell> ansible-playbook playbook.yml -t poudriere_packages --check
+    shell> ansible-playbook pb.yml -t poudriere_packages --check
 
 Install packages and exit the play
 
 .. code-block:: console
    :emphasize-lines: 1
 
-    shell> ansible-playbook playbook.yml -t poudriere_packages
+    shell> ansible-playbook pb.yml -t poudriere_packages

@@ -23,6 +23,5 @@ and install it
 .. seealso::
 
    * To install specific versions from various sources see `Installing content <https://galaxy.ansible.com/docs/using/installing.html>`_
-
    * Take a look at other roles ``shell> ansible-galaxy search --author=vbotka``
 

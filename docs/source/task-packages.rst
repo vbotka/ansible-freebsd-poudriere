@@ -1,22 +1,19 @@
 Install packages or ports
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install FreeBSD packages or ports needed by Poudriere ``poudriere_packages`` and also packages
-needed to generate the certificate ``poudriere_packages_cert``.
+Install FreeBSD packages or ports needed by Poudriere ``poudriere_packages``. Also, install packages
+needed to generate the signing key, and the certificate ``poudriere_packages_cert``.
 
-By default, the installation is enabled ::
+By default, the installation of packages is enabled ::
 
   poudriere_install: true
-
-By default, install packages ::
-
   freebsd_install_method: packages
 
 If you decide to install from ports set ::
 
   freebsd_install_method: ports
 
-To install prebuild packages set ::
+To install pre-build packages, when available, set ::
 
   freebsd_use_packages: true
 

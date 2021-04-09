@@ -1,0 +1,21 @@
+---
+
+- name: "dirs: Create SSL directories"
+  file:
+    state: directory
+    path: "{{ item }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_mode_dir }}"
+  loop: "{{ poudriere_ssl_dirs }}"
+
+- name: "dirs: Create SSL directory {{ poudriere_ssl_private_dir }} mode {{ poudriere_ssl_private_dir_mode }}"
+  file:
+    state: directory
+    path: "{{ poudriere_ssl_private_dir }}"
+    owner: "{{ poudriere_owner }}"
+    group: "{{ poudriere_group }}"
+    mode: "{{ poudriere_ssl_private_dir_mode }}"
+
+# EOF
+...
