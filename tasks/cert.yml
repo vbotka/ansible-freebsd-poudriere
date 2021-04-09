@@ -25,5 +25,9 @@
         provider: selfsigned
       when: not ansible_check_mode|bool
 
+# <TBD>
+# It seems, it’s not possible to force pkg accept self-signed https certificate.
+# See https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers?comment=97460
+
 # EOF
 ...

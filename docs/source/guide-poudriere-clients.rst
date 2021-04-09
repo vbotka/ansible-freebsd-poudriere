@@ -49,6 +49,15 @@ Display details ::
     pubkey          : "/usr/local/etc/ssl/certs/build.example.com-sk.crt"
   }
 
+.. note::
+
+   It seems, it's not possible to force *pkg* accept self-signed https certificate. Settting
+   ``url: "https:// build ...`` without verified certificate results in the error
+   ``SSL routines:tls_process_server_certificate:certificate verify failed``
+   ``pkg: https://build.example.com/ ... /packagesite.txz: Authentication error``
+   See `DO comment <https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers?comment=97460>`_.
+
+
 Manage packages ::
 
   root@generic:/home/admin # pkg info | grep pkg
