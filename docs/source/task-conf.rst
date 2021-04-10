@@ -10,7 +10,7 @@ Read FreeBSD Porter's Handbook `10.5.2. Setting Up Poudriere
 ``/usr/local/etc/poudriere.conf.sample``. Customize the variables ``poudriere_conf_*`` and display
 the the current values ::
 
-  shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+  shell> ansible-playbook pb.yml -t poudriere_debug
 
   ...
   TASK [vbotka.freebsd_poudriere : Poudriere Debug] ************************************************
@@ -67,7 +67,7 @@ Configure Poudriere ::
 
   shell> ansible-playbook pb.yml -t poudriere_conf -e poudriere_conf=true
 
-Review the created configuration
+Review the configuration
 
 .. literalinclude:: example-conf.txt
    :language: sh

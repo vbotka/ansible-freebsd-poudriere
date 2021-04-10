@@ -1,7 +1,7 @@
 Create lists of ports
 ^^^^^^^^^^^^^^^^^^^^^
 
-The lists of the ports will be used by Poudriere. See `man(8) poudriere-bulk <https://www.freebsd.org/cgi/man.cgi?query=poudriere-bulk&sektion=8&manpath=freebsd-release-ports>`_ ::
+Quoting from `man(8) poudriere-bulk <https://www.freebsd.org/cgi/man.cgi?query=poudriere-bulk&sektion=8&manpath=freebsd-release-ports>`_ ::
 
      -f file      Absolute path to a file which contains the list of ports to
                   build.  Ports must be specified in the form category/port
@@ -20,10 +20,9 @@ Set the required architectures that the packages will be built for, e.g. ::
 
   poudriere_pkg_arch: [amd64]
 
-For the selected architectures set the lists of the dictionaries in
-the variables `pkgdict_*.yml
-<https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main>`_
-and, optionally, disable some of the lists, e.g. ::
+For the selected architectures, set the lists of the dictionaries in the variables `pkgdict_*.yml
+<https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main>`_ and, optionally,
+disable some lists, e.g. ::
 
   pkglist_enable_amd64:
     apcups: false
@@ -97,4 +96,5 @@ Review the created lists of ports ::
 
 
 .. seealso::
-   * Default packages' dictionaries in `pkgdict_*.yml <https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main>`_
+
+   * Default lists of the dictionaries `pkgdict_*.yml <https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main>`_

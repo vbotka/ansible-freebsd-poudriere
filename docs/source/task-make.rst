@@ -23,9 +23,9 @@ list of the options, e.g. ::
 
 Customize make.conf ::
 
-  shell> ansible-playbook pb.yml -t poudriere_make -e poudriere_make=true
+  shell> ansible-playbook pb.yml -t poudriere_make
 
-and review the customized make.conf ::
+and review the file ::
 
   [root@build /usr/home/admin]# cat /usr/local/etc/poudriere.d/make.conf
   # Ansible managed

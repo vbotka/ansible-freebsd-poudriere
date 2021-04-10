@@ -19,7 +19,7 @@ the package manually or use Ansible role `vbotka.freebsd_postinstall <https://an
    shell> ansible-playbook freebsd-postinstall.yml -t fp_packages
    shell> ansible-playbook freebsd-postinstall.yml -t fp_qemu
 
-Make sure qemu is running ::
+Make sure `QEMU <https://www.qemu.org/>`_ is running ::
 
    shell> /usr/local/etc/rc.d/qemu_user_static list
 
@@ -61,3 +61,7 @@ http://build.example.com/logs/bulk/12arm7-local-devel/latest/build.html
     :width: 100%
     :align: center
     :alt: alternate text
+
+.. note::
+
+   Meanwhile, the failed port `security/libgcrypt was fixed <https://github.com/freebsd/freebsd-ports/blob/c51dc27dae149df8d61ea457b03599adb8ec56c1/security/libgcrypt/Makefile#L40>`_

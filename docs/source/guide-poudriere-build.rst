@@ -20,6 +20,6 @@ Batch
 Build packages from all lists in the dictionary, e.g. ::
 
    #!/bin/sh
-   for i in /usr/local/etc/poudriere.d/pkglist_amd64/*; do
-     poudriere bulk -j 11amd64 -p local -z setname -f ${i};
+   for i in /usr/local/etc/poudriere.d/pkglist_arm/*; do
+     poudriere bulk -j 12arm7 -p local -z devel -f ${i}
    done

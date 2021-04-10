@@ -4,7 +4,7 @@
   debug:
     msg: Not implemented yet.
 
-# Optionally copy existing PORT_DBDIR to the directory */usr/local/etc/poudriere.d/options*
+# <TBD> Optionally copy existing PORT_DBDIR to the directory */usr/local/etc/poudriere.d/options*
 
 # EOF
 ...
