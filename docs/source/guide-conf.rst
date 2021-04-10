@@ -4,6 +4,7 @@ Configuration
 =============
 
 .. toctree::
+   :caption: Table of Contents
 
    guide-conf-installation
    guide-conf-playbook

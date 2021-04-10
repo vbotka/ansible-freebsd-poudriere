@@ -4,6 +4,7 @@ Poudriere
 =========
 
 .. toctree::
+   :caption: Table of Contents
    
    guide-poudriere-build
    guide-poudriere-export
