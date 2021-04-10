@@ -66,13 +66,17 @@ to your needs.
 
 .. include:: example-pkglists.rst
 
-At this point, Poudriere is installed and configured. The role is idempotent, i.e. there should be
-no changes reported when the playbook is run repeatedly with the same data ::
+**Configure make**
+
+.. include:: example-make.rst
+
+**The role is idempotent.** At this point, Poudriere is installed, configured and ready to build the
+packages. There should be no changes reported when the playbook is run repeatedly with the same data
+::
 
     shell> ansible-playbook pb.yml
 
-If the commands above completed without errors Poudriere is ready to create the build system and
-build the packages. Login into the host build.example.com and proceed according the `Poudriere documentation <https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_ ,
+**Build the packages.** Login into the host build.example.com and proceed according the `Poudriere documentation <https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_ ,
 e.g. ::
 
    shell> poudriere jail -c -j 12amd64 -v 12.2-RELEASE

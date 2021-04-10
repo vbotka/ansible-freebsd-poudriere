@@ -4,10 +4,17 @@ Build the packages
 ------------------
 
 .. toctree::
+   :caption: Table of Contents
 
    guide-poudriere-build-amd64
    guide-poudriere-build-arm7
 
+
+.. note::
+
+   When web-server is configured (see the next section *Export data*) the current status should be
+   available on-line, e.g.
+   ``https://build.example.com/logs/bulk/12arm7-local-devel/latest/build.html``
 
 .. seealso::
 

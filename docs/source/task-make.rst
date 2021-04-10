@@ -25,17 +25,12 @@ Customize make.conf ::
 
   shell> ansible-playbook pb.yml -t poudriere_make
 
-and review the file ::
+and review the file
 
-  [root@build /usr/home/admin]# cat /usr/local/etc/poudriere.d/make.conf
-  # Ansible managed
-  OPTIONS_UNSET+=		DOCS NLS X11 EXAMPLES
-  OPTIONS_UNSET+=		GSSAPI_BASE KRB_BASE KERBEROS
-  OPTIONS_SET+=			GSSAPI_NONE KRB_NONE
-  DEFAULT_VERSIONS+=		emacs=nox
-  DEFAULT_VERSIONS+=		php=7.2
-  DEFAULT_VERSIONS+=		ssl=openssl
-
+.. literalinclude:: example-make.txt
+   :language: sh
+   :linenos:
+   :emphasize-lines: 1
 
 .. seealso::
    * Source code :ref:`as_make.yml`

@@ -119,7 +119,7 @@
      - poudriere_pkg_arch [amd64]
      - ''
      - poudriere_options [False]
-     - poudriere_make [False]
+     - poudriere_make [True]
      - poudriere_make_file [/usr/local/etc/poudriere.d/make.conf]
      - poudriere_make_conf
      - '- "OPTIONS_UNSET+=\t\t\tDOCS NLS X11 EXAMPLES"'
