@@ -44,6 +44,9 @@
          {{ poudriere_ssl_dirs|to_nice_yaml }}
 
          poudriere_key [{{ poudriere_key }}]
+         poudriere_key_size [{{ poudriere_key_size }}]
+         poudriere_key_type [{{ poudriere_key_type }}]
+         poudriere_key_cmd [{{ poudriere_key_cmd }}]
          poudriere_key_crt [{{ poudriere_key_crt }}]
          poudriere_conf_PKG_REPO_SIGNING_KEY [{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}]
 

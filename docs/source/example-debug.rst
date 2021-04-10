@@ -60,6 +60,9 @@
      - '- /usr/local/etc/ssl/csr'
      - ''
      - poudriere_key [True]
+     - poudriere_key_size [4096]
+     - poudriere_key_type [RSA]
+     - poudriere_key_cmd [openssl rsa -in /usr/local/etc/ssl/private/build.example.com-sk.key -pubout -out /usr/local/etc/ssl/crt/build.example.com-sk.crt]
      - poudriere_key_crt [/usr/local/etc/ssl/crt/build.example.com-sk.crt]
      - poudriere_conf_PKG_REPO_SIGNING_KEY [/usr/local/etc/ssl/private/build.example.com-sk.key]
      - ''
