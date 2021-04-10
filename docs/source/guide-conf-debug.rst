@@ -10,12 +10,12 @@ Enable debug output either in the configuration
 
    poudriere_debug: true
 
-, or set the extra variable in the command
+, or set the extra variable in the command. For example, display variables
 
 .. code-block:: console
    :emphasize-lines: 1
 
-   shell> ansible-playbook pb.yml -e poudriere_debug=true
+   shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
 
 .. note::
 
