@@ -3,6 +3,15 @@
 jail create 12amd64
 """""""""""""""""""
 
+Create the jail ::
+
+  shell> poudriere jail -c -j 12amd64 -v 12.2-RELEASE
+
+,or update it if it already exists ::
+
+  shell> poudriere jail -u -j 12amd64 -v 12.2-RELEASE
+
+
 .. code-block:: sh
    :emphasize-lines: 1
    :linenos:

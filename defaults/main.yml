@@ -65,7 +65,7 @@ poudriere_conf_dirs:
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode_dir }}"
 poudriere_conf_ZPOOL: zroot
-poudriere_conf_NO_ZFS: "yes"
+poudriere_conf_NO_ZFS: "no"
 poudriere_conf_ZROOTFS: /poudriere
 poudriere_conf_FREEBSD_HOST: https://download.freebsd.org  # Note 1)
 poudriere_conf_RESOLV_CONF: /etc/resolv.conf

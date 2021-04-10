@@ -3,7 +3,14 @@
 jail create 12arm7
 """"""""""""""""""
 
-Use the mounted image */zroot/poudriere/jails/12arm7*
+Use the mounted image */zroot/poudriere/jails/12arm7*. Create the jail ::
+
+  shell> poudriere jail -c -m null -j 12arm7 -v 12.2-RELEASE -a armv7 -M /zroot/poudriere/jails/12arm7
+
+,or update it if it already exists ::
+
+  shell> poudriere jail -u -m null -j 12arm7 -v 12.2-RELEASE -a armv7 -M /zroot/poudriere/jails/12arm7
+
 
 .. code-block:: sh
    :emphasize-lines: 1

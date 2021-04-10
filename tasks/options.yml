@@ -4,7 +4,11 @@
   debug:
     msg: Not implemented yet.
 
-# <TBD> Optionally copy existing PORT_DBDIR to the directory */usr/local/etc/poudriere.d/options*
+# <TBD>
+# Optionally copy existing PORT_DBDIR to /usr/local/etc/poudriere.d/options
+# Create options file for each jail, e.g.
+# /usr/local/etc/poudriere.d/12amd64-options
+# /usr/local/etc/poudriere.d/12arm7-options
 
 # EOF
 ...

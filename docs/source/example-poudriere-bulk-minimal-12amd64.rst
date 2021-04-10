@@ -39,7 +39,7 @@ Result (line 354 in the log below) ::
 
    [12amd64-local-devel] [2021-03-22_22h42m18s] [committing:] Queued: 160 Built: 158 Failed: 1   Skipped: 1   Ignored: 0   Tobuild: 0    Time: 01:52:20
 
-Command and log
+Command and log. Use `sysutils/tmux <https://www.freshports.org/sysutils/tmux>`_ to open the remote session (see `tmux vs. screen <https://superuser.com/questions/236158/tmux-vs-screen>`_)
 
 .. code-block:: sh
    :emphasize-lines: 1,354
