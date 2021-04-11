@@ -41,6 +41,12 @@ and mount it manually or use Ansible role `vbotka.freebsd_postinstall <https://a
       fstype: ufs
       partition: s2a
 
+  shell> ansible-playbook freebsd-postinstall.yml -t fp_mount_img
+
+Make sure the image is mounted ::
+
+   shell> df | grep 12arm7
+
 .. seealso::
 
    * `Where is the arm/armv6 source? <https://forums.freebsd.org/threads/where-is-the-arm-armv6-source.61542/>`_
