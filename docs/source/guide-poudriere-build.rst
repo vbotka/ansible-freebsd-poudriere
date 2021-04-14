@@ -30,3 +30,10 @@ Build packages from all lists in the dictionary, e.g. ::
    for i in /usr/local/etc/poudriere.d/pkglist_arm/*; do
      poudriere bulk -j 12arm7 -p local -z devel -f ${i}
    done
+
+Speedup the process and specify all lists in one command, e.g. ::
+
+   #!/bin/sh
+   my_dir=/usr/local/etc/poudriere.d/pkglist_arm/
+   my_lists=`find ${my_dir}* | xargs printf " -f %s"`
+   poudriere bulk -j 12arm7 -p local -z devel ${my_lists}
