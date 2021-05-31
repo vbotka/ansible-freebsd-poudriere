@@ -8,9 +8,11 @@ configure and run `Poudriere
 <https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_
 
 
-**Install the role** ``vbotka.freebsd_poudriere`` ::
+**Install the role** ``vbotka.freebsd_poudriere`` and the collections ::
 
-    shell> ansible-galaxy install vbotka.freebsd_poudriere
+    shell> ansible-galaxy role install vbotka.freebsd_poudriere
+    shell> ansible-galaxy collection install community.crypto
+    shell> ansible-galaxy collection install community.general
 
 
 **Create the playbook** ``pb.yml`` for single host build.example.com (3)

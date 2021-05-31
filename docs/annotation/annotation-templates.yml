@@ -2,7 +2,7 @@
 mytemplates:
 
   - file: make.conf.j2
-    link: template_make.conf.j2
+    link: make.conf.j2
     path: templates/make.conf.j2
     synopsis: |
       Template make.conf.
@@ -14,7 +14,7 @@ mytemplates:
     warning: []
 
   - file: poudriere.conf.j2
-    link: template_poudriere.conf.j2
+    link: poudriere.conf.j2
     path: templates/poudriere.conf.j2
     synopsis: |
       Template poudriere.conf.
@@ -26,7 +26,7 @@ mytemplates:
     warning: []
 
   - file: poudriere.conf2.j2
-    link: template_poudriere.conf2.j2
+    link: poudriere.conf2.j2
     path: templates/poudriere.conf2.j2
     synopsis: |
       Template poudriere.conf2.
@@ -38,7 +38,7 @@ mytemplates:
     warning: []
 
   - file: poudriere.pkglist.j2
-    link: template_poudriere.pkglist.j2
+    link: poudriere.pkglist.j2
     path: templates/poudriere.pkglist.j2
     synopsis: |
       Template poudriere.pkglist.

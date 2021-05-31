@@ -4,21 +4,21 @@
   block:
 
     - name: "cert: Generate private key {{ poudriere_cert_key }}"
-      openssl_privatekey:
+      community.crypto.openssl_privatekey:
         path: "{{ poudriere_cert_key }}"
         owner: "{{ poudriere_owner }}"
         group: "{{ poudriere_group }}"
         mode: "{{ poudriere_ssl_private_key_mode }}"
 
     - name: "cert: Generate csr {{ poudriere_cert_csr }}"
-      openssl_csr:
+      community.crypto.openssl_csr:
         path: "{{ poudriere_cert_csr }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         common_name: "{{ poudriere_cert_CN }}"
       when: not ansible_check_mode|bool
 
     - name: "cert: Generate crt {{ poudriere_cert_path }}"
-      openssl_certificate:
+      community.crypto.openssl_certificate:
         path: "{{ poudriere_cert_path }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         csr_path: "{{ poudriere_cert_csr }}"
