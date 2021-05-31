@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
-set SPHINXPROJ=ansible-role-__PROJECT__
+set SPHINXPROJ=ansible-role-freebsd-poudriere
 
 if "%1" == "" goto help
 

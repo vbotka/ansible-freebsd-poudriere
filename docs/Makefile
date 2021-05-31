@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = ansible-role-__PROJECT__
+SPHINXPROJ    = ansible-role-freebsd-poudriere
 SOURCEDIR     = source
 BUILDDIR      = build
 

@@ -9,7 +9,7 @@ Customize the templates in dir source
 
 * Replace __AUTHOR_FULL_NAME__ by the full name of the author
   Example:
-  find source -name '*.rst' -o -name '*.py' | xargs sed -i 's/__AUTHOR_FULL_NAME__/Vladimir Botka/g'
+  find source -name '*.rst' -o -name '*.py' | xargs -i 's/__AUTHOR_FULL_NAME__/Vladimir Botka/g'
 
 * Replace __COPYRIGHT_HOLDER__ by the copyright holder
   Example:
@@ -38,14 +38,20 @@ Customize the templates in dir source
 Customize the templates in dir annotation
 -----------------------------------------
 
-* Replace __GITHUB_USERNAME__ by the GitHub username
+* Replace __GITHUB_USERNAME__ by the GitHub username, e.g. vbotka
   Example:
+  https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/{{ i.path }}
   find annotation -name '*.rst.j2' | xargs sed -i 's/__GITHUB_USERNAME__/vbotka/g'
 
-* Replace __PROJECT__ by the name of the GitHub project
+* Replace __PROJECT__ by the name of the GitHub project, e.g. freebsd-custom-image
   Example:
-  https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__
+  https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/{{ i.path }}
   find annotation -name '*.rst.j2' | xargs sed -i 's/__PROJECT__/freebsd-custom-image/g'
+
+* Replace __BRANCH__ by the name of the GitHub branch, e.g. master
+  Example:
+  https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/{{ i.path }}
+  find annotation -name '*.rst.j2' | xargs sed -i 's/__BRANCH__/master/g'
 
 
 Create annotated source code
@@ -63,9 +69,7 @@ Create annotated source code
 Build documentation
 -------------------
 
-* Create html documents. There will be warnings about undefined labels
-  in task-* and vars-*. It will be fixed by the customization of the
-  templates.
+* Create html documents
   shell> make html
 
 * Create LaTex and PDF documents
