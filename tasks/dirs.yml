@@ -1,7 +1,7 @@
 ---
 
 - name: "dirs: Create SSL directories"
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ item }}"
     owner: "{{ poudriere_owner }}"
@@ -10,7 +10,7 @@
   loop: "{{ poudriere_ssl_dirs }}"
 
 - name: "dirs: Create SSL directory {{ poudriere_ssl_private_dir }} mode {{ poudriere_ssl_private_dir_mode }}"
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ poudriere_ssl_private_dir }}"
     owner: "{{ poudriere_owner }}"

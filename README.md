@@ -16,7 +16,10 @@ This role has been developed and tested with [FreeBSD Supported Releases](https:
 
 ## Requirements
 
-None.
+### Collections
+
+- community.crypto
+- community.general
 
 
 ## Variables
@@ -32,13 +35,15 @@ Review the defaults and examples in vars.
 shell> ansible build.example.com -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
 ```
 
-* Install role
+* Install role snd the collection
 
 ```
-shell> ansible-galaxy install vbotka.freebsd_poudriere
+shell> ansible-galaxy role install vbotka.freebsd_poudriere
+shell> ansible-galaxy collection install community.crypto
+shell> ansible-galaxy collection install community.general
 ```
 
-* Fit variables
+* Fit variables, e.g. in vars/main.yml
 
 ```
 shell> editor vbotka.freebsd_poudriere/vars/main.yml

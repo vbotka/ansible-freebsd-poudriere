@@ -1,7 +1,7 @@
 ---
 
 - name: "conf: Create directories"
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ item.dir }}"
     owner: "{{ item.owner }}"
@@ -13,7 +13,7 @@
   tags: poudriere_conf_dirs
 
 - name: "conf: Configure {{ poudriere_conf_file }}"
-  template:
+  ansible.builtin.template:
     src: "{{ poudriere_conf_template }}"
     dest: "{{ poudriere_conf_file }}"
     owner: "{{ poudriere_owner }}"

@@ -1,7 +1,7 @@
 ---
 
 - name: "key: Generate signing key {{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
-  openssl_privatekey:
+  community.crypto.openssl_privatekey:
     attributes: "{{ poudriere_key_attributes|default(omit) }}"
     backup: "{{ poudriere_key_backup|default(omit) }}"
     cipher: "{{ poudriere_key_cipher|default(omit) }}"

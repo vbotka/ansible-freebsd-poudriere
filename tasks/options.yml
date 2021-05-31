@@ -1,7 +1,7 @@
 ---
 
 - name: "options: Debug"
-  debug:
+  ansible.builtin.debug:
     msg: Not implemented yet.
 
 # <TBD>

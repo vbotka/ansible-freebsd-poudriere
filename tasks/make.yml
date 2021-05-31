@@ -1,7 +1,7 @@
 ---
 
 - name: "make: Configure {{ poudriere_make_file }}"
-  template:
+  ansible.builtin.template:
     src: make.conf.j2
     dest: "{{ poudriere_make_file }}"
     owner: "{{ poudriere_owner }}"

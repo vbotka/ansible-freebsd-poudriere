@@ -87,7 +87,7 @@
          poudriere_make_conf
          {{ poudriere_make_conf|to_nice_yaml }}
 
-  debug:
+  ansible.builtin.debug:
     msg: "{{ msg.split('\n') }}"
 
 # EOF

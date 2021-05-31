@@ -16,4 +16,7 @@ galaxy_info:
     - freebsd
     - poudriere
 dependencies: []
+collections:
+  - community.crypto
+  - community.general
 ...
