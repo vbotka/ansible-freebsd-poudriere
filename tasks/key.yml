@@ -1,6 +1,6 @@
 ---
 
-- name: "key: Generate signing key {{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+- name: "key: Generate signing key {{ poudriere_conf_pkg_repo_signing_key }}"
   community.crypto.openssl_privatekey:
     attributes: "{{ poudriere_key_attributes|default(omit) }}"
     backup: "{{ poudriere_key_backup|default(omit) }}"
@@ -11,7 +11,7 @@
     mode: "{{ poudriere_ssl_private_key_mode }}"
     owner: "{{ poudriere_owner }}"
     passphrase: "{{ poudriere_key_passphrase|default(omit) }}"
-    path: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
+    path: "{{ poudriere_conf_pkg_repo_signing_key }}"
     # regenerate: "{{ poudriere_key_regenerate|default(omit) }}"
     # return_content: "{{ poudriere_key_return_content|default(omit) }}"
     select_crypto_backend: "{{ poudriere_key_select_crypto_backend|default(omit) }}"

@@ -64,7 +64,7 @@
 
 # Enabled lists of packages
 - name: "conf: Remove lists of packages from {{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled"
-  file:
+  ansible.builtin.file:
     state: absent
     path: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}.disabled/{{ item.pkglist }}"
   loop: "{{ _pkg_dict }}"
@@ -74,7 +74,7 @@
   tags: poudriere_pkglist_enabled
 
 - name: "conf: Create lists of packages in {{ poudriere_pkglist_dir }}_{{ pkg_arch }}"
-  template:
+  ansible.builtin.template:
     src: poudriere.pkglist.j2
     dest: "{{ poudriere_pkglist_dir }}_{{ pkg_arch }}/{{ item.pkglist }}"
     owner: "{{ poudriere_owner }}"

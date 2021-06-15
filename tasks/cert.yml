@@ -14,11 +14,11 @@
       community.crypto.openssl_csr:
         path: "{{ poudriere_cert_csr }}"
         privatekey_path: "{{ poudriere_cert_key }}"
-        common_name: "{{ poudriere_cert_CN }}"
+        common_name: "{{ poudriere_cert_cn }}"
       when: not ansible_check_mode|bool
 
     - name: "cert: Generate crt {{ poudriere_cert_path }}"
-      community.crypto.openssl_certificate:
+      community.crypto.x509_certificate:
         path: "{{ poudriere_cert_path }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         csr_path: "{{ poudriere_cert_csr }}"

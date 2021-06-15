@@ -43,15 +43,19 @@ poudriere_key: true
 poudriere_key_size: 4096
 poudriere_key_type: RSA
 poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/poudriere-sk.crt"
-poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
-poudriere_key_cmd: "openssl rsa -in {{ poudriere_conf_PKG_REPO_SIGNING_KEY }} -pubout -out {{ poudriere_key_crt }}"
+poudriere_conf_pkg_repo_signing_key: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
+poudriere_key_cmd: "openssl rsa -in {{ poudriere_conf_pkg_repo_signing_key }} -pubout -out {{ poudriere_key_crt }}"
 
 # ssl cert web server
 poudriere_cert: false
-poudriere_cert_CN: builder.example.com
 poudriere_cert_key: "{{ poudriere_ssl_private_dir }}/poudriere.key"
 poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
 poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
+# poudriere_cert_cn: build.example.com
+# poudriere_cert_key: "{{ poudriere_ssl_dir }}/private/{{ poudriere_cert_cn }}.key"
+# poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_cn }}.csr"
+# poudriere_cert_path: "{{ poudriere_ssl_dir }}/certs/{{ poudriere_cert_cn }}.crt"
+
 
 # configuration
 # (see /usr/local/etc/poudriere.conf.sample)
@@ -60,40 +64,40 @@ poudriere_conf_file: /usr/local/etc/poudriere.conf
 poudriere_conf_template: poudriere.conf.j2
 poudriere_conf_dir: /usr/local/etc/poudriere.d
 poudriere_conf_dirs:
-  - dir: "{{ poudriere_conf_DISTFILES_CACHE }}"
+  - dir: "{{ poudriere_conf_distfiles_cache }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode_dir }}"
-poudriere_conf_ZPOOL: zroot
-poudriere_conf_NO_ZFS: "no"
-poudriere_conf_ZROOTFS: /poudriere
-poudriere_conf_FREEBSD_HOST: https://download.freebsd.org  # Note 1)
-poudriere_conf_RESOLV_CONF: /etc/resolv.conf
-poudriere_conf_BASEFS: /usr/local/poudriere
-poudriere_conf_SVN_HOST: svn.FreeBSD.org  # Note 2)
-poudriere_conf_POUDRIERE_DATA: "{{ poudriere_conf_BASEFS }}/data"
-poudriere_conf_USE_PORTLINT: "no"
-poudriere_conf_USE_TMPFS: "yes"
-poudriere_conf_DISTFILES_CACHE: /usr/ports/distfiles
-poudriere_conf_URL_BASE: "http://{{ ansible_default_ipv4.address|default('127.0.0.1') }}/"
-poudriere_conf_CHECK_CHANGED_OPTIONS: verbose
-poudriere_conf_CHECK_CHANGED_DEPS: "yes"
+poudriere_conf_zpool: zroot
+poudriere_conf_no_zfs: "no"
+poudriere_conf_zrootfs: /poudriere
+poudriere_conf_freebsd_host: https://download.freebsd.org  # Note 1)
+poudriere_conf_resolv_conf: /etc/resolv.conf
+poudriere_conf_basefs: /usr/local/poudriere
+poudriere_conf_svn_host: svn.FreeBSD.org  # Note 2)
+poudriere_conf_poudriere_data: "{{ poudriere_conf_basefs }}/data"
+poudriere_conf_use_portlint: "no"
+poudriere_conf_use_tmpfs: "yes"
+poudriere_conf_distfiles_cache: /usr/ports/distfiles
+poudriere_conf_url_base: "http://{{ ansible_default_ipv4.address|default('127.0.0.1') }}/"
+poudriere_conf_check_changed_options: verbose
+poudriere_conf_check_changed_deps: "yes"
 poudriere_conf_data:  # See templates/poudriere.conf2.j2
-  ZPOOL: "{{ poudriere_conf_ZPOOL }}"
-  NO_ZFS: "{{ poudriere_conf_NO_ZFS }}"
-  ZROOTFS: "{{ poudriere_conf_ZROOTFS }}"
-  FREEBSD_HOST: "{{ poudriere_conf_FREEBSD_HOST }}"
-  RESOLV_CONF: "{{ poudriere_conf_RESOLV_CONF }}"
-  BASEFS: "{{ poudriere_conf_BASEFS }}"
-  SVN_HOST: "{{ poudriere_conf_SVN_HOST }}"
-  POUDRIERE_DATA: "{{ poudriere_conf_POUDRIERE_DATA }}"
-  USE_PORTLINT: "{{ poudriere_conf_USE_PORTLINT }}"
-  USE_TMPFS: "{{ poudriere_conf_USE_TMPFS }}"
-  DISTFILES_CACHE: "{{ poudriere_conf_DISTFILES_CACHE }}"
-  PKG_REPO_SIGNING_KEY: "{{ poudriere_conf_PKG_REPO_SIGNING_KEY }}"
-  URL_BASE: "{{ poudriere_conf_URL_BASE }}"
-  CHECK_CHANGED_OPTIONS: "{{ poudriere_conf_CHECK_CHANGED_OPTIONS }}"
-  CHECK_CHANGED_DEPS: "{{ poudriere_conf_CHECK_CHANGED_DEPS }}"
+  ZPOOL: "{{ poudriere_conf_zpool }}"
+  no_ZFS: "{{ poudriere_conf_no_zfs }}"
+  ZROOTFS: "{{ poudriere_conf_zrootfs }}"
+  freebsd_HOST: "{{ poudriere_conf_freebsd_host }}"
+  RESOLV_CONF: "{{ poudriere_conf_resolv_conf }}"
+  BASEFS: "{{ poudriere_conf_basefs }}"
+  svn_HOST: "{{ poudriere_conf_svn_host }}"
+  POUDRIERE_DATA: "{{ poudriere_conf_poudriere_data }}"
+  USE_PORTLINT: "{{ poudriere_conf_use_portlint }}"
+  USE_TMPFS: "{{ poudriere_conf_use_tmpfs }}"
+  DISTFILES_CACHE: "{{ poudriere_conf_distfiles_cache }}"
+  PKG_REPO_SIGNING_KEY: "{{ poudriere_conf_pkg_repo_signing_key }}"
+  URL_BASE: "{{ poudriere_conf_url_base }}"
+  check_CHANGED_OPTIONS: "{{ poudriere_conf_check_changed_options }}"
+  CHECK_CHANGED_DEPS: "{{ poudriere_conf_check_changed_deps }}"
 
 # lists of packages
 poudriere_pkglists: true

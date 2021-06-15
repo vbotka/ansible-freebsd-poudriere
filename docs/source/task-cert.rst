@@ -15,10 +15,10 @@ By default, the names of the files are ``poudriere.key`` and  ``poudriere.crt`` 
 
 Optionally, change the paths and names of the files, e.g. ::
 
-  poudriere_cert_CN: build.example.com
-  poudriere_cert_key: "{{ poudriere_ssl_private_dir }}/{{ poudriere_cert_CN }}.key"
-  poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_CN }}.csr"
-  poudriere_cert_path: "{{ poudriere_ssl_dir }}/certs/{{ poudriere_cert_CN }}.crt"
+  poudriere_cert_cn: build.example.com
+  poudriere_cert_key: "{{ poudriere_ssl_private_dir }}/{{ poudriere_cert_cn }}.key"
+  poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_cn }}.csr"
+  poudriere_cert_path: "{{ poudriere_ssl_dir }}/certs/{{ poudriere_cert_cn }}.crt"
 
 Optionally enable and generate the SSL certificate ::
 

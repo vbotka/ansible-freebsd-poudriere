@@ -9,14 +9,14 @@ By default, the names of the files are ``poudriere-sk.key`` and ``poudriere-sk.c
 
   poudriere_ssl_dir: /usr/local/etc/ssl
   poudriere_ssl_private_dir: /usr/local/etc/ssl/private
-  poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
+  poudriere_conf_pkg_repo_signing_key: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
   poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/poudriere-sk.crt"
 
 Optionally, change the paths and names of the files, e.g. ::
 
-  poudriere_cert_CN: build.example.com
-  poudriere_conf_PKG_REPO_SIGNING_KEY: "{{ poudriere_ssl_private_dir }}/{{ poudriere_cert_CN }}-sk.key"
-  poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/{{ poudriere_cert_CN }}-sk.crt"
+  poudriere_cert_cn: build.example.com
+  poudriere_conf_pkg_repo_signing_key: "{{ poudriere_ssl_private_dir }}/{{ poudriere_cert_cn }}-sk.key"
+  poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/{{ poudriere_cert_cn }}-sk.crt"
 
 Generate the signing key ::
 

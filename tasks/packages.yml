@@ -1,6 +1,6 @@
 ---
 
-# Poudrere packages
+# Poudriere packages
 - name: "packages: Install poudriere packages"
   community.general.pkgng:
     name: "{{ poudriere_packages }}"

@@ -12,7 +12,7 @@ Synopsis: Template make.conf.
 Description of the template.
 
 
-[`templates/make.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/templates/make.conf.j2>`_]
+[`templates/make.conf.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/make.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -32,7 +32,7 @@ Synopsis: Template poudriere.conf.
 Description of the template.
 
 
-[`templates/poudriere.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/templates/poudriere.conf.j2>`_]
+[`templates/poudriere.conf.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/poudriere.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -52,7 +52,7 @@ Synopsis: Template poudriere.conf2.
 Description of the template.
 
 
-[`templates/poudriere.conf2.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/templates/poudriere.conf2.j2>`_]
+[`templates/poudriere.conf2.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/poudriere.conf2.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -72,7 +72,7 @@ Synopsis: Template poudriere.pkglist.
 Description of the template.
 
 
-[`templates/poudriere.pkglist.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/templates/poudriere.pkglist.j2>`_]
+[`templates/poudriere.pkglist.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/poudriere.pkglist.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
