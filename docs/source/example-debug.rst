@@ -67,7 +67,7 @@
      - poudriere_conf_PKG_REPO_SIGNING_KEY [/usr/local/etc/ssl/private/build.example.com-sk.key]
      - ''
      - poudriere_cert [False]
-     - poudriere_cert_CN [build.example.com]
+     - poudriere_cert_cn [build.example.com]
      - poudriere_cert_key [/usr/local/etc/ssl/private/build.example.com.key]
      - poudriere_cert_csr [/usr/local/etc/ssl/csr/build.example.com.csr]
      - poudriere_cert_path [/usr/local/etc/ssl/certs/build.example.com.crt]
@@ -82,20 +82,20 @@
      - '    mode: ''0755'''
      - '    owner: root'
      - ''
-     - poudriere_conf_ZPOOL [zroot]
-     - poudriere_conf_NO_ZFS [no]
-     - poudriere_conf_ZROOTFS [/poudriere]
-     - poudriere_conf_FREEBSD_HOST [https://download.freebsd.org]
-     - poudriere_conf_RESOLV_CONF [/etc/resolv.conf]
-     - poudriere_conf_BASEFS [/usr/local/poudriere]
-     - poudriere_conf_SVN_HOST [svn.FreeBSD.org]
-     - poudriere_conf_POUDRIERE_DATA [/usr/local/poudriere/data]
-     - poudriere_conf_USE_PORTLINT [no]
-     - poudriere_conf_USE_TMPFS [no]
-     - poudriere_conf_DISTFILES_CACHE [/usr/ports/distfiles]
-     - poudriere_conf_URL_BASE [http://build.example.com/]
-     - poudriere_conf_CHECK_CHANGED_OPTIONS [verbose]
-     - poudriere_conf_CHECK_CHANGED_DEPS [yes]
+     - poudriere_conf_zpool [zroot]
+     - poudriere_conf_no_zfs [no]
+     - poudriere_conf_zrootfs [/poudriere]
+     - poudriere_conf_freebsd_host [https://download.freebsd.org]
+     - poudriere_conf_resolv_conf [/etc/resolv.conf]
+     - poudriere_conf_basefs [/usr/local/poudriere]
+     - poudriere_conf_svn_host [svn.FreeBSD.org]
+     - poudriere_conf_poudriere_data [/usr/local/poudriere/data]
+     - poudriere_conf_use_portlint [no]
+     - poudriere_conf_use_tmpfs [no]
+     - poudriere_conf_distfiles_cache [/usr/ports/distfiles]
+     - poudriere_conf_url_base [http://build.example.com/]
+     - poudriere_conf_check_changed_options [verbose]
+     - poudriere_conf_check_changed_deps [yes]
      - poudriere_conf_data
      - 'BASEFS: /usr/local/poudriere'
      - 'BUILDER_HOSTNAME: build'

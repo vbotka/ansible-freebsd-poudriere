@@ -12,7 +12,7 @@ Synopsis: Main task.
 Import tasks if enabled.
 
 
-[`tasks/main.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/main.yml>`_]
+[`tasks/main.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/main.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -36,7 +36,7 @@ Synopsis: Configure debug.
 Description of the task.
 
 
-[`tasks/debug.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/debug.yml>`_]
+[`tasks/debug.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/debug.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -60,7 +60,7 @@ Synopsis: Configure packages.
 Description of the task.
 
 
-[`tasks/packages.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/packages.yml>`_]
+[`tasks/packages.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/packages.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -84,7 +84,7 @@ Synopsis: Configure dirs.
 Description of the task.
 
 
-[`tasks/dirs.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/dirs.yml>`_]
+[`tasks/dirs.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/dirs.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -108,7 +108,7 @@ Synopsis: Configure key.
 Description of the task.
 
 
-[`tasks/key.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/key.yml>`_]
+[`tasks/key.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/key.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -132,7 +132,7 @@ Synopsis: Configure cert.
 Description of the task.
 
 
-[`tasks/cert.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/cert.yml>`_]
+[`tasks/cert.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/cert.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -156,7 +156,7 @@ Synopsis: Configure conf.
 Description of the task.
 
 
-[`tasks/conf.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/conf.yml>`_]
+[`tasks/conf.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/conf.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -180,7 +180,7 @@ Synopsis: Configure pkglists.
 Description of the task.
 
 
-[`tasks/pkglists.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/pkglists.yml>`_]
+[`tasks/pkglists.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglists.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -204,7 +204,7 @@ Synopsis: Configure pkglist.
 Description of the task.
 
 
-[`tasks/pkglist.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/pkglist.yml>`_]
+[`tasks/pkglist.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglist.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -228,7 +228,7 @@ Synopsis: Configure options.
 Description of the task.
 
 
-[`tasks/options.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/options.yml>`_]
+[`tasks/options.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/options.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -252,7 +252,7 @@ Synopsis: Configure make.
 Description of the task.
 
 
-[`tasks/make.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/__BRANCH__/tasks/make.yml>`_]
+[`tasks/make.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/make.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
