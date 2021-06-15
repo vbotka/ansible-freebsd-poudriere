@@ -1,5 +1,5 @@
 ---
-# vars for freebsd_poudriere
+# vars samples for freebsd_poudriere
 
 # poudriere_install: true
 # poudriere_debug: false
