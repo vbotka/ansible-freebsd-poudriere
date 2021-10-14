@@ -1,6 +1,6 @@
 ---
 
-- name: "Poudriere Debug"
+- name: Poudriere Debug
   vars:
     msg: |-
          ansible_architecture [{{ ansible_architecture }}]
@@ -88,7 +88,7 @@
          {{ poudriere_make_conf|to_nice_yaml }}
 
   ansible.builtin.debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ '{}'.format(msg) }}"
 
 # EOF
 ...

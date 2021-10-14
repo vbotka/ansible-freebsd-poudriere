@@ -24,7 +24,7 @@
     type: "{{ poudriere_key_type }}"
     unsafe_writes: "{{ poudriere_key_unsafe_writes|default(omit) }}"
 - name: "key: Generate signing crt {{ poudriere_key_crt }}"
-  command:
+  ansible.builtin.command:
     cmd: "{{ poudriere_key_cmd }}"
     creates: "{{ poudriere_key_crt }}"
 
