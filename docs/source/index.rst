@@ -15,6 +15,7 @@ feedback and report issues <https://github.com/vbotka/ansible-freebsd-poudriere/
    qsg
    guide
    annotation
+   collection-bsd
    copyright
    legalnotice
 

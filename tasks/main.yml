@@ -4,7 +4,7 @@
 - name: debug.yml
   ansible.builtin.import_tasks: debug.yml
   when: poudriere_debug|bool
-  tags: [poudriere_debug, always]
+  tags: poudriere_debug
 
 - name: packages.yml
   ansible.builtin.import_tasks: packages.yml
