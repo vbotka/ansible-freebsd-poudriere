@@ -1,3 +1,5 @@
+.. _as_tamplates:
+
 Templates
 =========
 
@@ -21,6 +23,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_poudriere.conf.j2:
 
 poudriere.conf.j2
@@ -40,6 +45,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_poudriere.conf2.j2:
 
@@ -61,6 +69,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_poudriere.pkglist.j2:
 
 poudriere.pkglist.j2
@@ -80,4 +91,7 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
