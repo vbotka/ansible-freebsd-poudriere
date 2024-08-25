@@ -40,7 +40,7 @@ Review the defaults and examples in vars.
 shell> ansible build.example.com -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
 ```
 
-* Install role and the collection
+* Install the role and the collection
 
 ```bash
 shell> ansible-galaxy role install vbotka.freebsd_poudriere
@@ -53,9 +53,9 @@ shell> ansible-galaxy collection install community.crypto
 shell> ansible-galaxy collection install community.general
 ```
 
-* Fit variables
+* Fit variables to your needs.
 
-* Create and run the playbook
+* Create the playbook
 
 ```yaml
 shell> cat freebsd-poudriere.yml
@@ -64,40 +64,60 @@ shell> cat freebsd-poudriere.yml
     - vbotka.freebsd_poudriere
 ```
 
+* Check syntax
+
+```bash
+shell> ansible-playbook freebsd-poudriere.yml --syntax-check
+```
+
+* Display variables
+
+```bash
+shell> ansible-playbook freebsd-poudriere.yml -t poudriere_debug -e poudriere_debug=true
+```
+
+* Install packages
+
+```bash
+shell> ansible-playbook freebsd-poudriere.yml -t poudriere_pkg -e poudriere_install=true
+```
+
+* Run the playbook and configure poudriere
+
 ```bash
 shell> ansible-playbook freebsd-poudriere.yml
 ```
 
 
-## Example: Build packages for amd64 in 14.0-RELEASE
+## Example: Build 14.1-RELEASE packages for amd64
 
 * ssh to the host build.example.com
 
 * Optionally copy existing PORT_DBDIR to the directory */usr/local/etc/poudriere.d/options* and
   review the options.
 
-* Create the jail *14amd64* with the required FreeBSD tree *14.0-RELEASE*
+* Create the jail *14Ramd64* from the FreeBSD *14.1-RELEASE* tree
 
 ```bash
-shell> poudriere jail -c -j 14amd64 -v 14.0-RELEASE
+shell> poudriere jail -c -j 141Ramd64 -v 14.1-RELEASE -a amd64
 ```
 
-* Create ports tree *local*
+* Create ports
 
 ```bash
-shell> poudriere ports -c -p local
+shell> poudriere ports -c -m git+https -B main
 ```
 
-* Review the lists of the packages. See tasks/pkglist.yml (default: {{ poudriere_pkglist_dir }}_{{ pkg_arch }})
+* Take a look at the packages lists. See tasks/pkglist.yml (default: {{ poudriere_pkglist_dir }}/{{ pkg_arch }})
 
 ```bash
-shell: ls -la /usr/local/etc/poudriere.d/pkglist_amd64
+shell: ls -la /usr/local/etc/poudriere.d/pkglist/amd64
 ```
 
-  For example
+  For example,
 
-```
-shell> cat /usr/local/etc/poudriere.d/pkglist_amd64/minimal
+```bash
+shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 shells/bash
 devel/git
 archivers/gtar
@@ -112,19 +132,13 @@ ftp/wget
   step 2. See Handbook: Building Packages with poudriere. Using Sets
 
 ```bash
-shell> poudriere options -j 14amd64 -p local -z setname -f pkglist
+shell> poudriere options -j 141Ramd64 -z <setname> -f pkglist
 ```
 
-* Build the set of packages *setname* listed in the file /usr/local/etc/poudriere.d/pkglist_amd64/minimal
+* Build the set of packages *setname* listed in the file /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
 ```bash
-shell> poudriere bulk -j 14amd64 -p local -z setname -f /usr/local/etc/poudriere.d/pkglist_amd64/minimal
-```
-
-* ,or build the set of packages *setname* listed in in the files /usr/local/etc/poudriere.d/pkglist_amd64/*
-
-```bash
-shell> for i in /usr/local/etc/poudriere.d/pkglist_amd64/*; do poudriere bulk -j 14amd64 -p local -z setname -f $i; done
+shell> poudriere bulk -j 141Ramd64 -z devel -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 ```
 
 * Provide the clients with the certificate. (default poudriere_cert_path)
@@ -147,6 +161,17 @@ shell> for i in /usr/local/etc/poudriere.d/pkglist_amd64/*; do poudriere bulk -j
 
 * Alternatively set *freebsd_use_packages=true* and use [Ansible role freebsd_ports](https://galaxy.ansible.com/vbotka/freebsd_ports/) to install the packages using
   Ansible module *community.general.portinstall*.
+
+
+## Ansible lint
+
+Use the configuration file *.ansible-lint.local* when running
+*ansible-lint*. Some rules might be disabled and some warnings might
+be ignored. See the notes in the configuration file.
+
+```bash
+shell> ansible-lint -c .ansible-lint.local
+```
 
 
 ## References

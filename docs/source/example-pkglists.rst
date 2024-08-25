@@ -1,68 +1,74 @@
 .. code-block:: sh
-   :emphasize-lines: 1,22-23,37-39
+   :emphasize-lines: 1,17-19,21-23
    :linenos:
 
    shell> ansible-playbook pb.yml -t poudriere_pkglists
 
-   PLAY [build.example.com] **********************************************************************************************
+   PLAY [build.example.com] ********************************************************************************************
 
-   TASK [Gathering Facts] ************************************************************************************************
+   TASK [Gathering Facts] **********************************************************************************************
    ok: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : Poudriere Debug] *********************************************************************
+   TASK [vbotka.freebsd_poudriere : Pkglists: Create list of packages] *************************************************
+   included: /home/admin/.ansible/roles/vbotka.freebsd_poudriere/tasks/pkglist.yml for build.example.com => (item=amd64)
+
+   TASK [vbotka.freebsd_poudriere : Pkglist: Set variables for amd64] **************************************************
+   ok: [build.example.com]
+
+   TASK [vbotka.freebsd_poudriere : Pkglist: Debug variables poudriere_debug=False] ************************************
    skipping: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : pkglists: Create list of packages] ***************************************************
-   included: /export/home/vlado.config/.ansible/roles/vbotka.freebsd_poudriere/tasks/pkglist.yml for build.example.com
+   TASK [vbotka.freebsd_poudriere : Pkglist: Create directories] *******************************************************
+   changed: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist/amd64)
+   changed: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist/amd64.enabled)
 
-   TASK [vbotka.freebsd_poudriere : conf: Create list _pkg_dict] *********************************************************
-   ok: [build.example.com] => (item=minimal)
-   ok: [build.example.com] => (item=ansible)
-
-   TASK [vbotka.freebsd_poudriere : conf: Debug _pkg_dict] ***************************************************************
-   skipping: [build.example.com]
-
-   TASK [vbotka.freebsd_poudriere : conf: Create directories /usr/local/etc/poudriere.d/pkglist_amd64] *******************
-   changed: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist_amd64)
-   changed: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist_amd64.disabled)
-
-   TASK [vbotka.freebsd_poudriere : conf: Remove lists of packages from /usr/local/etc/poudriere.d/pkglist_amd64] ********
-   skipping: [build.example.com] => (item=minimal) 
-   skipping: [build.example.com] => (item=ansible) 
-
-   TASK [vbotka.freebsd_poudriere : conf: Create lists of packages in /usr/local/etc/poudriere.d/pkglist_amd64.disabled] *
-   skipping: [build.example.com] => (item=minimal) 
-   skipping: [build.example.com] => (item=ansible) 
-
-   TASK [vbotka.freebsd_poudriere : conf: Remove lists of packages from /usr/local/etc/poudriere.d/pkglist_amd64.disabled]
-   ok: [build.example.com] => (item=minimal)
-   ok: [build.example.com] => (item=ansible)
-
-   TASK [vbotka.freebsd_poudriere : conf: Create lists of packages in /usr/local/etc/poudriere.d/pkglist_amd64] **********
+   TASK [vbotka.freebsd_poudriere : Pkglist: Create lists of packages in /usr/local/etc/poudriere.d/pkglist/amd64] *****
    changed: [build.example.com] => (item=minimal)
    changed: [build.example.com] => (item=ansible)
 
-   PLAY RECAP ************************************************************************************************************
-   build.example.com: ok=6    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+   TASK [vbotka.freebsd_poudriere : Pkglist: Remove not enabled lists from /usr/local/etc/poudriere.d/pkglist/amd64.enabled] ***
+   ok: [build.example.com] => (item=minimal)
+   ok: [build.example.com] => (item=ansible)
+
+   TASK [vbotka.freebsd_poudriere : Pkglist: Link enabled lists to /usr/local/etc/poudriere.d/pkglist/amd64.enabled] ***
+   skipping: [build.example.com]
+
+   TASK [vbotka.freebsd_poudriere : Pkglist: Create lists of all packages] *********************************************
+   skipping: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist/amd64/All) 
+   skipping: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist/amd64.enabled/All) 
+   skipping: [build.example.com]
+
+   PLAY RECAP **********************************************************************************************************
+   build.example.com: ok=6    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
 
 
 .. code-block:: sh
-   :emphasize-lines: 1,8,13
+   :emphasize-lines: 1
    :linenos:
 
-   shell> tree /usr/local/etc/poudriere.d/
-   /usr/local/etc/poudriere.d/
-   |-- pkglist_amd64
-   |   |-- ansible
-   |   `-- minimal
-   `-- pkglist_amd64.disabled
+   shell> tree /usr/local/etc/poudriere.d/pkglist/
+   /usr/local/etc/poudriere.d/pkglist/
+   ├── amd64
+   │   ├── ansible
+   │   └── minimal
+   └── amd64.enabled
 
-   shell> cat /usr/local/etc/poudriere.d/pkglist_amd64/ansible 
+
+.. code-block:: sh
+   :emphasize-lines: 1
+   :linenos:
+
+   shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/ansible
    sysutils/ansible
    sysutils/py-ansible-lint
    sysutils/py-ansible-runner
 
-   shell> cat /usr/local/etc/poudriere.d/pkglist_amd64/minimal 
+
+.. code-block:: sh
+   :emphasize-lines: 1
+   :linenos:
+
+   shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/minimal
    shells/bash
    devel/git
    archivers/gtar

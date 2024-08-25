@@ -1,0 +1,19 @@
+---
+
+task_key_synopsis: |2
+  Create signing key.
+
+task_key_description: |2
+  By default enabled ``poudriere_key: true``
+
+task_key_lines: 2
+
+task_key_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_key_note: []
+task_key_hint: []
+task_key_warning: []

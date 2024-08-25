@@ -1,5 +1,5 @@
 debug.yml
-packages.yml
+pkg.yml
 dirs.yml
 key.yml
 cert.yml

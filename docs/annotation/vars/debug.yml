@@ -1,0 +1,19 @@
+---
+
+task_debug_synopsis: |2
+  Display values of the variables.
+
+task_debug_description: |2
+  By default disabled ``poudriere_debug: false``
+
+task_debug_lines: 2
+
+task_debug_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_debug_note: []
+task_debug_hint: []
+task_debug_warning: []

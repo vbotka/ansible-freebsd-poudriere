@@ -1,94 +1,89 @@
 ---
+# Display values of the variables.
 
 - name: Poudriere Debug
   vars:
     msg: |-
-         ansible_architecture [{{ ansible_architecture }}]
-         ansible_os_family [{{ ansible_os_family }}]
-         ansible_distribution [{{ ansible_distribution }}]
-         ansible_distribution_major_version [{{ ansible_distribution_major_version }}]
-         ansible_distribution_version [{{ ansible_distribution_version }}]
-         ansible_distribution_release [{{ ansible_distribution_release }}]
-         ansible_python_version [{{ ansible_python_version }}]
+      poudriere_role_version: {{ poudriere_role_version }}
+      ansible_architecture: {{ ansible_architecture }}
+      ansible_os_family: {{ ansible_os_family }}
+      ansible_distribution: {{ ansible_distribution }}
+      ansible_distribution_major_version: {{ ansible_distribution_major_version }}
+      ansible_distribution_version: {{ ansible_distribution_version }}
+      ansible_distribution_release: {{ ansible_distribution_release }}
+      ansible_python_version: {{ ansible_python_version }}
 
-         freebsd_install_method [{{ freebsd_install_method }}]
-         freebsd_use_packages [{{ freebsd_use_packages }}]
-         freebsd_install_retries [{{ freebsd_install_retries }}]
-         freebsd_install_delay [{{ freebsd_install_delay }}]
+      freebsd_install_method: {{ freebsd_install_method }}
+      freebsd_use_packages: {{ freebsd_use_packages }}
+      freebsd_install_retries: {{ freebsd_install_retries }}
+      freebsd_install_delay: {{ freebsd_install_delay }}
 
-         poudriere_install [{{ poudriere_install }}]
-         poudriere_dirs [{{ poudriere_dirs }}]
-         poudriere_key [{{ poudriere_key }}]
-         poudriere_cert [{{ poudriere_cert }}]
-         poudriere_conf [{{ poudriere_conf }}]
-         poudriere_pkglists [{{ poudriere_pkglists }}]
-         poudriere_options [{{ poudriere_options }}]
-         poudriere_make [{{ poudriere_make }}]
-         poudriere_backup_conf [{{ poudriere_backup_conf|bool }}]
+      poudriere_install: {{ poudriere_install }}
+      poudriere_dirs: {{ poudriere_dirs }}
+      poudriere_key: {{ poudriere_key }}
+      poudriere_cert: {{ poudriere_cert }}
+      poudriere_conf: {{ poudriere_conf }}
+      poudriere_pkglists: {{ poudriere_pkglists }}
+      poudriere_options: {{ poudriere_options }}
+      poudriere_make: {{ poudriere_make }}
 
-         poudriere_packages
-         {{ poudriere_packages|to_nice_yaml }}
-         poudriere_packages_cert
-         {{ poudriere_packages_cert|to_nice_yaml }}
-         poudriere_owner [{{ poudriere_owner }}]
-         poudriere_group [{{ poudriere_group }}]
-         poudriere_mode [{{ poudriere_mode }}]
-         poudriere_mode_dir [{{ poudriere_mode_dir }}]
-         poudriere_dirs [{{ poudriere_dirs }}]
-         poudriere_ssl_dir [{{ poudriere_ssl_dir }}]
-         poudriere_ssl_dir_mode [{{ poudriere_ssl_dir_mode }}]
-         poudriere_ssl_private_dir [{{ poudriere_ssl_private_dir }}]
-         poudriere_ssl_private_dir_mode [{{ poudriere_ssl_private_dir_mode }}]
-         poudriere_ssl_private_key_mode [{{ poudriere_ssl_private_key_mode }}]
-         poudriere_ssl_dirs
-         {{ poudriere_ssl_dirs|to_nice_yaml }}
+      poudriere_backup_conf: {{ poudriere_backup_conf | bool }}
 
-         poudriere_key [{{ poudriere_key }}]
-         poudriere_key_size [{{ poudriere_key_size }}]
-         poudriere_key_type [{{ poudriere_key_type }}]
-         poudriere_key_cmd [{{ poudriere_key_cmd }}]
-         poudriere_key_crt [{{ poudriere_key_crt }}]
-         poudriere_conf_pkg_repo_signing_key [{{ poudriere_conf_pkg_repo_signing_key }}]
+      poudriere_packages:
+        {{ poudriere_packages | to_nice_yaml(indent=2) | indent(2) }}
+      poudriere_packages_cert:
+        {{ poudriere_packages_cert | to_nice_yaml(indent=2) | indent(2) }}
+      poudriere_owner: {{ poudriere_owner }}
+      poudriere_group: {{ poudriere_group }}
+      poudriere_mode: {{ poudriere_mode }}
+      poudriere_mode_dir: {{ poudriere_mode_dir }}
+      poudriere_ssl_dir: {{ poudriere_ssl_dir }}
+      poudriere_ssl_dir_mode: {{ poudriere_ssl_dir_mode }}
+      poudriere_ssl_private_dir: {{ poudriere_ssl_private_dir }}
+      poudriere_ssl_private_dir_mode: {{ poudriere_ssl_private_dir_mode }}
+      poudriere_ssl_private_key_mode: {{ poudriere_ssl_private_key_mode }}
+      poudriere_ssl_dirs:
+        {{ poudriere_ssl_dirs | to_nice_yaml(indent=2) | indent(2) }}
+      poudriere_key_size: {{ poudriere_key_size }}
+      poudriere_key_type: {{ poudriere_key_type }}
+      poudriere_key_cmd: {{ poudriere_key_cmd }}
+      poudriere_key_crt: {{ poudriere_key_crt }}
+      poudriere_conf_pkg_repo_signing_key: {{ poudriere_conf_pkg_repo_signing_key }}
 
-         poudriere_cert [{{ poudriere_cert }}]
-         poudriere_cert_cn [{{ poudriere_cert_cn }}]
-         poudriere_cert_key [{{ poudriere_cert_key }}]
-         poudriere_cert_csr [{{ poudriere_cert_csr }}]
-         poudriere_cert_path [{{ poudriere_cert_path }}]
+      poudriere_cert_cn: {{ poudriere_cert_cn }}
+      poudriere_cert_key: {{ poudriere_cert_key }}
+      poudriere_cert_csr: {{ poudriere_cert_csr }}
+      poudriere_cert_path: {{ poudriere_cert_path }}
 
-         poudriere_conf [{{ poudriere_conf }}]
-         poudriere_conf_file [{{ poudriere_conf_file }}]
-         poudriere_conf_template [{{ poudriere_conf_template }}]
-         poudriere_conf_dir [{{ poudriere_conf_dir }}]
-         poudriere_conf_dirs
-         {{ poudriere_conf_dirs|to_nice_yaml }}
-         poudriere_conf_zpool [{{ poudriere_conf_zpool }}]
-         poudriere_conf_no_zfs [{{ poudriere_conf_no_zfs }}]
-         poudriere_conf_zrootfs [{{ poudriere_conf_zrootfs }}]
-         poudriere_conf_freebsd_host [{{ poudriere_conf_freebsd_host }}]
-         poudriere_conf_resolv_conf [{{ poudriere_conf_resolv_conf }}]
-         poudriere_conf_basefs [{{ poudriere_conf_basefs }}]
-         poudriere_conf_svn_host [{{ poudriere_conf_svn_host }}]
-         poudriere_conf_poudriere_data [{{ poudriere_conf_poudriere_data }}]
-         poudriere_conf_use_portlint [{{ poudriere_conf_use_portlint }}]
-         poudriere_conf_use_tmpfs [{{ poudriere_conf_use_tmpfs }}]
-         poudriere_conf_distfiles_cache [{{ poudriere_conf_distfiles_cache }}]
-         poudriere_conf_url_base [{{ poudriere_conf_url_base }}]
-         poudriere_conf_check_changed_options [{{ poudriere_conf_check_changed_options }}]
-         poudriere_conf_check_changed_deps [{{ poudriere_conf_check_changed_deps }}]
-         poudriere_conf_data
-         {{ poudriere_conf_data|to_nice_yaml }}
-         poudriere_pkglists [{{ poudriere_pkglists }}]
-         poudriere_pkglist_dir [{{ poudriere_pkglist_dir }}]
-         poudriere_pkg_arch {{ poudriere_pkg_arch|to_yaml }}
-         poudriere_options [{{ poudriere_options }}]
-         poudriere_make [{{ poudriere_make }}]
-         poudriere_make_file [{{ poudriere_make_file }}]
-         poudriere_make_conf
-         {{ poudriere_make_conf|to_nice_yaml }}
+      poudriere_conf_file: {{ poudriere_conf_file }}
+      poudriere_conf_template: {{ poudriere_conf_template }}
+      poudriere_conf_dir: {{ poudriere_conf_dir }}
+      poudriere_conf_dirs:
+        {{ poudriere_conf_dirs | to_nice_yaml(indent=2) | indent(2) }}
+      poudriere_conf_zpool: {{ poudriere_conf_zpool }}
+      poudriere_conf_no_zfs: {{ poudriere_conf_no_zfs }}
+      poudriere_conf_zrootfs: {{ poudriere_conf_zrootfs }}
+      poudriere_conf_freebsd_host: {{ poudriere_conf_freebsd_host }}
+      poudriere_conf_resolv_conf: {{ poudriere_conf_resolv_conf }}
+      poudriere_conf_basefs: {{ poudriere_conf_basefs }}
+      poudriere_conf_svn_host: {{ poudriere_conf_svn_host }}
+      poudriere_conf_poudriere_data: {{ poudriere_conf_poudriere_data }}
+      poudriere_conf_use_portlint: {{ poudriere_conf_use_portlint }}
+      poudriere_conf_use_tmpfs: {{ poudriere_conf_use_tmpfs }}
+      poudriere_conf_distfiles_cache: {{ poudriere_conf_distfiles_cache }}
+      poudriere_conf_url_base: {{ poudriere_conf_url_base }}
+      poudriere_conf_check_changed_options: {{ poudriere_conf_check_changed_options }}
+      poudriere_conf_check_changed_deps: {{ poudriere_conf_check_changed_deps }}
+      poudriere_conf_data:
+        {{ poudriere_conf_data | to_nice_yaml(indent=2) | indent(2) }}
+      poudriere_pkglist_dir: {{ poudriere_pkglist_dir }}
+      poudriere_pkglist_all: {{ poudriere_pkglist_all }}
+      poudriere_pkg_arch: {{ poudriere_pkg_arch | to_yaml }}
+      poudriere_make_file: {{ poudriere_make_file }}
+      poudriere_make_conf:
+        {{ poudriere_make_conf | to_nice_yaml(indent=2) | indent(2) }}
 
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 
 # EOF
-...

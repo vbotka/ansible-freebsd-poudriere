@@ -1,7 +1,7 @@
 .. _ug_build_12arm7:
 
-Build armv7 packages
-^^^^^^^^^^^^^^^^^^^^
+Build 12.2. armv7 packages (obsolete)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Poudriere requires `QEMU <https://www.qemu.org/>`_ to cross-building ports for arm on amd64. Install
 the package manually or use Ansible role `vbotka.freebsd_postinstall <https://ansible-freebsd-postinstall.readthedocs.io/en/latest/index.html>`_ ::
@@ -63,7 +63,7 @@ Make sure the image is mounted ::
 
 http://build.example.com/logs/bulk/12arm7-local-devel/latest/build.html
 
-.. image:: poudriere-log-bulk-minimal-arm7.png
+.. image:: poudriere-log-bulk-minimal-12-arm7.png
     :width: 100%
     :align: center
     :alt: alternate text

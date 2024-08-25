@@ -1,19 +1,19 @@
 Create SSL directories
 ^^^^^^^^^^^^^^^^^^^^^^
 
-By default, the creation of the SSL directories is enabled ::
+The creation of the SSL directories is enabled by default ::
 
-  poudriere_dirs: true
-  poudriere_ssl_dir: /usr/local/etc/ssl
-  poudriere_ssl_dirs:
-    - "{{ poudriere_ssl_dir }}"
-    - "{{ poudriere_ssl_dir }}/crt"
-    - "{{ poudriere_ssl_dir }}/csr"
-  poudriere_ssl_private_dir: /usr/local/etc/ssl/private
+   poudriere_dirs: true
+   poudriere_ssl_dir: /usr/local/etc/ssl
+   poudriere_ssl_dirs:
+     - "{{ poudriere_ssl_dir }}"
+     - "{{ poudriere_ssl_dir }}/crt"
+     - "{{ poudriere_ssl_dir }}/csr"
+   poudriere_ssl_private_dir: /usr/local/etc/ssl/private
 
-Create the directories ::
+Fit the variables to your needs and create the directories ::
 
-  shell> ansible-playbook pb.yml -t poudriere_dirs
+   shell> ansible-playbook pb.yml -t poudriere_dirs
 
 .. seealso::
 

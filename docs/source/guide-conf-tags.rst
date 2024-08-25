@@ -3,29 +3,28 @@
 Tags
 ----
 
-The :index:`tags` provide the user with a very useful tool to run selected tasks of the role. To see
-what tags are available list the tags of the role with the command
+The :index:`tags` provide the user with a very useful tool to run
+selected tasks of the role. To see what tags are available list them
+using the command
 
 .. include:: tags-list.rst
 
-For example, display the list of the variables and their values with the tag ``poudriere_debug`` (when the
-debug is enabled ``poudriere_debug: true``)
+For example:
 
-.. code-block:: console
-   :emphasize-lines: 1
+* Display the variables and their values usisng the tag
+  ``poudriere_debug`` (enable debug ``poudriere_debug: true``) ::
 
-    shell> ansible-playbook pb.yml -t poudriere_debug
+   shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
 
-See what packages will be installed
+* See what packages will be installed (enable installation
+  ``poudriere_install: true``) ::
 
-.. code-block:: console
-   :emphasize-lines: 1
+   shell> ansible-playbook pb.yml -t poudriere_pkg -e poudriere_install=true --check
 
-    shell> ansible-playbook pb.yml -t poudriere_packages --check
+* Install packages and exit the play ::
 
-Install packages and exit the play
+   shell> ansible-playbook pb.yml -t poudriere_pkg -e poudriere_install=true
 
-.. code-block:: console
-   :emphasize-lines: 1
+* See what packages lists will be created ::
 
-    shell> ansible-playbook pb.yml -t poudriere_packages
+   shell> ansible-playbook pb.yml -t poudriere_pkglists --check --diff

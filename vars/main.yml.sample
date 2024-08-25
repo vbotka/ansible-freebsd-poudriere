@@ -8,7 +8,7 @@
 # freebsd_install_method: packages
 
 # poudriere_conf_URL_BASE: 10.1.0.17
-# poudriere_cert_CN: build.d3.example.com
+# poudriere_cert_cn: build.d3.example.com
 # poudriere_conf_NO_ZFS: "no"
 # poudriere_conf_ZPOOL: zroot
 # poudriere_conf_USE_TMPFS: "no"
@@ -64,14 +64,14 @@
 #       - sysutils/py-ansible-runner
 
 # pkglist_enable_amd64:
-#   apcups: false
-#   linux: false
-#   devel: false
-#   joomla: false
-#   yazvs: false
-#   nginx: false
-#   docker: false
-#   snmpd: false
+#   - apcups
+#   - linux
+#   - devel
+#   - joomla
+#   - yazvs
+#   - nginx
+#   - docker
+#   - snmpd
 
 # pkglist_enable_i386: "{{ pkglist_enable_amd64 }}"
 

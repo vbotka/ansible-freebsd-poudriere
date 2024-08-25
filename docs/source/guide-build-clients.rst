@@ -1,4 +1,4 @@
-.. _ug_client:
+.. _ug_build_client:
 
 Configure clients
 -----------------

@@ -8,5 +8,4 @@ User's guide
 
    guide-intro
    guide-conf
-   guide-poudriere
-
+   guide-build

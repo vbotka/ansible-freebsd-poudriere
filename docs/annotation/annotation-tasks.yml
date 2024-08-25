@@ -16,24 +16,28 @@ mytasks:
     link: debug.yml
     path: tasks/debug.yml
     synopsis: |
-      Configure debug.
+      Display values of the variables.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default disabled ``poudriere_debug: false``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
 
-  - file: packages.yml
-    link: packages.yml
-    path: tasks/packages.yml
+  - file: pkg.yml
+    link: pkg.yml
+    path: tasks/pkg.yml
     synopsis: |
-      Configure packages.
+      Install packages or ports.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default enabled ``poudriere_install: true``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -42,11 +46,13 @@ mytasks:
     link: dirs.yml
     path: tasks/dirs.yml
     synopsis: |
-      Configure dirs.
+      Create SSL directories.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default enabled ``poudriere_dirs: true``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -55,11 +61,13 @@ mytasks:
     link: key.yml
     path: tasks/key.yml
     synopsis: |
-      Configure key.
+      Create signing key.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default enabled ``poudriere_key: true``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -68,11 +76,13 @@ mytasks:
     link: cert.yml
     path: tasks/cert.yml
     synopsis: |
-      Configure cert.
+      Generate SSL certificate for the web server.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default disabled ``poudriere_cert: false``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -81,11 +91,13 @@ mytasks:
     link: conf.yml
     path: tasks/conf.yml
     synopsis: |
-      Configure conf.
+      Configure Poudriere.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default enabled ``poudriere_conf: true``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -94,11 +106,13 @@ mytasks:
     link: pkglists.yml
     path: tasks/pkglists.yml
     synopsis: |
-      Configure pkglists.
+      Create packages lists.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default enabled ``poudriere_pkglists: true``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -107,11 +121,17 @@ mytasks:
     link: pkglist.yml
     path: tasks/pkglist.yml
     synopsis: |
-      Configure pkglist.
+      Maintain packages lists for a particular architecture.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      These lists will be used by *poudriere*. Quoting *man poudriere*: *"Launch the bulk build. At minimum the jail and list of packages to build must be specified."*
+
+      For example, ::
+
+         shell> poudriere bulk -j 141Ramd64 -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -120,11 +140,13 @@ mytasks:
     link: options.yml
     path: tasks/options.yml
     synopsis: |
-      Configure options.
+      Create options file for each jail
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      Not implemented yes. Disabled ``poudriere_options: false``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []
@@ -133,11 +155,13 @@ mytasks:
     link: make.yml
     path: tasks/make.yml
     synopsis: |
-      Configure make.
+      Customize make.
+
     description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
+      By default enabled ``poudriere_make: true``
+
+    lines: 2
+    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
     notes: []
     hints: []
     warnings: []

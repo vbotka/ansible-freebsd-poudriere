@@ -1,0 +1,23 @@
+---
+
+task_pkglist_synopsis: |2
+  Maintain packages lists for a particular architecture.
+
+task_pkglist_description: |2
+  These lists will be used by *poudriere*. Quoting *man poudriere*: *"Launch the bulk build. At minimum the jail and list of packages to build must be specified."*
+
+  For example, ::
+
+     shell> poudriere bulk -j 141Ramd64 -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+
+task_pkglist_lines: 2
+
+task_pkglist_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_pkglist_note: []
+task_pkglist_hint: []
+task_pkglist_warning: []

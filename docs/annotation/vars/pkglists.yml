@@ -1,0 +1,19 @@
+---
+
+task_pkglists_synopsis: |2
+  Create packages lists.
+
+task_pkglists_description: |2
+  By default enabled ``poudriere_pkglists: true``
+
+task_pkglists_lines: 2
+
+task_pkglists_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_pkglists_note: []
+task_pkglists_hint: []
+task_pkglists_warning: []

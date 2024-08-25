@@ -1,13 +1,14 @@
 ---
+# Customize make.
 
-- name: "make: Configure {{ poudriere_make_file }}"
+- name: "Make: Configure {{ poudriere_make_file }}"
   ansible.builtin.template:
     src: make.conf.j2
     dest: "{{ poudriere_make_file }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
-    backup: "{{ poudriere_backup_conf|bool }}"
+    backup: "{{ poudriere_backup_conf | bool }}"
 
 # See 10.5.10. Providing a Custom make.conf File
 # https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html
@@ -17,4 +18,3 @@
 # /usr/local/etc/poudriere.d/12arm7-make.conf
 
 # EOF
-...

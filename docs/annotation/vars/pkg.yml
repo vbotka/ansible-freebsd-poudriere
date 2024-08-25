@@ -1,0 +1,19 @@
+---
+
+task_pkg_synopsis: |2
+  Install packages or ports.
+
+task_pkg_description: |2
+  By default enabled ``poudriere_install: true``
+
+task_pkg_lines: 2
+
+task_pkg_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_pkg_note: []
+task_pkg_hint: []
+task_pkg_warning: []

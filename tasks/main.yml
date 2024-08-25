@@ -1,50 +1,49 @@
 ---
 # tasks freebsd_poudriere
 
-- name: debug.yml
+- name: Import debug.yml
   ansible.builtin.import_tasks: debug.yml
-  when: poudriere_debug|bool
+  when: poudriere_debug | bool
   tags: poudriere_debug
 
-- name: packages.yml
-  ansible.builtin.import_tasks: packages.yml
-  when: poudriere_install|bool
-  tags: poudriere_packages
+- name: Import pkg.yml
+  ansible.builtin.import_tasks: pkg.yml
+  when: poudriere_install | bool
+  tags: poudriere_pkg
 
-- name: dirs.yml
+- name: Import dirs.yml
   ansible.builtin.import_tasks: dirs.yml
-  when: poudriere_dirs|bool
+  when: poudriere_dirs | bool
   tags: poudriere_dirs
 
-- name: key.yml
+- name: Import key.yml
   ansible.builtin.import_tasks: key.yml
-  when: poudriere_key|bool
+  when: poudriere_key | bool
   tags: poudriere_key
 
-- name: cert.yml
+- name: Import cert.yml
   ansible.builtin.import_tasks: cert.yml
-  when: poudriere_cert|bool
+  when: poudriere_cert | bool
   tags: poudriere_cert
 
-- name: conf.yml
+- name: Import conf.yml
   ansible.builtin.import_tasks: conf.yml
-  when: poudriere_conf|bool
+  when: poudriere_conf | bool
   tags: poudriere_conf
 
-- name: pkglists.yml
+- name: Import pkglists.yml
   ansible.builtin.import_tasks: pkglists.yml
-  when: poudriere_pkglists|bool
+  when: poudriere_pkglists | bool
   tags: poudriere_pkglists
 
-- name: options.yml
+- name: Import options.yml
   ansible.builtin.import_tasks: options.yml
-  when: poudriere_options|bool
+  when: poudriere_options | bool
   tags: poudriere_options
 
-- name: make.yml
+- name: Import make.yml
   ansible.builtin.import_tasks: make.yml
-  when: poudriere_make|bool
+  when: poudriere_make | bool
   tags: poudriere_make
 
 # EOF
-...

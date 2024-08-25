@@ -9,14 +9,11 @@
    TASK [Gathering Facts] *********************************************************************************
    ok: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : Poudriere Debug] ******************************************************
-   skipping: [build.example.com]
-
-   TASK [vbotka.freebsd_poudriere : conf: Configure /usr/local/etc/poudriere.d/make.conf] *****************
+   TASK [vbotka.freebsd_poudriere : Make: Configure /usr/local/etc/poudriere.d/make.conf] *****************
    changed: [build.example.com]
 
    PLAY RECAP *********************************************************************************************
-   build.example.com: ok=1    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+   build.example.com: ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
 
 .. literalinclude:: example-make.txt

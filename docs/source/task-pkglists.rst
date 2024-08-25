@@ -1,100 +1,96 @@
-Create lists of ports
+Create packages lists
 ^^^^^^^^^^^^^^^^^^^^^
 
-Quoting from `man(8) poudriere-bulk <https://www.freebsd.org/cgi/man.cgi?query=poudriere-bulk&sektion=8&manpath=freebsd-release-ports>`_ ::
+Quoting from `man(8) poudriere-bulk`_ ::
 
-     -f file      Absolute path to a file which contains the list of ports to
-                  build.  Ports must be specified in the form category/port
-                  and shell-style comments are allowed.  Multiple -f file
-                  arguments may be specified at once.
+   -f file      Absolute path to a file which contains the list of ports to
+                build.  Ports must be specified in the form category/port
+                and shell-style comments are allowed.  Multiple -f file
+                arguments may be specified at once.
 
-By default, the generation of the lists is enabled ::
+.. note:: In this role, the term *packages lists* is used for the lists of ports in the form category/port.
 
-  poudriere_pkglists: true
+The creation of the packages lists is enabled by default ::
 
-By default, no architecture is selected ::
+   poudriere_pkglists: true
 
-  poudriere_pkg_arch: []
+No architecture is selected by default ::
 
-Set the required architectures that the packages will be built for, e.g. ::
+   poudriere_pkg_arch: []
 
-  poudriere_pkg_arch: [amd64]
+Set the required architectures list the packages will be built
+for. For example, ::
 
-For the selected architectures, set the lists of the dictionaries in the variables `pkgdict_*.yml
-<https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main>`_ and, optionally,
-disable some lists, e.g. ::
+   poudriere_pkg_arch: [amd64]
 
-  pkglist_enable_amd64:
-    apcups: false
-    linux: false
-    devel: false
-    joomla: false
-    yazvs: false
-    nginx: false
-    docker: false
-    snmpd: false
+For the selected architectures, set the lists of the dictionaries in
+the variables ``pkg_dict_*.yml``. For example, ::
 
-Create the lists ::
+   pkg_dict_amd64:
+     - pkglist: minimal
+       packages:
+         - shells/bash
+         - devel/git@default
+         - archivers/gtar
+         - ports-mgmt/pkg
+         - ports-mgmt/portmaster
+         - ports-mgmt/portupgrade
+         - net/rsync
+         - ftp/wget
+     - pkglist: ansible
+       packages:
+         - sysutils/ansible
+         - sysutils/py-ansible-lint
+         - sysutils/py-ansible-runner
 
-  shell> ansible-playbook pb.yml -t poudriere_pkglists
+Optionally, link the enabled packages lists in the directory *pkglist/amd64.enabled* ::
 
-Review the created lists of ports ::
+   pkglist_enable_amd64:
+     - ansible
+     - minimal
 
-  [root@build /usr/home/admin]# tree /usr/local/etc/poudriere.d/
-  /usr/local/etc/poudriere.d/
-  |-- jails
-  |   `-- 12amd64
-  |       |-- arch
-  |       |-- method
-  |       |-- mnt
-  |       |-- timestamp
-  |       `-- version
-  |-- pkglist_amd64
-  |   |-- ansible
-  |   |-- apache
-  |   |-- dhcp
-  |   |-- dns
-  |   |-- hostap
-  |   |-- integrity
-  |   |-- jail
-  |   |-- leutils
-  |   |-- mailserver
-  |   |-- mailserver_sieve
-  |   |-- mailserver_spamassasin
-  |   |-- mcrypt
-  |   |-- minimal
-  |   |-- mysql
-  |   |-- mysql_extra
-  |   |-- pf
-  |   |-- php
-  |   |-- postinstall
-  |   |-- poudriere
-  |   |-- procmail
-  |   |-- python
-  |   |-- roundcube
-  |   |-- roundcube_aspell
-  |   |-- rsnapshot
-  |   |-- security
-  |   |-- smart
-  |   |-- ssmtp
-  |   `-- wpa_supplicant
-  |-- pkglist_amd64.disabled
-  |   |-- apcups
-  |   |-- devel
-  |   |-- docker
-  |   |-- joomla
-  |   |-- linux
-  |   |-- nginx
-  |   |-- snmpd
-  |   `-- yazvs
-  `-- ports
-      `-- local
-          |-- created_fs
-          |-- method
-          |-- mnt
-          `-- timestamp
+Optionally, create files *All* including all packages lists in the directory ::
+
+   poudriere_pkglist_all: true
+
+Create the packages lists files ::
+
+   shell> ansible-playbook pb.yml -t poudriere_pkglists
+
+.. note:: In this role, the term *packages lists* is also used for the
+          files keeping the lists of ports in the form *category/port*
+          aka *pkg-origin*.
+
+Take a took at the created files ::
+
+   shell> tree /usr/local/etc/poudriere.d/pkglist
+   /usr/local/etc/poudriere.d/pkglist
+   ├── amd64
+   │   ├── All
+   │   ├── ansible
+   │   └── minimal
+   └── amd64.enabled
+       ├── All
+       ├── ansible -> /usr/local/etc/poudriere.d/pkglist/amd64/ansible
+       └── minimal -> /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+
+   shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/ansible
+   sysutils/ansible
+   sysutils/py-ansible-lint
+   sysutils/py-ansible-runner
+
+   shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+   shells/bash
+   devel/git@default
+   archivers/gtar
+   ports-mgmt/pkg
+   ports-mgmt/portmaster
+   ports-mgmt/portupgrade
+   net/rsync
+   ftp/wget
+
+.. seealso:: The default lists of the dictionaries in the role `vbotka.freebsd.postinstall`_
 
 
-.. seealso::
-
-   * Default lists of the dictionaries `pkgdict_*.yml <https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main>`_
+.. _`man(8) poudriere-bulk`: https://www.freebsd.org/cgi/man.cgi?query=poudriere-bulk&sektion=8&manpath=freebsd-release-ports
+.. _`vbotka.freebsd.postinstall`: https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main

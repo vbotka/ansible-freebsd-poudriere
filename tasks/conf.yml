@@ -1,6 +1,7 @@
 ---
+# Configure Poudriere.
 
-- name: "conf: Create directories"
+- name: "Conf: Create directories"
   ansible.builtin.file:
     state: directory
     path: "{{ item.dir }}"
@@ -12,15 +13,14 @@
     label: "{{ item.dir }}"
   tags: poudriere_conf_dirs
 
-- name: "conf: Configure {{ poudriere_conf_file }}"
+- name: "Conf: Configure {{ poudriere_conf_file }}"
   ansible.builtin.template:
     src: "{{ poudriere_conf_template }}"
     dest: "{{ poudriere_conf_file }}"
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode }}"
-    backup: "{{ poudriere_backup_conf|bool }}"
+    backup: "{{ poudriere_backup_conf | bool }}"
   tags: poudriere_conf_file
 
 # EOF
-...
