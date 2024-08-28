@@ -3,23 +3,29 @@
 Quick start guide
 *****************
 
-For the users who want to try the role quickly, this guide provides an example of how to install,
-configure and run `Poudriere
-<https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html>`_
+For the users who want to try the role quickly, this guide provides an
+example how to install, configure and run `Poudriere`_
 
 
-* Install the role ``vbotka.freebsd_poudriere`` and the collections ::
+* Install the role ``vbotka.freebsd_poudriere`` ::
 
    shell> ansible-galaxy role install vbotka.freebsd_poudriere
+
+* Install the collections if necessary ::
+
    shell> ansible-galaxy collection install community.crypto
    shell> ansible-galaxy collection install community.general
 
-
-* Create the playbook ``pb.yml`` for single host build.example.com (3)
+* Create the playbook ``pb.yml``. For example, with single host
+  *build.example.com* (3)
 
 .. include:: example-playbook.rst
 
-* Customize variables. Disable the installation of packages (3). Configure web-server certificate (6-9), repository signing key (12-13) and Poudriere parameters (16-40). Create the list of architectures the packages will be built for (43) and configure make (46-52). Fit the configuration to your needs.
+* Customize variables. Disable the installation of packages
+  (3). Configure web-server certificate (6-9), repository signing key
+  (12-13) and Poudriere parameters (16-40). Create the list of
+  architectures the packages will be built for (43) and configure make
+  (46-52). Fit the configuration to your needs.
 
 .. include:: example-vars-poudriere.rst
 
@@ -79,5 +85,6 @@ configure and run `Poudriere
   proceed according the `Poudriere documentation`_. For example,
 
 .. include:: example-bulk.rst
-	 
+
+.. _`Poudriere`: https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html
 .. _`Poudriere documentation`: https://docs.freebsd.org/en/books/porters-handbook/testing-poudriere.html_

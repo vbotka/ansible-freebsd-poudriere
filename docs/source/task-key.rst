@@ -1,3 +1,5 @@
+.. _task_key:
+
 Generate signing key
 ^^^^^^^^^^^^^^^^^^^^
 

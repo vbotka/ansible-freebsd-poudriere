@@ -89,8 +89,11 @@ Take a took at the created files ::
    net/rsync
    ftp/wget
 
-.. seealso:: The default lists of the dictionaries in the role `vbotka.freebsd.postinstall`_
+The enablement of the lists in the directory *amd64.enabled* is not
+mandatory. It's for your convenience only. See various strategies how
+to build the packages in the section :ref:`ug_build_packages`.
 
+.. seealso:: The default lists of the dictionaries in the role `vbotka.freebsd.postinstall`_
 
 .. _`man(8) poudriere-bulk`: https://www.freebsd.org/cgi/man.cgi?query=poudriere-bulk&sektion=8&manpath=freebsd-release-ports
 .. _`vbotka.freebsd.postinstall`: https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main

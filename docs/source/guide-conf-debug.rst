@@ -20,9 +20,17 @@ Enable debug output either in the configuration
 .. note::
 
    * The debug output of this role is optimized for the **yaml** callback plugin. Set this plugin
-     for example in the environment ``shell> export ANSIBLE_STDOUT_CALLBACK=yaml``
-   * See details about the yaml callback plugin ``shell> ansible-doc -t callback yaml``
-   * See list of other callback plugins ``shell> ansible-doc -t callback -l``
+     for example in the environment ::
+
+        shell> export ANSIBLE_STDOUT_CALLBACK=yaml
+
+   * See details about the **yaml** callback plugin ::
+
+        shell> ansible-doc -t callback yaml
+
+   * See list of other callback plugins ::
+
+        shell> ansible-doc -t callback -l
 
 .. seealso::
 

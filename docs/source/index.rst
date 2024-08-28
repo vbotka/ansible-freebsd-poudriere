@@ -10,8 +10,8 @@ Feel free to `share your feedback and report issues <https://github.com/vbotka/a
 `Contributions are welcome <https://github.com/firstcontributions/first-contributions>`_.
 
 .. toctree::
-   :maxdepth: 4
    :caption: Table of Contents
+   :maxdepth: 3
 
    qsg
    guide

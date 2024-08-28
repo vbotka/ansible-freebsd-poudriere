@@ -28,9 +28,9 @@ There are many options how to use the packages lists:
 
    When web-server is configured the current status should be
    available on-line (see the next section *Export data*). For
-   example,
+   example, ::
 
-   ``https://build.example.com/logs/bulk/12arm7-local-devel/latest/build.html``
+      https://build.example.com/logs/bulk/12arm7-local-devel/latest/build.html
 
 
 .. seealso::

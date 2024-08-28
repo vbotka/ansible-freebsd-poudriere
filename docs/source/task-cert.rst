@@ -1,3 +1,5 @@
+.. _task_cert:
+
 Generate SSL certificate
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
