@@ -9,17 +9,14 @@
    TASK [Gathering Facts] *********************************************************************************
    ok: [build.example.com]
 
-   TASK [vbotka.freebsd_poudriere : Poudriere Debug] ******************************************************
-   skipping: [build.example.com]
+   TASK [vbotka.freebsd_poudriere : Conf: Create directories] *********************************************
+   changed: [build.example.com] => (item=/usr/ports/distfiles)
 
-   TASK [vbotka.freebsd_poudriere : conf: Create directories] *********************************************
-   ok: [build.example.com] => (item=/usr/ports/distfiles)
-
-   TASK [vbotka.freebsd_poudriere : conf: Configure /usr/local/etc/poudriere.conf] ************************
+   TASK [vbotka.freebsd_poudriere : Conf: Configure /usr/local/etc/poudriere.conf] ************************
    changed: [build.example.com]
 
    PLAY RECAP *********************************************************************************************
-   build.example.com: ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+   build.example.com: ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
 
 .. literalinclude:: example-conf.txt

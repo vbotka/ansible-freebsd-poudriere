@@ -1,33 +1,33 @@
 ---
+# Generate SSL certificate for the web server.
 
-- name: "cert: Generate OpenSSL private key, request, and certificate"
+- name: "Cert: Generate OpenSSL private key, request, and certificate"
   block:
 
-    - name: "cert: Generate private key {{ poudriere_cert_key }}"
+    - name: "Cert: Generate private key {{ poudriere_cert_key }}"
       community.crypto.openssl_privatekey:
         path: "{{ poudriere_cert_key }}"
         owner: "{{ poudriere_owner }}"
         group: "{{ poudriere_group }}"
         mode: "{{ poudriere_ssl_private_key_mode }}"
 
-    - name: "cert: Generate csr {{ poudriere_cert_csr }}"
+    - name: "Cert: Generate csr {{ poudriere_cert_csr }}"
       community.crypto.openssl_csr:
         path: "{{ poudriere_cert_csr }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         common_name: "{{ poudriere_cert_cn }}"
-      when: not ansible_check_mode|bool
+      when: not ansible_check_mode | bool
 
-    - name: "cert: Generate crt {{ poudriere_cert_path }}"
+    - name: "Cert: Generate crt {{ poudriere_cert_path }}"
       community.crypto.x509_certificate:
         path: "{{ poudriere_cert_path }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         csr_path: "{{ poudriere_cert_csr }}"
         provider: selfsigned
-      when: not ansible_check_mode|bool
+      when: not ansible_check_mode | bool
 
-# <TBD>
+# TODO
 # It seems, it’s not possible to force pkg accept self-signed https certificate.
 # See https://www.digitalocean.com/community/tutorials/how-to-set-up-a-poudriere-build-system-to-create-packages-for-your-freebsd-servers?comment=97460
 
 # EOF
-...

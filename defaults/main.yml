@@ -1,5 +1,6 @@
 ---
 # defaults freebsd_poudriere
+poudriere_role_version: 2.6.0
 
 poudriere_install: true
 poudriere_debug: false
@@ -44,21 +45,20 @@ poudriere_key_size: 4096
 poudriere_key_type: RSA
 poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/poudriere-sk.crt"
 poudriere_conf_pkg_repo_signing_key: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
-poudriere_key_cmd: "openssl rsa -in {{ poudriere_conf_pkg_repo_signing_key }} -pubout -out {{ poudriere_key_crt }}"
+poudriere_key_cmd: openssl rsa -in {{ poudriere_conf_pkg_repo_signing_key }} -pubout -out {{ poudriere_key_crt }}
 
 # ssl cert web server
 poudriere_cert: false
 poudriere_cert_key: "{{ poudriere_ssl_private_dir }}/poudriere.key"
 poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
 poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
-# poudriere_cert_cn: build.example.com
+poudriere_cert_cn: build.example.com
 # poudriere_cert_key: "{{ poudriere_ssl_dir }}/private/{{ poudriere_cert_cn }}.key"
 # poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_cn }}.csr"
 # poudriere_cert_path: "{{ poudriere_ssl_dir }}/certs/{{ poudriere_cert_cn }}.crt"
 
-
 # configuration
-# (see /usr/local/etc/poudriere.conf.sample)
+# See /usr/local/etc/poudriere.conf.sample
 poudriere_conf: true
 poudriere_conf_file: /usr/local/etc/poudriere.conf
 poudriere_conf_template: poudriere.conf.j2
@@ -71,18 +71,18 @@ poudriere_conf_dirs:
 poudriere_conf_zpool: zroot
 poudriere_conf_no_zfs: "no"
 poudriere_conf_zrootfs: /poudriere
-poudriere_conf_freebsd_host: https://download.freebsd.org  # Note 1)
+poudriere_conf_freebsd_host: https://download.freebsd.org # Note 1)
 poudriere_conf_resolv_conf: /etc/resolv.conf
 poudriere_conf_basefs: /usr/local/poudriere
-poudriere_conf_svn_host: svn.FreeBSD.org  # Note 2)
+poudriere_conf_svn_host: svn.FreeBSD.org # Note 2)
 poudriere_conf_poudriere_data: "{{ poudriere_conf_basefs }}/data"
 poudriere_conf_use_portlint: "no"
 poudriere_conf_use_tmpfs: "yes"
 poudriere_conf_distfiles_cache: /usr/ports/distfiles
-poudriere_conf_url_base: "http://{{ ansible_default_ipv4.address|default('127.0.0.1') }}/"
+poudriere_conf_url_base: http://{{ ansible_default_ipv4.address | d('127.0.0.1') }}/
 poudriere_conf_check_changed_options: verbose
 poudriere_conf_check_changed_deps: "yes"
-poudriere_conf_data:  # See templates/poudriere.conf2.j2
+poudriere_conf_data: # See templates/poudriere.conf2.j2
   ZPOOL: "{{ poudriere_conf_zpool }}"
   no_ZFS: "{{ poudriere_conf_no_zfs }}"
   ZROOTFS: "{{ poudriere_conf_zrootfs }}"
@@ -100,9 +100,10 @@ poudriere_conf_data:  # See templates/poudriere.conf2.j2
   CHECK_CHANGED_DEPS: "{{ poudriere_conf_check_changed_deps }}"
 
 # lists of packages
+poudriere_pkg_arch: []
 poudriere_pkglists: true
 poudriere_pkglist_dir: "{{ poudriere_conf_dir }}/pkglist"
-poudriere_pkg_arch: []
+poudriere_pkglist_all: false
 
 # options
 poudriere_options: false
@@ -111,12 +112,3 @@ poudriere_options: false
 poudriere_make: true
 poudriere_make_file: "{{ poudriere_conf_dir }}/make.conf"
 poudriere_make_conf: []
-
-# Notes
-#
-# 1) A.2. FTP Sites https://docs.freebsd.org/en/books/handbook/mirrors-ftp.html
-# 2) A.3.6. Subversion Mirror Sites https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/svn.html#svn-mirrors
-
-
-# EOF
-...

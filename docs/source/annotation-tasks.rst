@@ -32,10 +32,10 @@ Import tasks if enabled.
 debug.yml
 ---------
 
-Synopsis: Configure debug.
+Synopsis: Display values of the variables.
 
 
-Description of the task.
+By default disabled ``poudriere_debug: false``
 
 
 [`tasks/debug.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/debug.yml>`_]
@@ -44,33 +44,37 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/debug.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
 
-.. _as_packages.yml:
+.. _as_pkg.yml:
 
-packages.yml
-------------
+pkg.yml
+-------
 
-Synopsis: Configure packages.
-
-
-Description of the task.
+Synopsis: Install packages or ports.
 
 
-[`tasks/packages.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/packages.yml>`_]
+By default enabled ``poudriere_install: true``
+
+
+[`tasks/pkg.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkg.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../tasks/packages.yml
+.. literalinclude:: ../../tasks/pkg.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -80,10 +84,10 @@ Description of the task.
 dirs.yml
 --------
 
-Synopsis: Configure dirs.
+Synopsis: Create SSL directories.
 
 
-Description of the task.
+By default enabled ``poudriere_dirs: true``
 
 
 [`tasks/dirs.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/dirs.yml>`_]
@@ -92,9 +96,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/dirs.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -104,10 +110,10 @@ Description of the task.
 key.yml
 -------
 
-Synopsis: Configure key.
+Synopsis: Create signing key.
 
 
-Description of the task.
+By default enabled ``poudriere_key: true``
 
 
 [`tasks/key.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/key.yml>`_]
@@ -116,9 +122,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/key.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -128,10 +136,10 @@ Description of the task.
 cert.yml
 --------
 
-Synopsis: Configure cert.
+Synopsis: Generate SSL certificate for the web server.
 
 
-Description of the task.
+By default disabled ``poudriere_cert: false``
 
 
 [`tasks/cert.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/cert.yml>`_]
@@ -140,9 +148,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/cert.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -152,10 +162,10 @@ Description of the task.
 conf.yml
 --------
 
-Synopsis: Configure conf.
+Synopsis: Configure Poudriere.
 
 
-Description of the task.
+By default enabled ``poudriere_conf: true``
 
 
 [`tasks/conf.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/conf.yml>`_]
@@ -164,9 +174,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/conf.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -176,10 +188,10 @@ Description of the task.
 pkglists.yml
 ------------
 
-Synopsis: Configure pkglists.
+Synopsis: Create packages lists.
 
 
-Description of the task.
+By default enabled ``poudriere_pkglists: true``
 
 
 [`tasks/pkglists.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglists.yml>`_]
@@ -188,9 +200,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/pkglists.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -200,10 +214,14 @@ Description of the task.
 pkglist.yml
 -----------
 
-Synopsis: Configure pkglist.
+Synopsis: Maintain packages lists for a particular architecture.
 
 
-Description of the task.
+These lists will be used by *poudriere*. Quoting *man poudriere*: *"Launch the bulk build. At minimum the jail and list of packages to build must be specified."*
+
+For example, ::
+
+   shell> poudriere bulk -j 141Ramd64 -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
 
 [`tasks/pkglist.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglist.yml>`_]
@@ -212,9 +230,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/pkglist.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -224,10 +244,10 @@ Description of the task.
 options.yml
 -----------
 
-Synopsis: Configure options.
+Synopsis: Create options file for each jail
 
 
-Description of the task.
+Not implemented yes. Disabled ``poudriere_options: false``
 
 
 [`tasks/options.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/options.yml>`_]
@@ -236,9 +256,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/options.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 
@@ -248,10 +270,10 @@ Description of the task.
 make.yml
 --------
 
-Synopsis: Configure make.
+Synopsis: Customize make.
 
 
-Description of the task.
+By default enabled ``poudriere_make: true``
 
 
 [`tasks/make.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/make.yml>`_]
@@ -260,9 +282,11 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/make.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 2
     :linenos:
 
+.. seealso::
+   * <TBD>
 
 
 

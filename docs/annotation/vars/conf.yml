@@ -1,0 +1,19 @@
+---
+
+task_conf_synopsis: |2
+  Configure Poudriere.
+
+task_conf_description: |2
+  By default enabled ``poudriere_conf: true``
+
+task_conf_lines: 2
+
+task_conf_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_conf_note: []
+task_conf_hint: []
+task_conf_warning: []

@@ -1,0 +1,19 @@
+---
+
+task_dirs_synopsis: |2
+  Create SSL directories.
+
+task_dirs_description: |2
+  By default enabled ``poudriere_dirs: true``
+
+task_dirs_lines: 2
+
+task_dirs_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_dirs_note: []
+task_dirs_hint: []
+task_dirs_warning: []

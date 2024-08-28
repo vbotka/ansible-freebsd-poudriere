@@ -6,7 +6,7 @@ Tasks
 .. toctree::
 
    task-intro
-   task-packages
+   task-pkg
    task-dirs
    task-key
    task-cert

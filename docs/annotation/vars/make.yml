@@ -1,0 +1,19 @@
+---
+
+task_make_synopsis: |2
+  Customize make.
+
+task_make_description: |2
+  By default enabled ``poudriere_make: true``
+
+task_make_lines: 2
+
+task_make_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_make_note: []
+task_make_hint: []
+task_make_warning: []

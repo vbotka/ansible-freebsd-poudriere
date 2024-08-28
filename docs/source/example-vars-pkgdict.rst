@@ -1,5 +1,5 @@
 .. code-block:: bash
-   :emphasize-lines: 1,4,14
+   :emphasize-lines: 1,3
    :linenos:
 
    shell> cat host_vars/build.example.com/pkg_dict.yml
@@ -8,7 +8,7 @@
      - pkglist: minimal
        packages:
          - shells/bash
-         - devel/git
+         - devel/git@default
          - archivers/gtar
          - ports-mgmt/pkg
          - ports-mgmt/portmaster

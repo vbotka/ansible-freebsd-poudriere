@@ -1,6 +1,7 @@
 ---
+# Create options file for each jail.
 
-- name: "options: Debug"
+- name: "Options: Debug"
   ansible.builtin.debug:
     msg: Not implemented yet.
 
@@ -11,4 +12,3 @@
 # /usr/local/etc/poudriere.d/12arm7-options
 
 # EOF
-...

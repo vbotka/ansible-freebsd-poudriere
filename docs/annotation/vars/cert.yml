@@ -1,0 +1,19 @@
+---
+
+task_cert_synopsis: |2
+  Generate SSL certificate for the web server.
+
+task_cert_description: |2
+  By default disabled ``poudriere_cert: false``
+
+task_cert_lines: 2
+
+task_cert_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_cert_note: []
+task_cert_hint: []
+task_cert_warning: []

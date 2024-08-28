@@ -1,0 +1,19 @@
+---
+
+task_options_synopsis: |2
+  Create options file for each jail
+
+task_options_description: |2
+  Not implemented yes. Disabled ``poudriere_options: false``
+
+task_options_lines: 2
+
+task_options_seealso:
+  handlers: []
+  templates: []
+  others:
+    - <TBD>
+
+task_options_note: []
+task_options_hint: []
+task_options_warning: []

@@ -52,5 +52,5 @@
      - "OPTIONS_UNSET+=\t\t\tGSSAPI_BASE KRB_BASE KERBEROS"
      - "OPTIONS_SET+=\t\t\tGSSAPI_NONE KRB_NONE"
      - "DEFAULT_VERSIONS+=\t\temacs=nox"
-     - "DEFAULT_VERSIONS+=\t\tphp=7.4"
+     - "DEFAULT_VERSIONS+=\t\tphp=8.3"
      - "DEFAULT_VERSIONS+=\t\tssl=openssl"

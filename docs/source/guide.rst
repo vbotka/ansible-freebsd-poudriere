@@ -4,9 +4,8 @@ User's guide
 ************
 
 .. toctree::
-   :caption: Table of Contents
+   :maxdepth: 3
 
    guide-intro
    guide-conf
-   guide-poudriere
-
+   guide-build
