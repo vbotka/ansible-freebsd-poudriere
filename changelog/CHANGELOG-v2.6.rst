@@ -15,6 +15,7 @@ Maintenance including docs update.
 Major Changes
 -------------
 * Update docs
+* Add Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict
 
 Minor Changes
 -------------
