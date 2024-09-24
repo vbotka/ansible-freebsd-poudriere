@@ -3,6 +3,26 @@ vbotka.freebsd_poudriere 2.6 Release Notes
 ==========================================
 
 .. contents:: Topics
+# BEGIN Commits 2.6.1
+- Update tests/test.yml playbook
+- 'Add Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict'
+- Update docs guide-build-clients
+- Start devel 2.6.1
+# END Commits 2.6.1
+# BEGIN Release notes 2.6.1
+2.6.1
+=====
+Release Summary
+---------------
+Major Changes
+-------------
+Minor Changes
+-------------
+Bugfixes
+--------
+Breaking Changes / Porting Guide
+--------------------------------
+# END Release notes 2.6.1
 
 
 2.6.1
