@@ -4,6 +4,7 @@ vbotka.freebsd_poudriere 2.6 Release Notes
 
 .. contents:: Topics
 # BEGIN Commits 2.6.1
+- Update python 3.11 in .travis.yml
 - Update tests/test.yml playbook
 - 'Add Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict'
 - Update docs guide-build-clients
@@ -18,6 +19,12 @@ Major Changes
 -------------
 Minor Changes
 -------------
+- Update python 3.11 in .travis.yml
+- Update tests/test.yml playbook
+- 'Add Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict'
+- Update docs guide-build-clients
+- Start devel 2.6.1
+
 Bugfixes
 --------
 Breaking Changes / Porting Guide
