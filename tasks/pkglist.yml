@@ -17,6 +17,15 @@
       poudriere_pkglist_all: {{ poudriere_pkglist_all }}
   when: poudriere_debug | bool
 
+- name: "Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict"
+  ansible.builtin.assert:
+    quiet: true
+    that: _pkglist_enable_missing | length == 0
+    fail_msg: |
+      [ERR] The packages list(s): {{ _pkglist_enable_missing }} missing in _pkg_dict
+  vars:
+    _pkglist_enable_missing: "{{ _pkglist_enable | difference(_pkg_dict | map(attribute='pkglist')) }}"
+
 - name: "Pkglist: Create directories"
   ansible.builtin.file:
     state: directory

@@ -5,6 +5,24 @@ vbotka.freebsd_poudriere 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.1
+=====
+
+Release Summary
+---------------
+Maintenance including docs update.
+
+Major Changes
+-------------
+* Update docs
+* Add Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict
+
+Minor Changes
+-------------
+- Update python 3.11 in .travis.yml
+- Update tests/test.yml playbook
+
+
 2.6.0
 =====
 

@@ -80,7 +80,7 @@ Configure repos by Ansible
 
 See the Ansible role `vbotka.ansible-freebsd-packages`_.
 
-Configure repos on the controller ::
+Create the configuration data on the controller ::
 
    shell> cat host_vars/test.example.com/packages.yml
    pkg_repos_conf:
@@ -95,7 +95,8 @@ Configure repos on the controller ::
        conf:
          - { key: enabled, value: "no" }
 
-and configure the repos on the client *test.example.com* ::
+and run *ansible-playbook* to configure the repos on the remote host
+*test.example.com* ::
 
    shell> ansible-playbook freebsd-packages.yml -t pkg_conf
 
@@ -132,7 +133,7 @@ Display packages info. For example, ::
    shell> pkg info | grep pkg
    pkg-1.21.3                    Package manager
 
-Upgrade package ::
+Upgrade the package ::
 
    shell pkg upgrade pkg
    Updating build repository catalogue...
@@ -146,7 +147,7 @@ Upgrade package ::
    Ansible role `vbotka.ansible-freebsd-postinstall`_ chapter `Packages`_.
 
 
-.. _`Configuring pkg Clients to Use a Poudriere Repository`: https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/ports-poudriere.html
+.. _`Configuring pkg Clients to Use a Poudriere Repository`: https://docs.freebsd.org/en/books/handbook/ports/#_configuring_pkg_clients_to_use_a_poudriere_repository
 .. _`Installing and Fetching Packages`: https://docs.freebsd.org/en/books/handbook/ports/#pkg-installing-fetching
 .. _`Packages`: https://ansible-freebsd-postinstall.readthedocs.io/en/latest/tasks-packages.html
 .. _`vbotka.ansible-freebsd-packages`: https://galaxy.ansible.com/ui/standalone/roles/vbotka/freebsd_packages/
