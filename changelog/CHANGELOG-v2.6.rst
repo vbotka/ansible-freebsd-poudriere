@@ -5,6 +5,21 @@ vbotka.freebsd_poudriere 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.3
+=====
+
+Release Summary
+---------------
+Update docs.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Update docs.
+
+
 2.6.2
 =====
 
