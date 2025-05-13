@@ -18,6 +18,8 @@ Major Changes
 
 Minor Changes
 -------------
+* Updated documentation. Updated annotation templates
+* Added .gitignore
 
 Bugfixes
 --------

@@ -8,13 +8,13 @@ Templates
 make.conf.j2
 ------------
 
-Synopsis: Template make.conf.
+Synopsis: Configure make.conf
 
 
-Description of the template.
+Description of the task.
 
 
-[`templates/make.conf.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/make.conf.j2>`_]
+[`templates/make.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/make.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -26,18 +26,19 @@ Description of the template.
 
 
 
+
 .. _as_template_poudriere.conf.j2:
 
 poudriere.conf.j2
 -----------------
 
-Synopsis: Template poudriere.conf.
+Synopsis: Configure poudriere.conf
 
 
-Description of the template.
+Description of the task.
 
 
-[`templates/poudriere.conf.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/poudriere.conf.j2>`_]
+[`templates/poudriere.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/poudriere.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -49,18 +50,19 @@ Description of the template.
 
 
 
+
 .. _as_template_poudriere.conf2.j2:
 
 poudriere.conf2.j2
 ------------------
 
-Synopsis: Template poudriere.conf2.
+Synopsis: Configure poudriere.conf2
 
 
-Description of the template.
+Description of the task.
 
 
-[`templates/poudriere.conf2.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/poudriere.conf2.j2>`_]
+[`templates/poudriere.conf2.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/poudriere.conf2.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -72,18 +74,19 @@ Description of the template.
 
 
 
+
 .. _as_template_poudriere.pkglist.j2:
 
 poudriere.pkglist.j2
 --------------------
 
-Synopsis: Template poudriere.pkglist.
+Synopsis: Configure poudriere.pkglist
 
 
-Description of the template.
+Description of the task.
 
 
-[`templates/poudriere.pkglist.j2 <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/templates/poudriere.pkglist.j2>`_]
+[`templates/poudriere.pkglist.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/poudriere.pkglist.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -91,6 +94,7 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
 
 
 

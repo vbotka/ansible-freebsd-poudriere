@@ -5,48 +5,84 @@ mytemplates:
     link: make.conf.j2
     path: templates/make.conf.j2
     synopsis: |
-      Template make.conf.
+      Configure make.conf
     description: |
-      Description of the template.
+      Description of the task.
     lines: 1
-    seealso: []
-    note: []
-    warning: []
+    seealso:
+      {}
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: poudriere.conf.j2
     link: poudriere.conf.j2
     path: templates/poudriere.conf.j2
     synopsis: |
-      Template poudriere.conf.
+      Configure poudriere.conf
     description: |
-      Description of the template.
+      Description of the task.
     lines: 1
-    seealso: []
-    note: []
-    warning: []
+    seealso:
+      {}
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: poudriere.conf2.j2
     link: poudriere.conf2.j2
     path: templates/poudriere.conf2.j2
     synopsis: |
-      Template poudriere.conf2.
+      Configure poudriere.conf2
     description: |
-      Description of the template.
+      Description of the task.
     lines: 1
-    seealso: []
-    note: []
-    warning: []
+    seealso:
+      {}
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: poudriere.pkglist.j2
     link: poudriere.pkglist.j2
     path: templates/poudriere.pkglist.j2
     synopsis: |
-      Template poudriere.pkglist.
+      Configure poudriere.pkglist
     description: |
-      Description of the template.
+      Description of the task.
     lines: 1
-    seealso: []
-    note: []
-    warning: []
+    seealso:
+      {}
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
 ...

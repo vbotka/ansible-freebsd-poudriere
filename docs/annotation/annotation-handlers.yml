@@ -9,7 +9,8 @@ myhandlers:
       Import handlers.
     lines: 1,2
     seealso: []
-    note: []
-    warning: []
+    notes: []
+    hints: []
+    warnings: []
 
 ...

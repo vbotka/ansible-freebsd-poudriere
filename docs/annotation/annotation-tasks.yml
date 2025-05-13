@@ -9,8 +9,9 @@ mytasks:
       Import tasks if enabled.
     lines: 1,2
     seealso: []
-    note: []
-    warning: []
+    notes: []
+    hints: []
+    warnings: []
 
   - file: debug.yml
     link: debug.yml
@@ -22,10 +23,21 @@ mytasks:
       By default disabled ``poudriere_debug: false``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: pkg.yml
     link: pkg.yml
@@ -37,10 +49,21 @@ mytasks:
       By default enabled ``poudriere_install: true``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: dirs.yml
     link: dirs.yml
@@ -52,10 +75,21 @@ mytasks:
       By default enabled ``poudriere_dirs: true``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: key.yml
     link: key.yml
@@ -67,10 +101,21 @@ mytasks:
       By default enabled ``poudriere_key: true``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: cert.yml
     link: cert.yml
@@ -82,10 +127,21 @@ mytasks:
       By default disabled ``poudriere_cert: false``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: conf.yml
     link: conf.yml
@@ -97,10 +153,21 @@ mytasks:
       By default enabled ``poudriere_conf: true``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: pkglists.yml
     link: pkglists.yml
@@ -112,10 +179,21 @@ mytasks:
       By default enabled ``poudriere_pkglists: true``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: pkglist.yml
     link: pkglist.yml
@@ -131,10 +209,21 @@ mytasks:
          shell> poudriere bulk -j 141Ramd64 -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: options.yml
     link: options.yml
@@ -146,10 +235,21 @@ mytasks:
       Not implemented yes. Disabled ``poudriere_options: false``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
   - file: make.yml
     link: make.yml
@@ -161,9 +261,20 @@ mytasks:
       By default enabled ``poudriere_make: true``
 
     lines: 2
-    seealso: {'handlers': [], 'templates': [], 'others': ['<TBD>']}
-    notes: []
-    hints: []
-    warnings: []
+    seealso:
+      handlers: []
+      others:
+      - <TBD>
+      templates: []
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
 
 ...
