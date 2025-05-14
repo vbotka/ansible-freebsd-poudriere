@@ -1,6 +1,9 @@
 Create packages lists
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: single: packages lists; Tasks/Create packages lists
+.. index:: single: poudriere_pkglists; Tasks/Create packages lists
+
 Quoting from `man(8) poudriere-bulk`_ ::
 
    -f file      Absolute path to a file which contains the list of ports to
@@ -8,7 +11,8 @@ Quoting from `man(8) poudriere-bulk`_ ::
                 and shell-style comments are allowed.  Multiple -f file
                 arguments may be specified at once.
 
-.. note:: In this role, the term *packages lists* is used for the lists of ports in the form category/port.
+.. note:: In this role, the term *packages lists* is used for the lists of ports in the form
+          category/port.
 
 The creation of the packages lists is enabled by default ::
 
@@ -18,13 +22,12 @@ No architecture is selected by default ::
 
    poudriere_pkg_arch: []
 
-Set the required architectures list the packages will be built
-for. For example, ::
+Set the required architectures list the packages will be built for. For example, ::
 
    poudriere_pkg_arch: [amd64]
 
-For the selected architectures, set the lists of the dictionaries in
-the variables ``pkg_dict_*.yml``. For example, ::
+For the selected architectures, set the lists of the dictionaries in the variables
+``pkg_dict_*.yml``. For example, ::
 
    pkg_dict_amd64:
      - pkglist: minimal
@@ -57,9 +60,8 @@ Create the packages lists files ::
 
    shell> ansible-playbook pb.yml -t poudriere_pkglists
 
-.. note:: In this role, the term *packages lists* is also used for the
-          files keeping the lists of ports in the form *category/port*
-          aka *pkg-origin*.
+.. note:: In this role, the term *packages lists* is also used for the files keeping the lists of
+          ports in the form *category/port* aka *pkg-origin*.
 
 Take a took at the created files ::
 
@@ -89,9 +91,9 @@ Take a took at the created files ::
    net/rsync
    ftp/wget
 
-The enablement of the lists in the directory *amd64.enabled* is not
-mandatory. It's for your convenience only. See various strategies how
-to build the packages in the section :ref:`ug_build_packages`.
+The enablement of the lists in the directory *amd64.enabled* is not mandatory. It's for your
+convenience only. See various strategies how to build the packages in the section
+:ref:`ug_build_packages`.
 
 .. seealso:: The default lists of the dictionaries in the role `vbotka.freebsd.postinstall`_
 
