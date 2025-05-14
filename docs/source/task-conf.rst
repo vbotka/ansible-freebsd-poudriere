@@ -1,6 +1,8 @@
 Configure Poudriere
 ^^^^^^^^^^^^^^^^^^^
 
+.. index:: single: poudriere_conf; Tasks/Configure Poudriere
+
 The configuration of Poudriere is enabled by default ::
 
    poudriere_conf: true
@@ -10,6 +12,8 @@ the sample ``/usr/local/etc/poudriere.conf.sample``. Customize the
 variables ``poudriere_conf_*`` and display the current values ::
 
    shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+
+.. code-block:: yaml
 
    ...
    TASK [vbotka.freebsd_poudriere : Poudriere Debug] ************************************************
