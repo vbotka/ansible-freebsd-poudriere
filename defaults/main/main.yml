@@ -3,6 +3,7 @@
 poudriere_role_version: 2.7.0
 
 poudriere_debug: false
+poudriere_sanity: false
 poudriere_install: true
 poudriere_dirs: true
 poudriere_key: true

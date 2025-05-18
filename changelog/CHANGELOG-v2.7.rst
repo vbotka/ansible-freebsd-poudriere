@@ -19,6 +19,7 @@ Major Changes
 Minor Changes
 -------------
 * defaults/main.yml was split into files defaults/main/\*.yml
+* Added tasks/sanity.yml (default poudriere_sanity=false)
 * Added var freebsd_iocage_env (default={CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'})
 * Added var poudriere_packages_use_globs (default=false)
 * Variable freebsd_use_packages is not mandatory (default=omit)

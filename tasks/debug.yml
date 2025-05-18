@@ -19,6 +19,7 @@
       freebsd_install_delay: {{ freebsd_install_delay }}
       freebsd_iocage_env:
         {{ freebsd_iocage_env | to_nice_yaml(indent=2) | indent(2) }}
+      poudriere_sanity: {{ poudriere_sanity }}
       poudriere_install: {{ poudriere_install }}
       poudriere_dirs: {{ poudriere_dirs }}
       poudriere_key: {{ poudriere_key }}
@@ -28,9 +29,10 @@
       poudriere_options: {{ poudriere_options }}
       poudriere_make: {{ poudriere_make }}
 
-      poudriere_backup_conf: {{ poudriere_backup_conf | bool }}
+      poudriere_backup_conf: {{ poudriere_backup_conf }}
+      poudriere_sanity_quiet: {{ poudriere_sanity_quiet }}
 
-      +poudriere_packages_use_globs: {{ poudriere_packages_use_globs }}
+      poudriere_packages_use_globs: {{ poudriere_packages_use_globs }}
       poudriere_packages:
         {{ poudriere_packages | to_nice_yaml(indent=2) | indent(2) }}
       poudriere_packages_cert:
