@@ -1,5 +1,5 @@
 ---
-# lists of packages
+# lists of packages to be built
 poudriere_pkg_arch: []
 poudriere_pkglist_dir: "{{ poudriere_conf_dir }}/pkglist"
 poudriere_pkglist_all: false

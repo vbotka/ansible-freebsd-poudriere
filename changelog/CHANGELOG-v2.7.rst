@@ -20,6 +20,7 @@ Minor Changes
 -------------
 * defaults/main.yml was split into files defaults/main/\*.yml
 * Added var freebsd_iocage_env (default={CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'})
+* Added var poudriere_packages_use_globs (default=false)
 * Variable freebsd_use_packages is not mandatory (default=omit)
 * Updated documentation. Updated annotation templates
 * Added .gitignore

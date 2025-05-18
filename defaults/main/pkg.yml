@@ -1,4 +1,7 @@
 ---
+# install packages
+poudriere_packages_use_globs: false
+
 poudriere_packages:
   - ports-mgmt/poudriere
   - ports-mgmt/portmaster

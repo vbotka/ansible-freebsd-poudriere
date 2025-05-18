@@ -5,6 +5,7 @@
 - name: "Pkg: Install poudriere packages"
   community.general.pkgng:
     name: "{{ poudriere_packages }}"
+    use_globs: "{{ poudriere_packages_use_globs }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
@@ -26,6 +27,7 @@
 - name: "Pkg: Install packages to create certificate"
   community.general.pkgng:
     name: "{{ poudriere_packages_cert }}"
+    use_globs: "{{ poudriere_packages_use_globs }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
