@@ -1,0 +1,29 @@
+---
+# defaults freebsd_poudriere
+poudriere_role_version: 2.7.0
+
+poudriere_debug: false
+poudriere_install: true
+poudriere_dirs: true
+poudriere_key: true
+poudriere_cert: false
+poudriere_conf: true
+poudriere_pkglists: true
+poudriere_options: false
+poudriere_make: true
+
+poudriere_backup_conf: true
+
+poudriere_owner: root
+poudriere_group: wheel
+poudriere_mode: "0644"
+poudriere_mode_dir: "0755"
+
+# freebsd_install_method: ports
+# freebsd_use_packages: true
+freebsd_install_method: packages
+freebsd_install_retries: 3
+freebsd_install_delay: 2
+
+freebsd_iocage_env:
+  CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'

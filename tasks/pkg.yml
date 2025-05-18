@@ -14,7 +14,7 @@
 - name: "Pkg: Install poudriere ports"
   community.general.portinstall:
     name: "{{ item }}"
-    use_packages: "{{ freebsd_use_packages }}"
+    use_packages: "{{ freebsd_use_packages | d(omit) }}"
   loop: "{{ poudriere_packages }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
@@ -35,7 +35,7 @@
 - name: "Pkg: Install ports to create certificate"
   community.general.portinstall:
     name: "{{ item }}"
-    use_packages: "{{ freebsd_use_packages }}"
+    use_packages: "{{ freebsd_use_packages | d(omit) }}"
   loop: "{{ poudriere_packages_cert }}"
   register: result
   retries: "{{ freebsd_install_retries }}"

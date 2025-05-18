@@ -14,9 +14,11 @@
       ansible_python_version: {{ ansible_python_version }}
 
       freebsd_install_method: {{ freebsd_install_method }}
-      freebsd_use_packages: {{ freebsd_use_packages }}
+      freebsd_use_packages: {{ freebsd_use_packages | d(true) }}
       freebsd_install_retries: {{ freebsd_install_retries }}
       freebsd_install_delay: {{ freebsd_install_delay }}
+      freebsd_iocage_env:
+        {{ freebsd_iocage_env | to_nice_yaml(indent=2) | indent(2) }}
 
       poudriere_install: {{ poudriere_install }}
       poudriere_dirs: {{ poudriere_dirs }}

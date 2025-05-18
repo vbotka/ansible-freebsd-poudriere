@@ -1,7 +1,6 @@
 ---
-# Generate SSL certificate for the web server.
-
-- name: "Cert: Generate OpenSSL private key, request, and certificate"
+- name: Generate SSL certificate for the web server.
+  environment: "{{ freebsd_iocage_env }}"
   block:
 
     - name: "Cert: Generate private key {{ poudriere_cert_key }}"
@@ -12,19 +11,19 @@
         mode: "{{ poudriere_ssl_private_key_mode }}"
 
     - name: "Cert: Generate csr {{ poudriere_cert_csr }}"
+      when: not ansible_check_mode
       community.crypto.openssl_csr:
         path: "{{ poudriere_cert_csr }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         common_name: "{{ poudriere_cert_cn }}"
-      when: not ansible_check_mode | bool
 
     - name: "Cert: Generate crt {{ poudriere_cert_path }}"
+      when: not ansible_check_mode
       community.crypto.x509_certificate:
         path: "{{ poudriere_cert_path }}"
         privatekey_path: "{{ poudriere_cert_key }}"
         csr_path: "{{ poudriere_cert_csr }}"
         provider: selfsigned
-      when: not ansible_check_mode | bool
 
 # TODO
 # It seems, it’s not possible to force pkg accept self-signed https certificate.
