@@ -23,7 +23,7 @@ packages.
    * FreeBSD Wiki `Poudriere: Getting Started`_
    * DO Tutorial `How To Set Up a Poudriere Build System to Create Packages for your FreeBSD Servers`_
 
-Packages lists
+Package lists
 --------------
 
 The utility `poudriere`_ provides the option *-f* to "*Build ports listed in the file*". Ports must
@@ -61,7 +61,7 @@ will result in the files ::
        ├── ansible -> /usr/local/etc/poudriere.d/pkglist/amd64/ansible
        └── minimal -> /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
-The term **packages lists** is used both for the variables and the resulting files in this role.
+The term **package lists** is used both for the variables and the resulting files in this role.
 
 .. _share your feedback and report issues: https://github.com/vbotka/ansible-freebsd-poudriere/issues
 .. _Contributions are welcome: https://github.com/firstcontributions/first-contributions

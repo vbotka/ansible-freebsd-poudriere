@@ -1,7 +1,7 @@
 .. _ug_build_141amd64_all_enabled:
 
-Build 14.1 amd64 all enabled packages lists
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Build 14.1 amd64 all enabled package lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create jail ::
 

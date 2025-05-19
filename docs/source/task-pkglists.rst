@@ -1,8 +1,8 @@
-Create packages lists
-^^^^^^^^^^^^^^^^^^^^^
+Create package lists
+^^^^^^^^^^^^^^^^^^^^
 
-.. index:: single: packages lists; Tasks/Create packages lists
-.. index:: single: poudriere_pkglists; Tasks/Create packages lists
+.. index:: single: package lists; Tasks/Create package lists
+.. index:: single: poudriere_pkglists; Tasks/Create package lists
 
 Quoting from `man(8) poudriere-bulk`_ ::
 
@@ -11,10 +11,10 @@ Quoting from `man(8) poudriere-bulk`_ ::
                 and shell-style comments are allowed.  Multiple -f file
                 arguments may be specified at once.
 
-.. note:: In this role, the term *packages lists* is used for the lists of ports in the form
+.. note:: In this role, the term *package lists* is used for the lists of ports in the form
           category/port.
 
-The creation of the packages lists is enabled by default ::
+The creation of the package lists is enabled by default ::
 
    poudriere_pkglists: true
 
@@ -46,21 +46,21 @@ For the selected architectures, set the lists of the dictionaries in the variabl
          - sysutils/py-ansible-lint
          - sysutils/py-ansible-runner
 
-Optionally, link the enabled packages lists in the directory *pkglist/amd64.enabled* ::
+Optionally, link the enabled package lists in the directory *pkglist/amd64.enabled* ::
 
    pkglist_enable_amd64:
      - ansible
      - minimal
 
-Optionally, create files *All* including all packages lists in the directory ::
+Optionally, create files *All* including all package lists in the directory ::
 
    poudriere_pkglist_all: true
 
-Create the packages lists files ::
+Create the package lists files ::
 
    shell> ansible-playbook pb.yml -t poudriere_pkglists
 
-.. note:: In this role, the term *packages lists* is also used for the files keeping the lists of
+.. note:: In this role, the term *package lists* is also used for the files keeping the lists of
           ports in the form *category/port* aka *pkg-origin*.
 
 Take a took at the created files ::

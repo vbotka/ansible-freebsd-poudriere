@@ -188,7 +188,7 @@ By default enabled ``poudriere_conf: true``
 pkglists.yml
 ------------
 
-Synopsis: Create packages lists.
+Synopsis: Create package lists.
 
 
 By default enabled ``poudriere_pkglists: true``
@@ -214,7 +214,7 @@ By default enabled ``poudriere_pkglists: true``
 pkglist.yml
 -----------
 
-Synopsis: Maintain packages lists for a particular architecture.
+Synopsis: Maintain package lists for a particular architecture.
 
 
 These lists will be used by *poudriere*. Quoting *man poudriere*: *"Launch the bulk build. At minimum the jail and list of packages to build must be specified."*

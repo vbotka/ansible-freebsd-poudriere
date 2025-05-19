@@ -25,6 +25,6 @@ For example:
 
    shell> ansible-playbook pb.yml -t poudriere_pkg -e poudriere_install=true
 
-* See what packages lists will be created ::
+* See what package lists will be created ::
 
    shell> ansible-playbook pb.yml -t poudriere_pkglists --check --diff

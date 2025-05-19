@@ -3,7 +3,7 @@
 Build the packages
 ------------------
 
-There are many options how to use the packages lists:
+There are many options how to use the package lists:
 
 * Build all packages from a directory. For example, ::
 

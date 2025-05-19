@@ -4,7 +4,8 @@ Introduction
 The groups of tasks stored in separate files, listed below in the order of the execution, comprise:
 
 :debug: Display values of the variables. By default disabled (poudriere_debug: false)
-:pkg:  Install packages or ports. By default enabled (poudriere_install: true)
+:sanity: Test sanity. By default disabled (poudriere_sanity: false)
+:pkg: Install packages or ports. By default enabled (poudriere_install: true)
 :dirs: Create SSL directories. By default enabled (poudriere_dirs: true)
 :key: Create signing key. By default enabled (poudriere_key: true)
 :cert: Generate SSL certificate for the web server. By default disabled (poudriere_cert: false)

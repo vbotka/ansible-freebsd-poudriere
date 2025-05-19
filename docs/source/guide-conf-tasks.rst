@@ -6,6 +6,7 @@ Tasks
 .. toctree::
 
    task-intro
+   task-sanity
    task-pkg
    task-dirs
    task-key

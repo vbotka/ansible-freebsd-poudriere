@@ -4,7 +4,7 @@ Variables
 ---------
 
 .. index:: single: defaults; Configuration/Variables
-.. index:: single: packages lists; Configuration/Variables
+.. index:: single: package lists; Configuration/Variables
 
 The default variables are stored in the directory ``defaults/main``.
 

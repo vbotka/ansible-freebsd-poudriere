@@ -29,7 +29,7 @@ example how to install, configure and run `Poudriere`_
 
 .. include:: example-vars-poudriere.rst
 
-* Create the packages lists
+* Create the package lists
 
 .. include:: example-vars-pkgdict.rst
 
@@ -67,7 +67,7 @@ example how to install, configure and run `Poudriere`_
 
 .. include:: example-conf.rst
 
-* Create directories (17-19) and create the packages lists (21-23)
+* Create directories (17-19) and create the package lists (21-23)
 
 .. include:: example-pkglists.rst
 

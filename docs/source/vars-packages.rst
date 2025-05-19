@@ -1,10 +1,10 @@
-Packages lists
-==============
+Package lists
+=============
 
 The below variables are used to create lists of packages
 
-:pkg_dict_{{ pkg_arch }}: The packages lists.
-:pkglist_enable_{{ pkg_arch }}: The list of enabled packages lists.
+:pkg_dict_{{ pkg_arch }}: The package lists.
+:pkglist_enable_{{ pkg_arch }}: The list of enabled package lists.
 :poudriere_pkglist_all: Create the files ``All`` that keep packages
                         from all lists in a directory.
 
