@@ -45,6 +45,7 @@ There are many options how to use the package lists:
 
 .. toctree::
    :caption: Examples
+   :maxdepth: 1
 
    guide-build-141-amd64-minimal
    guide-build-141-amd64-all-enabled

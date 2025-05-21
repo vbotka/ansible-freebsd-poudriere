@@ -15,16 +15,16 @@ Ansible 2.18 update.
 Major Changes
 -------------
 * Supported 13.4, 13.5, and 14.2
+* Added var freebsd_iocage_env (default={CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'})
+* Added var poudriere_packages_use_globs (default=false)
+* Added .gitignore
 
 Minor Changes
 -------------
-* defaults/main.yml was split into files defaults/main/\*.yml
+* Split defaults/main.yml into files defaults/main/\*.yml
 * Added tasks/sanity.yml (default poudriere_sanity=false)
-* Added var freebsd_iocage_env (default={CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'})
-* Added var poudriere_packages_use_globs (default=false)
-* Variable freebsd_use_packages is not mandatory (default=omit)
 * Updated documentation. Updated annotation templates
-* Added .gitignore
+* Variable freebsd_use_packages is not mandatory (default=omit)
 
 Bugfixes
 --------

@@ -1,7 +1,7 @@
 .. _ug_build_141amd64_minimal:
 
-Build 14.1 amd64 minimal packages list
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Build 14.1 amd64 minimal pkg list
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create jail ::
 
