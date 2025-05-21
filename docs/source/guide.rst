@@ -4,7 +4,7 @@ User's guide
 ************
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    guide-intro
    guide-conf

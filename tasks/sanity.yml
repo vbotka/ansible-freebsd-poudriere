@@ -1,0 +1,15 @@
+---
+- name: "Sanity: Get zpool facts."
+  community.general.zpool_facts:
+
+- name: "Sanity: Test zpool exists."
+  vars:
+    zpools: "{{ ansible_zfs_pools | map(attribute='name') }}"
+  ansible.builtin.assert:
+    quiet: "{{ poudriere_sanity_quiet }}"
+    that: poudriere_conf_zpool in zpools
+    fail_msg: >-
+      [ERR] ZFS pool {{ poudriere_conf_zpool }} is missing.
+      Available ZFS pools: {{ zpools }}.
+
+# EOF

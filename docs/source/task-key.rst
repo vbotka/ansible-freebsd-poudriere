@@ -3,6 +3,10 @@
 Generate signing key
 ^^^^^^^^^^^^^^^^^^^^
 
+.. index:: single: SSL; Tasks/Generate signing key
+.. index:: single: poudriere_key; Tasks/Generate signing key
+.. index:: single: signing key; Tasks/Generate signing key
+
 The generation of the signing key is enabled by default ::
 
    poudriere_key: true

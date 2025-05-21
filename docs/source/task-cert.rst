@@ -3,6 +3,10 @@
 Generate SSL certificate
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: single: SSL; Tasks/Generate SSL certificate
+.. index:: single: poudriere_cert; Tasks/Generate SSL certificate
+.. index:: single: certificate; Tasks/Generate SSL certificate
+
 The generation of the SSL certificate for the web server is disabled by default ::
 
    poudriere_cert: false
@@ -26,7 +30,7 @@ Optionally, enable and generate the SSL certificate ::
 
    shell> ansible-playbook pb.yml -t poudriere_cert -e poudriere_cert=true
 
-Take a look at the created files, ownership, and the permissions
+Look at the created files, ownership, and permissions
 
 .. literalinclude:: example-cert-tree.txt
    :language: sh

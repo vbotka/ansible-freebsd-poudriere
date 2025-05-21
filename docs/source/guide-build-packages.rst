@@ -3,7 +3,7 @@
 Build the packages
 ------------------
 
-There are many options how to use the packages lists:
+There are many options how to use the package lists:
 
 * Build all packages from a directory. For example, ::
 
@@ -45,6 +45,7 @@ There are many options how to use the packages lists:
 
 .. toctree::
    :caption: Examples
+   :maxdepth: 1
 
    guide-build-141-amd64-minimal
    guide-build-141-amd64-all-enabled

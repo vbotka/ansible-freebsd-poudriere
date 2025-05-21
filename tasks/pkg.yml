@@ -5,6 +5,7 @@
 - name: "Pkg: Install poudriere packages"
   community.general.pkgng:
     name: "{{ poudriere_packages }}"
+    use_globs: "{{ poudriere_packages_use_globs }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
@@ -14,7 +15,7 @@
 - name: "Pkg: Install poudriere ports"
   community.general.portinstall:
     name: "{{ item }}"
-    use_packages: "{{ freebsd_use_packages }}"
+    use_packages: "{{ freebsd_use_packages | d(omit) }}"
   loop: "{{ poudriere_packages }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
@@ -26,6 +27,7 @@
 - name: "Pkg: Install packages to create certificate"
   community.general.pkgng:
     name: "{{ poudriere_packages_cert }}"
+    use_globs: "{{ poudriere_packages_use_globs }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
@@ -35,7 +37,7 @@
 - name: "Pkg: Install ports to create certificate"
   community.general.portinstall:
     name: "{{ item }}"
-    use_packages: "{{ freebsd_use_packages }}"
+    use_packages: "{{ freebsd_use_packages | d(omit) }}"
   loop: "{{ poudriere_packages_cert }}"
   register: result
   retries: "{{ freebsd_install_retries }}"

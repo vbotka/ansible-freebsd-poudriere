@@ -1,6 +1,9 @@
 Customize make
 ^^^^^^^^^^^^^^
 
+.. index:: single: poudriere_make; Tasks/Customize make
+.. index:: single: make; Tasks/Customize make
+
 The customization of make.conf is enabled by default ::
 
    poudriere_make: true

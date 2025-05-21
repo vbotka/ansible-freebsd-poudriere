@@ -1,4 +1,5 @@
 .. code-block:: sh
+   :caption: (not updated to the latest version)
    :emphasize-lines: 1
 
    shell> poudriere jail -c -j 141Ramd64 -v 14.1-RELEASE -a amd64

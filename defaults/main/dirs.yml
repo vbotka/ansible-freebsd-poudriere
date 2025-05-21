@@ -1,0 +1,10 @@
+---
+poudriere_ssl_dir: /usr/local/etc/ssl
+poudriere_ssl_dir_mode: "0755"
+poudriere_ssl_private_dir: /usr/local/etc/ssl/private
+poudriere_ssl_private_dir_mode: "0700"
+poudriere_ssl_private_key_mode: "0600"
+poudriere_ssl_dirs:
+  - "{{ poudriere_ssl_dir }}"
+  - "{{ poudriere_ssl_dir }}/crt"
+  - "{{ poudriere_ssl_dir }}/csr"

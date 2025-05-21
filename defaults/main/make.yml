@@ -1,0 +1,4 @@
+---
+# make
+poudriere_make_file: "{{ poudriere_conf_dir }}/make.conf"
+poudriere_make_conf: []

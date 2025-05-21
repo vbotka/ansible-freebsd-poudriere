@@ -6,6 +6,11 @@
   when: poudriere_debug | bool
   tags: poudriere_debug
 
+- name: Import sanity.yml
+  ansible.builtin.import_tasks: sanity.yml
+  when: poudriere_sanity | bool
+  tags: poudriere_sanity
+
 - name: Import pkg.yml
   ansible.builtin.import_tasks: pkg.yml
   when: poudriere_install | bool

@@ -1,6 +1,8 @@
 Create SSL directories
 ^^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: single: SSL; Tasks/Create SSL dirs
+
 The creation of the SSL directories is enabled by default ::
 
    poudriere_dirs: true

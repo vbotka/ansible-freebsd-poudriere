@@ -1,0 +1,9 @@
+---
+# ssl cert web server
+poudriere_cert_key: "{{ poudriere_ssl_private_dir }}/poudriere.key"
+poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/poudriere.csr"
+poudriere_cert_path: "{{ poudriere_ssl_dir }}/crt/poudriere.crt"
+poudriere_cert_cn: build.example.com
+# poudriere_cert_key: "{{ poudriere_ssl_dir }}/private/{{ poudriere_cert_cn }}.key"
+# poudriere_cert_csr: "{{ poudriere_ssl_dir }}/csr/{{ poudriere_cert_cn }}.csr"
+# poudriere_cert_path: "{{ poudriere_ssl_dir }}/certs/{{ poudriere_cert_cn }}.crt"

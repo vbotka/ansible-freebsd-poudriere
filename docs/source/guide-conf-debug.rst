@@ -17,23 +17,30 @@ Enable debug output either in the configuration
 
    shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
 
-.. note::
+.. hint::
 
-   * The debug output of this role is optimized for the **yaml** callback plugin. Set this plugin
-     for example in the environment ::
+   The debug output of this role is optimized for ``result_format=yaml``. See
+   `result_format`_. Set it in the configuration
 
-        shell> export ANSIBLE_STDOUT_CALLBACK=yaml
+   .. code:: ini
 
-   * See details about the **yaml** callback plugin ::
+      [defaults]
+      callback_result_format = yaml
 
-        shell> ansible-doc -t callback yaml
+   , or in the environment
 
-   * See list of other callback plugins ::
+   .. code:: bash
 
-        shell> ansible-doc -t callback -l
+      ANSIBLE_CALLBACK_RESULT_FORMAT=yaml
 
 .. seealso::
 
    * `Playbook Debugger <https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html>`_
    * `Debugging modules <https://docs.ansible.com/ansible/latest/dev_guide/debugging.html#debugging-modules>`_
    * `Python Debugging With Pdb <https://realpython.com/python-debugging-pdb/>`_
+
+
+.. _result_format: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/default_callback.html#parameter-result_format
+.. _Playbook Debugger: https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html
+.. _Debugging modules: https://docs.ansible.com/ansible/latest/dev_guide/debugging.html#debugging-modules
+.. _Python Debugging: With Pdb: https://realpython.com/python-debugging-pdb

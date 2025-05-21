@@ -3,7 +3,10 @@
 Variables
 ---------
 
-The default variables are stored in the file ``defaults/main.yml`` (precedence 2.).
+.. index:: single: defaults; Configuration/Variables
+.. index:: single: package lists; Configuration/Variables
+
+The default variables are stored in the directory ``defaults/main``.
 
 .. seealso::
 
