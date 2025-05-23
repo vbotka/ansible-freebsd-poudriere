@@ -3,7 +3,7 @@ Ansible role FreeBSD Poudriere
 
 `vbotka.freebsd_poudriere`_
 
-Role version 2.7.0
+Role version |release|
 
 
 This `role`_ and the documentation is work in progress. The current state of this document describes

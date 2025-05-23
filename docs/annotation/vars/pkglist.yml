@@ -1,7 +1,7 @@
 ---
 
 task_pkglist_synopsis: |2
-  Maintain packages lists for a particular architecture.
+  Maintain package lists for a particular architecture.
 
 task_pkglist_description: |2
   These lists will be used by *poudriere*. Quoting *man poudriere*: *"Launch the bulk build. At minimum the jail and list of packages to build must be specified."*

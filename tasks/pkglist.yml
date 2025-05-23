@@ -1,5 +1,5 @@
 ---
-# Maintain packages lists for a particular architecture.
+# Maintain package lists for a particular architecture.
 
 - name: "Pkglist: Set variables for {{ pkg_arch }}"
   ansible.builtin.set_fact:
