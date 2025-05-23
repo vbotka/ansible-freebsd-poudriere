@@ -1,7 +1,7 @@
 ---
-# Create plackages lists.
+# Create plackage lists.
 
-- name: "Pkglists: Create packages lists"
+- name: "Pkglists: Create package lists."
   ansible.builtin.include_tasks: pkglist.yml
   loop: "{{ poudriere_pkg_arch }}"
   loop_control:

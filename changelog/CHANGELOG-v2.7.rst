@@ -17,6 +17,7 @@ Major Changes
 
 Minor Changes
 -------------
+* Updated tasks formatting.
 
 
 2.7.0
