@@ -1,90 +1,92 @@
 ---
-# Maintain packages lists for a particular architecture.
+# Create package lists.
 
-- name: "Pkglist: Set variables for {{ pkg_arch }}"
-  ansible.builtin.set_fact:
-    _pkg_dict: "{{ lookup('vars', 'pkg_dict_' ~ pkg_arch, default=[]) | sort(attribute='pkglist') }}"
-    _pkglist_enable: "{{ lookup('vars', 'pkglist_enable_' ~ pkg_arch, default=[]) | sort }}"
-
-- name: "Pkglist: Debug variables poudriere_debug={{ poudriere_debug }}"
-  ansible.builtin.debug:
-    msg: |
-      _pkg_dict:
-        {{ _pkg_dict | to_nice_yaml(indent=2) | indent(2) }}
-      _pkglist_enable:
-        {{ _pkglist_enable | to_nice_yaml(indent=2) | indent(2) }}
-      poudriere_pkglist_dir: {{ poudriere_pkglist_dir }}
-      poudriere_pkglist_all: {{ poudriere_pkglist_all }}
-  when: poudriere_debug | bool
-
-- name: "Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict"
-  ansible.builtin.assert:
-    quiet: true
-    that: _pkglist_enable_missing | length == 0
-    fail_msg: |
-      [ERR] The packages list(s): {{ _pkglist_enable_missing }} missing in _pkg_dict
+- name: Create package lists.
   vars:
+    _pkg_dict_var: "pkg_dict_{{ pkg_arch }}"
+    _pkglist_enable_var: "pkglist_enable_{{ pkg_arch }}"
+    _pkg_dict: "{{ lookup('vars', _pkg_dict_var, default=[]) | sort(attribute='pkglist') }}"
+    _pkglist_enable: "{{ lookup('vars', _pkglist_enable_var, default=[]) | sort }}"
     _pkglist_enable_missing: "{{ _pkglist_enable | difference(_pkg_dict | map(attribute='pkglist')) }}"
+  block:
 
-- name: "Pkglist: Create directories"
-  ansible.builtin.file:
-    state: directory
-    path: "{{ item }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_mode_dir }}"
-  loop:
-    - "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}"
-    - "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled"
+    - name: "Pkglist: Debug variables poudriere_debug={{ poudriere_debug }}"
+      when: poudriere_debug | bool
+      ansible.builtin.debug:
+        msg: |
+          _pkg_dict:
+            {{ _pkg_dict | to_nice_yaml(indent=2) | indent(2) }}
+          _pkglist_enable:
+            {{ _pkglist_enable | to_nice_yaml(indent=2) | indent(2) }}
+          poudriere_pkglist_dir: {{ poudriere_pkglist_dir }}
+          poudriere_pkglist_all: {{ poudriere_pkglist_all }}
 
-- name: "Pkglist: Create packages lists in {{ poudriere_pkglist_dir ~ '/' ~ pkg_arch }}"
-  ansible.builtin.template:
-    src: poudriere.pkglist.j2
-    dest: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}/{{ item.pkglist }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_mode }}"
-  loop: "{{ _pkg_dict }}"
-  loop_control:
-    label: "{{ item.pkglist }}"
+    - name: "Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict"
+      ansible.builtin.assert:
+        quiet: "{{ poudriere_sanity_quiet }}"
+        that: _pkglist_enable_missing | length == 0
+        fail_msg: |
+          [ERR] The packages list(s): {{ _pkglist_enable_missing }} missing in _pkg_dict
 
-- name: "Pkglist: Remove not enabled lists from {{ poudriere_pkglist_dir ~ '/' ~ pkg_arch ~ '.enabled' }}"
-  ansible.builtin.file:
-    state: absent
-    path: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled/{{ item.pkglist }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-  loop: "{{ _pkg_dict | rejectattr('pkglist', 'in', _pkglist_enable) }}"
-  loop_control:
-    label: "{{ item.pkglist }}"
+    - name: "Pkglist: Create directories."
+      ansible.builtin.file:
+        state: directory
+        path: "{{ item }}"
+        owner: "{{ poudriere_owner }}"
+        group: "{{ poudriere_group }}"
+        mode: "{{ poudriere_mode_dir }}"
+      loop:
+        - "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}"
+        - "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled"
 
-- name: "Pkglist: Link enabled lists to {{ poudriere_pkglist_dir ~ '/' ~ pkg_arch ~ '.enabled' }}"
-  ansible.builtin.file:
-    state: link
-    src: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}/{{ item.pkglist }}"
-    dest: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled/{{ item.pkglist }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    force: true
-  loop: "{{ _pkg_dict | selectattr('pkglist', 'in', _pkglist_enable) }}"
-  loop_control:
-    label: "{{ item.pkglist }}"
+    - name: "Pkglist: Create packages lists in {{ poudriere_pkglist_dir ~ '/' ~ pkg_arch }}"
+      ansible.builtin.template:
+        src: poudriere.pkglist.j2
+        dest: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}/{{ item.pkglist }}"
+        owner: "{{ poudriere_owner }}"
+        group: "{{ poudriere_group }}"
+        mode: "{{ poudriere_mode }}"
+      loop: "{{ _pkg_dict }}"
+      loop_control:
+        label: "{{ item.pkglist }}"
 
-- name: "Pkglist: Create lists of all packages"
-  ansible.builtin.template:
-    src: poudriere.pkglist.j2
-    dest: "{{ item.path }}"
-    owner: "{{ poudriere_owner }}"
-    group: "{{ poudriere_group }}"
-    mode: "{{ poudriere_mode }}"
-  loop:
-    - path: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}/All"
-      packages: "{{ _pkg_dict | map(attribute='packages') | flatten | unique | sort }}"
-    - path: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled/All"
-      packages: "{{ _pkg_dict | selectattr('pkglist', 'in', _pkglist_enable) |
-                                map(attribute='packages') | flatten | unique | sort }}"
-  loop_control:
-    label: "{{ item.path }}"
-  when: poudriere_pkglist_all | bool
+    - name: "Pkglist: Remove not enabled lists from {{ poudriere_pkglist_dir ~ '/' ~ pkg_arch ~ '.enabled' }}"
+      ansible.builtin.file:
+        state: absent
+        path: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled/{{ item.pkglist }}"
+        owner: "{{ poudriere_owner }}"
+        group: "{{ poudriere_group }}"
+      loop: "{{ _pkg_dict | rejectattr('pkglist', 'in', _pkglist_enable) }}"
+      loop_control:
+        label: "{{ item.pkglist }}"
+
+    - name: "Pkglist: Link enabled lists to {{ poudriere_pkglist_dir ~ '/' ~ pkg_arch ~ '.enabled' }}"
+      ansible.builtin.file:
+        state: link
+        src: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}/{{ item.pkglist }}"
+        dest: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled/{{ item.pkglist }}"
+        owner: "{{ poudriere_owner }}"
+        group: "{{ poudriere_group }}"
+        force: true
+      loop: "{{ _pkg_dict | selectattr('pkglist', 'in', _pkglist_enable) }}"
+      loop_control:
+        label: "{{ item.pkglist }}"
+
+    - name: "Pkglist: Create lists of all packages."
+      when: poudriere_pkglist_all | bool
+      ansible.builtin.template:
+        src: poudriere.pkglist.j2
+        dest: "{{ item.path }}"
+        owner: "{{ poudriere_owner }}"
+        group: "{{ poudriere_group }}"
+        mode: "{{ poudriere_mode }}"
+      loop:
+        - path: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}/All"
+          packages: "{{ _pkg_dict | map(attribute='packages') | flatten | unique | sort }}"
+        - path: "{{ poudriere_pkglist_dir }}/{{ pkg_arch }}.enabled/All"
+          packages: "{{ _pkg_dict | selectattr('pkglist', 'in', _pkglist_enable) |
+                                    map(attribute='packages') | flatten | unique | sort }}"
+      loop_control:
+        label: "{{ item.path }}"
 
 # EOF

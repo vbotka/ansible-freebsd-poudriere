@@ -1,7 +1,7 @@
 ---
-# Display values of the variables.
+# Display the variables values.
 
-- name: Poudriere Debug
+- name: Poudriere Debug.
   vars:
     msg: |-
       poudriere_role_version: {{ poudriere_role_version }}
@@ -86,7 +86,6 @@
       poudriere_make_file: {{ poudriere_make_file }}
       poudriere_make_conf:
         {{ poudriere_make_conf | to_nice_yaml(indent=2) | indent(2) }}
-
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 

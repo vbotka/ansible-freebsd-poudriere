@@ -173,7 +173,7 @@ mytasks:
     link: pkglists.yml
     path: tasks/pkglists.yml
     synopsis: |
-      Create packages lists.
+      Create package lists.
 
     description: |
       By default enabled ``poudriere_pkglists: true``
@@ -199,7 +199,7 @@ mytasks:
     link: pkglist.yml
     path: tasks/pkglist.yml
     synopsis: |
-      Maintain packages lists for a particular architecture.
+      Maintain package lists for a particular architecture.
 
     description: |
       These lists will be used by *poudriere*. Quoting *man poudriere*: *"Launch the bulk build. At minimum the jail and list of packages to build must be specified."*

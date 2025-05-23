@@ -1,7 +1,7 @@
 ---
 
 task_pkglists_synopsis: |2
-  Create packages lists.
+  Create package lists.
 
 task_pkglists_description: |2
   By default enabled ``poudriere_pkglists: true``

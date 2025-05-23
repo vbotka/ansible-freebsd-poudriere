@@ -1,7 +1,7 @@
 ---
 # Create SSL directories.
 
-- name: "Dirs: Create SSL directories"
+- name: "Dirs: Create SSL directories."
   ansible.builtin.file:
     state: directory
     path: "{{ item }}"
