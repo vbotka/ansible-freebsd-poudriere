@@ -10,13 +10,7 @@ vbotka.freebsd_poudriere 2.7 Release Notes
 
 Release Summary
 ---------------
-Maintenance update.
-
-Major Changes
--------------
-
-Minor Changes
--------------
+Updated docs.
 
 
 2.7.1

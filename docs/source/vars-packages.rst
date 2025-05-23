@@ -45,3 +45,12 @@ will result in the files ::
        ├── All
        ├── ansible -> /usr/local/etc/poudriere.d/pkglist/amd64/ansible
        └── minimal -> /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+
+.. seealso::
+
+   The variables ``pkdict_*.yml`` in the directory `defaults/main`_ of the role
+   `vbotka.freebsd_postinstall`_.
+
+
+.. _defaults/main: https://github.com/vbotka/ansible-freebsd-postinstall/tree/master/defaults/main
+.. _vbotka.freebsd_postinstall: https://galaxy.ansible.com/ui/standalone/roles/vbotka/freebsd_postinstall/
