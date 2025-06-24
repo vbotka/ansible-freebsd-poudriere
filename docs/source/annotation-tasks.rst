@@ -14,7 +14,7 @@ Synopsis: Main task.
 Import tasks if enabled.
 
 
-[`tasks/main.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/main.yml>`_]
+[`tasks/main.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/main.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -38,7 +38,7 @@ Synopsis: Display values of the variables.
 By default disabled ``poudriere_debug: false``
 
 
-[`tasks/debug.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/debug.yml>`_]
+[`tasks/debug.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/debug.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -64,7 +64,7 @@ Synopsis: Install packages or ports.
 By default enabled ``poudriere_install: true``
 
 
-[`tasks/pkg.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/pkg.yml>`_]
+[`tasks/pkg.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkg.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -90,7 +90,7 @@ Synopsis: Create SSL directories.
 By default enabled ``poudriere_dirs: true``
 
 
-[`tasks/dirs.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/dirs.yml>`_]
+[`tasks/dirs.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/dirs.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -116,7 +116,7 @@ Synopsis: Create signing key.
 By default enabled ``poudriere_key: true``
 
 
-[`tasks/key.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/key.yml>`_]
+[`tasks/key.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/key.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -142,7 +142,7 @@ Synopsis: Generate SSL certificate for the web server.
 By default disabled ``poudriere_cert: false``
 
 
-[`tasks/cert.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/cert.yml>`_]
+[`tasks/cert.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/cert.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -168,7 +168,7 @@ Synopsis: Configure Poudriere.
 By default enabled ``poudriere_conf: true``
 
 
-[`tasks/conf.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/conf.yml>`_]
+[`tasks/conf.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/conf.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -194,7 +194,7 @@ Synopsis: Create package lists.
 By default enabled ``poudriere_pkglists: true``
 
 
-[`tasks/pkglists.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/pkglists.yml>`_]
+[`tasks/pkglists.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglists.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -224,7 +224,7 @@ For example, ::
    shell> poudriere bulk -j 141Ramd64 -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
 
-[`tasks/pkglist.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/pkglist.yml>`_]
+[`tasks/pkglist.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/pkglist.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -250,7 +250,7 @@ Synopsis: Create options file for each jail
 Not implemented yes. Disabled ``poudriere_options: false``
 
 
-[`tasks/options.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/options.yml>`_]
+[`tasks/options.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/options.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -276,7 +276,7 @@ Synopsis: Customize make.
 By default enabled ``poudriere_make: true``
 
 
-[`tasks/make.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/make.yml>`_]
+[`tasks/make.yml <https://github.com/vbotka/ansible-freebsd-poudriere/blob/master/tasks/make.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
