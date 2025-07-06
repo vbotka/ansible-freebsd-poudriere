@@ -5,6 +5,8 @@
 [![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-freebsd-poudriere.readthedocs.io/en/latest/)
 [![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-freebsd-poudriere)](https://github.com/vbotka/ansible-freebsd-poudriere/tags)
 
+This role is included in the collection [vbotka.freebsd](https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/) as [vbotka.freebsd.poudriere](https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/content/role/poudriere)
+
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_poudriere/) FreeBSD. Install and configure Poudriere Build System.
 
 [Documentation at readthedocs.io]( https://ansible-freebsd-poudriere.readthedocs.io)
