@@ -15,6 +15,7 @@ out of the box.
 
 | GitHub: `ansible-freebsd-poudriere`_
 | Ansible Galaxy: `vbotka.freebsd_poudriere`_
+| Ansible collection: `vbotka.freebsd.poudriere`_
 
 | This role is licensed and distributed as a whole under
 | **BSD 2-Clause "Simplified" License**
@@ -37,10 +38,13 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+
 .. _role: https://galaxy.ansible.com/vbotka/freebsd_poudriere
-.. _share your feedback and report issues: https://github.com/vbotka/ansible-freebsd-poudriere/issues
-.. _Contributions are welcome: https://github.com/firstcontributions/first-contributions
+.. _vbotka.freebsd_poudriere: https://galaxy.ansible.com/vbotka/freebsd_poudriere
+.. _vbotka.freebsd.poudriere: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/content/role/poudriere/
 
 .. _ansible-freebsd-poudriere: https://github.com/vbotka/ansible-freebsd-poudriere
-.. _vbotka.freebsd_poudriere: https://galaxy.ansible.com/vbotka/freebsd_poudriere
+
+.. _share your feedback and report issues: https://github.com/vbotka/ansible-freebsd-poudriere/issues
+.. _Contributions are welcome: https://github.com/firstcontributions/first-contributions
 .. _BSD-2-Clause: https://spdx.org/licenses/BSD-2-Clause.html
