@@ -1,6 +1,6 @@
 ---
 # defaults freebsd_poudriere
-poudriere_role_version: 2.7.4
+poudriere_role_version: 2.7.5
 
 poudriere_debug: false
 poudriere_sanity: false
