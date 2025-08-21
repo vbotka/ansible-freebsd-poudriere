@@ -12,10 +12,10 @@ poudriere_conf_dirs:
 poudriere_conf_zpool: zroot
 poudriere_conf_no_zfs: "no"
 poudriere_conf_zrootfs: /poudriere
-poudriere_conf_freebsd_host: https://download.freebsd.org # Note 1)
+poudriere_conf_freebsd_host: https://download.freebsd.org
 poudriere_conf_resolv_conf: /etc/resolv.conf
 poudriere_conf_basefs: /usr/local/poudriere
-poudriere_conf_svn_host: svn.FreeBSD.org # Note 2)
+poudriere_conf_svn_host: svn.FreeBSD.org
 poudriere_conf_poudriere_data: "{{ poudriere_conf_basefs }}/data"
 poudriere_conf_use_portlint: "no"
 poudriere_conf_use_tmpfs: "yes"
@@ -23,7 +23,7 @@ poudriere_conf_distfiles_cache: /usr/ports/distfiles
 poudriere_conf_url_base: http://{{ ansible_default_ipv4.address | d('127.0.0.1') }}/
 poudriere_conf_check_changed_options: verbose
 poudriere_conf_check_changed_deps: "yes"
-poudriere_conf_data: # See templates/poudriere.conf2.j2
+poudriere_conf_data:  # See templates/poudriere.conf2.j2
   ZPOOL: "{{ poudriere_conf_zpool }}"
   no_ZFS: "{{ poudriere_conf_no_zfs }}"
   ZROOTFS: "{{ poudriere_conf_zrootfs }}"
