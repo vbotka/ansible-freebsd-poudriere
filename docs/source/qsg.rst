@@ -3,8 +3,8 @@
 Quick start guide
 *****************
 
-For the users who want to try the role quickly, this guide provides an
-example how to install, configure and run `Poudriere`_
+For the users who want to try the role quickly, this guide provides an example how to install,
+configure and run `Poudriere`_
 
 
 * Install the role ``vbotka.freebsd_poudriere``
@@ -24,10 +24,10 @@ example how to install, configure and run `Poudriere`_
 
 .. include:: example-playbook.rst
 
-* Customize variables. Disable the installation of ``packages`` (2). Configure web-server
+* Customize variables. Disable the installation of ``packages`` (2). Configure web server
   ``certificate`` (5-8), repository ``signing key`` (11-12) and Poudriere ``parameters
-  (15-39)``. Create the list of ``architectures`` the packages will be built for (42) and configure
-  ``make`` (45-51). Fit the configuration to your needs.
+  (15-39)``. Create the list of ``architectures`` for which the packages will be built (42) and
+  configure ``make`` (45-51). Fit the configuration to your needs.
 
 .. include:: example-vars-poudriere.rst
 
@@ -79,7 +79,7 @@ example how to install, configure and run `Poudriere`_
 
 .. include:: example-make.rst
 
-* The role is idempotent. At this point, Poudriere is installed, configured and ready to build
+* The role is idempotent. At this point, Poudriere is installed, configured, and ready to build
   packages. There should be no changes reported when the playbook is run repeatedly with the same
   data ::
 

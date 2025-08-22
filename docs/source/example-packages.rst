@@ -1,6 +1,6 @@
 .. code-block:: yaml
    :caption: shell> ansible-playbook pb.yml -t poudriere_packages -e poudriere_install=true
-   :emphasize-lines: 9,18
+   :emphasize-lines: 6,15
    :linenos:
    :force:
 

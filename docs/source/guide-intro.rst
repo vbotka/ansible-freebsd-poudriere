@@ -3,8 +3,7 @@
 Introduction
 ============
 
-Poudriere is a BSD-licensed utility for creating and testing FreeBSD
-packages.
+Poudriere is a BSD-licensed utility for creating and testing FreeBSD packages.
 
 * Ansible role: `vbotka.freebsd_poudriere`_
 * Supported systems: `FreeBSD`_
@@ -61,8 +60,8 @@ variable (list of dictionaries comprises the lists of ``pkg-origin``)
 will result in the files
 
 .. code-block:: console
+   :caption: shell> tree /usr/local/etc/poudriere.d/pkglist/
 
-   shell> tree /usr/local/etc/poudriere.d/pkglist/
    /usr/local/etc/poudriere.d/pkglist/
    ├── amd64
    │   ├── All
