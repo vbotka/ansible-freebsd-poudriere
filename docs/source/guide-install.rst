@@ -1,13 +1,12 @@
 .. _ug_installation:
 
 Installation
-------------
+============
 
-The most convenient way to install an Ansible role is to use
-:index:`Ansible Galaxy` CLI `ansible-galaxy`_. The utility comes with
-the standard Ansible package and provides the user with a simple
-interface to the Ansible Galaxy's services. For example, take a look
-at the current status of the role ::
+The most convenient way to install an Ansible role is to use :index:`Ansible Galaxy` CLI
+`ansible-galaxy`_. The utility comes with the standard Ansible package and provides the user with a
+simple interface to the Ansible Galaxy's services. For example, take a look at the current status of
+the role ::
 
    shell> ansible-galaxy role info vbotka.freebsd_poudriere
 
@@ -27,5 +26,5 @@ Install the collections if necessary ::
 
         shell> ansible-galaxy search --author=vbotka
 
-.. _`Galaxy User Guide`: https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
-.. _`ansible-galaxy`:  https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html
+.. _Galaxy User Guide: https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
+.. _ansible-galaxy:  https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html

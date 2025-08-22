@@ -15,7 +15,7 @@ Build ports listed in the file *minimal* ::
 
    shell> poudriere bulk -j 141Ramd64 -z devel -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
-Take a look at the results. See the section *Export data* how to configure the web server.
+Look at the results. See the section :ref:`ug_build_export` how to configure the web server.
 
 https://build.example.com/logs/bulk/141Ramd64-default-devel/latest/build.html
 

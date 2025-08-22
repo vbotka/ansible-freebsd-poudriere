@@ -11,6 +11,6 @@ Create ports tree ::
     
    shell> poudriere ports -c -m git+https -B main
 
-Build ports listed in the file *minimal* ::
+Build ports listed in the file ``All`` ::
 
    shell> poudriere bulk -j 141Ramd64 -z devel -f /usr/local/etc/poudriere.d/pkglist/amd64.enabled/All

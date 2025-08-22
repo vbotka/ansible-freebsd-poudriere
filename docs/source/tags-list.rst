@@ -1,7 +1,6 @@
-.. code-block:: bash
-   :emphasize-lines: 1
-
-   shell> ansible-playbook pb.yml --list-tags
+.. code-block:: yaml
+   :caption: ansible-playbook pb.yml --list-tags
+   :force:
    
    playbook: pb.yml
 

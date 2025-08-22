@@ -5,7 +5,6 @@ Configuration
 
 .. toctree::
 
-   guide-conf-installation
    guide-conf-playbook
    guide-conf-debug
    guide-conf-tags

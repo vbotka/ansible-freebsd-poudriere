@@ -1,8 +1,7 @@
 .. code-block:: yaml
-   :emphasize-lines: 1
+   :caption: shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+   :force:
    :linenos:
-
-   shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
 
    PLAY [build.example.com] ******************************************************************************************************************************
 

@@ -1,8 +1,8 @@
-.. code-block:: sh
-   :emphasize-lines: 1,11,20
+.. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_packages -e poudriere_install=true
+   :emphasize-lines: 6,15
    :linenos:
-
-   shell> ansible-playbook pb.yml -t poudriere_packages -e poudriere_install=true
+   :force:
 
    PLAY [build.example.com] ********************************************************************************
 

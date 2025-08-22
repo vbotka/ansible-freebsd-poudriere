@@ -1,8 +1,8 @@
-.. code-block:: bash
-   :emphasize-lines: 1,3
+.. code-block:: yaml
+   :caption: host_vars/build.example.com/pkg_dict.yml
+   :emphasize-lines: 2
    :linenos:
 
-   shell> cat host_vars/build.example.com/pkg_dict.yml
    ---
    pkg_dict_amd64:
      - pkglist: minimal

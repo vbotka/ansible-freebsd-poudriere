@@ -1,8 +1,8 @@
-.. code-block:: bash
-   :emphasize-lines: 1,3
+.. code-block:: yaml
+   :caption: pb.yml 
+   :emphasize-lines: 2
    :linenos:
 
-   shell> cat pb.yml
    ---
    - hosts: build.example.com
      become: true

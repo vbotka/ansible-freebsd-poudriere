@@ -5,8 +5,8 @@ Tags
 
 .. index:: single: tags; Configuration/Tags
 
-The tags provide the user with a very useful tool to run selected tasks of the role. To see
-what tags are available list them
+The tags provide the user with a very useful tool to run selected tasks of the role. List them to
+see what tags are available
 
 .. include:: tags-list.rst
 

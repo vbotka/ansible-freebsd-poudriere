@@ -8,34 +8,46 @@ Install FreeBSD packages or ports needed by Poudriere from the list ``poudriere_
 install packages needed to generate the signing key, and the certificate from the list
 ``poudriere_packages_cert``.
 
-The installation of packages is enabled by default ::
+The installation of packages is enabled by default
+
+.. code-block:: yaml
 
    poudriere_install: true
    freebsd_install_method: packages
 
-If you want to install from ports set ::
+If you want to install from ports set
+
+.. code-block:: yaml
 
    freebsd_install_method: ports
 
-To install pre-build packages, when available, set ::
+To install pre-build packages, when available, set
+
+.. code-block:: yaml
 
    freebsd_use_packages: true
 
-, or build the packages from the ports first ::
+, or build the packages from the ports first
+
+.. code-block:: yaml
 
    freebsd_use_packages: false
 
-Install packages ::
+Install packages
+
+.. code-block:: console
 
    shell> ansible-playbook pb.yml -t poudriere_pkg -e poudriere_install=true
 
-After the installation, speed up the execution of the playbook. Set ::
+After the installation, speed up the execution of the playbook. Set
+
+.. code-block:: yaml
 
    poudriere_install: false
 
 .. seealso::
 
    * Source code :ref:`as_pkg.yml`
-   * FreeBSD Handbook `Chapter 4. Installing Applications: Packages and Ports`_
+   * FreeBSD Handbook `Chapter 4. Installing Applications - Packages and Ports`_
 
-.. _`Chapter 4. Installing Applications: Packages and Ports`: https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/ports.html
+.. _Chapter 4. Installing Applications - Packages and Ports: https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/ports.html

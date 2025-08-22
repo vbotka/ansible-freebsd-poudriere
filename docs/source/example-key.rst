@@ -1,8 +1,7 @@
-.. code-block:: sh
+.. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_key
    :linenos:
-   :emphasize-lines: 1
-
-   shell> ansible-playbook pb.yml -t poudriere_key
+   :force:
 
    PLAY [build.example.com] *******************************************************************************
 
@@ -20,6 +19,6 @@
 
 
 .. literalinclude:: example-key-tree.txt
-   :language: sh
+   :language: console
    :linenos:
-   :emphasize-lines: 1
+   :caption: shell> tree /usr/local/etc/ssl/

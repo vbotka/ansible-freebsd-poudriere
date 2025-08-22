@@ -7,5 +7,6 @@ User's guide
    :maxdepth: 2
 
    guide-intro
+   guide-install
    guide-conf
    guide-build

@@ -1,8 +1,6 @@
-.. code-block:: sh
-   :caption: (not updated to the latest version)
-   :emphasize-lines: 1
+.. code-block:: console
+   :caption: shell> poudriere jail -c -j 141Ramd64 -v 14.1-RELEASE -a amd64
 
-   shell> poudriere jail -c -j 141Ramd64 -v 14.1-RELEASE -a amd64
    [00:00:00] Creating 141Ramd64 fs at /usr/local/poudriere/jails/141Ramd64... done
    [00:00:00] Using pre-distributed MANIFEST for FreeBSD 14.1-RELEASE amd64
    [00:00:00] Fetching base for FreeBSD 14.1-RELEASE amd64
@@ -26,17 +24,15 @@
    [00:04:58] Recording filesystem state for clean... done
    [00:04:58] Jail 141Ramd64 14.1-RELEASE-p3 amd64 is ready to be used
 
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: console
+   :caption: shell> poudriere ports -c -m git+https -B main
 
-   shell> poudriere ports -c -m git+https -B main
    [00:00:00] Creating default fs at /usr/local/poudriere/ports/default... done
    [00:00:00] Cloning the ports tree... done
 
 .. code-block:: sh
-   :emphasize-lines: 1
+   :caption: shell> poudriere bulk -j 141Ramd64 -z devel -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
-   shell> poudriere bulk -j 141Ramd64 -z devel -f /usr/local/etc/poudriere.d/pkglist/amd64/minimal
    [00:00:00] Creating the reference jail... done
    [00:00:05] Mounting system devices for 141Ramd64-default-devel
    [00:00:06] Converting package repository to new format

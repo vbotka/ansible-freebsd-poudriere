@@ -3,9 +3,11 @@
 Export data
 -----------
 
-By default, Poudriere stores the data in ``/usr/local/poudriere/data/`` ::
+By default, Poudriere stores the data in ``/usr/local/poudriere/data/``
 
-   shell> tree -d -L 2 /usr/local/poudriere/data/
+.. code-block:: console
+   :caption: shell> tree -d -L 2 /usr/local/poudriere/data/
+
    /usr/local/poudriere/data/
    ├── cache
    │   └── 141Ramd64-default-devel
@@ -14,16 +16,20 @@ By default, Poudriere stores the data in ``/usr/local/poudriere/data/`` ::
    └── packages
        └── 141Ramd64-default-devel
 
-Configure a web-server. For example, Apache ::
+Configure a web server. For example, Apache
 
-   shell> cat /usr/local/etc/apache24/Includes/usr-local-poudriere-data.conf
+.. code-block:: apache
+   :caption: /usr/local/etc/apache24/Includes/usr-local-poudriere-data.conf
+
    <Directory /usr/local/poudriere/data>
      Options Indexes FollowSymLinks
      AllowOverride All
      Require all granted
    </Directory>
 
-   shell> cat /usr/local/etc/apache24/extra/build.example.com.conf
+.. code-block:: apache
+   :caption: /usr/local/etc/apache24/extra/build.example.com.conf
+
      <VirtualHost *:80>
      ServerName build.example.com
      DocumentRoot /usr/local/poudriere/data/
@@ -36,7 +42,7 @@ Configure a web-server. For example, Apache ::
      SSLCertificateKeyFile /usr/local/etc/ssl/private/build.example.com.key
      </VirtualHost>
 
-The web page ``https://build.example.com/`` should display the list ::
+The web page ``https://build.example.com/`` should display the directory ::
 
   Index of /
 
@@ -45,7 +51,7 @@ The web page ``https://build.example.com/`` should display the list ::
       logs/
       packages/
 
-Navigate through the *packages*
+Navigate through the ``packages``
 
 ``https://build.example.com/packages/141Ramd64-default-devel/`` ::
 
@@ -63,7 +69,7 @@ Navigate through the *packages*
       meta.txz
       packagesite.txz
 
-and display the *packages*
+and display the ``packages``
 
 ``https://build.example.com/packages/141Ramd64-default-devel/All/`` ::
 
@@ -90,7 +96,7 @@ and display the *packages*
    gtar-1.35_1.pkg
    ...
 
-Review the logs, if needed
+Look at the logs, if needed
 
 ``https://build.example.com/logs/bulk/141Ramd64-default-devel/`` ::
 

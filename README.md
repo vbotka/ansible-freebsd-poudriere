@@ -18,7 +18,7 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 
 ## Supported platforms
 
-This role has been developed and tested with [FreeBSD Supported Releases](https://www.freebsd.org/releases/).
+This role is developed and tested with [FreeBSD Supported Releases](https://www.freebsd.org/releases/).
 
 
 ## Requirements
@@ -31,7 +31,7 @@ This role has been developed and tested with [FreeBSD Supported Releases](https:
 
 ## Variables
 
-Review the defaults and examples in vars.
+Look at the *defaults* and examples in *vars*.
 
 
 ## Workflow
@@ -42,7 +42,7 @@ Review the defaults and examples in vars.
 shell> ansible build.example.com -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod admin -s /bin/sh'
 ```
 
-* Install the role and the collection
+* Install the role and the collections
 
 ```bash
 shell> ansible-galaxy role install vbotka.freebsd_poudriere
@@ -57,10 +57,9 @@ shell> ansible-galaxy collection install community.general
 
 * Fit variables to your needs.
 
-* Create the playbook
+* Create the playbook freebsd-poudriere.yml
 
 ```yaml
-shell> cat freebsd-poudriere.yml
 - hosts: build.example.com
   roles:
     - vbotka.freebsd_poudriere
@@ -116,7 +115,7 @@ shell> poudriere ports -c -m git+https -B main
 shell: ls -la /usr/local/etc/poudriere.d/pkglist/amd64
 ```
 
-  For example,
+For example,
 
 ```bash
 shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/minimal
@@ -130,8 +129,8 @@ net/rsync
 ftp/wget
 ```
 
-* Optionally configure the options for the packages *pkglist*. This will supersede the options from
-  step 2. See Handbook: Building Packages with poudriere. Using Sets
+* Optionally, configure the options for the packages *pkglist*. This will supersede the options from
+  step 2. See the Handbook: Building Packages with poudriere. Using Sets.
 
 ```bash
 shell> poudriere options -j 141Ramd64 -z <setname> -f pkglist
@@ -167,9 +166,8 @@ shell> poudriere bulk -j 141Ramd64 -z devel -f /usr/local/etc/poudriere.d/pkglis
 
 ## Ansible lint
 
-Use the configuration file *.ansible-lint.local* when running
-*ansible-lint*. Some rules might be disabled and some warnings might
-be ignored. See the notes in the configuration file.
+Use the configuration file *.ansible-lint.local* when running *ansible-lint*. Some rules might be
+disabled and some warnings might be ignored. See the notes in the configuration file.
 
 ```bash
 shell> ansible-lint -c .ansible-lint.local
