@@ -3,13 +3,13 @@
 Playbook
 --------
 
-Create simple playbook that calls this role (6) at a single host build.example.com (3)
+Create a simple playbook that calls this role (5) at a single host ``build.example.com`` (2)
 
 .. code-block:: yaml
-   :emphasize-lines: 3,6
+   :caption: pb.yml
+   :emphasize-lines: 2,5
    :linenos:
 
-   shell> cat pb.yml
    ---
    - hosts: build.example.com
      become: true
@@ -18,5 +18,8 @@ Create simple playbook that calls this role (6) at a single host build.example.c
 
 .. seealso::
 
-   * `Understanding Privilege Escalation <https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation>`_ (4)
-   * `Working with playbooks <https://docs.ansible.com/ansible/latest/user_guide/playbooks.html>`_
+   * `Understanding Privilege Escalation`_
+   * `Working with playbooks`_
+
+.. _Understanding Privilege Escalation: https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation
+.. _Working with playbooks: https://docs.ansible.com/ansible/latest/user_guide/playbooks.html

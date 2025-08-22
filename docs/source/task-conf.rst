@@ -3,17 +3,19 @@ Configure Poudriere
 
 .. index:: single: poudriere_conf; Tasks/Configure Poudriere
 
-The configuration of Poudriere is enabled by default ::
+The configuration of Poudriere is enabled by default
+
+.. code-block:: yaml
 
    poudriere_conf: true
 
-Read FreeBSD Porter's Handbook `10.7.2. Setting Up Poudriere`_ and see
-the sample ``/usr/local/etc/poudriere.conf.sample``. Customize the
-variables ``poudriere_conf_*`` and display the current values ::
-
-   shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+Read FreeBSD Porter's Handbook `10.7.2. Setting Up Poudriere`_ and see the sample
+``/usr/local/etc/poudriere.conf.sample``. Customize the variables ``poudriere_conf_*`` and display
+the current values
 
 .. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+   :force:
 
    ...
    TASK [vbotka.freebsd_poudriere : Poudriere Debug] ************************************************
@@ -67,20 +69,21 @@ variables ``poudriere_conf_*`` and display the current values ::
      ZROOTFS: /poudriere
      ...
 
-Configure Poudriere ::
+Configure Poudriere
+
+.. code-block:: console
 
    shell> ansible-playbook pb.yml -t poudriere_conf -e poudriere_conf=true
 
-and take a look at the configuration
+and look at the configuration
 
 .. literalinclude:: example-conf.txt
+   :caption: /usr/local/etc/poudriere.conf
    :language: sh
-   :linenos:
-   :emphasize-lines: 1
 
 .. seealso::
    * Source code :ref:`as_conf.yml`
    * Template :ref:`as_template_poudriere.conf.j2`
    * FreeBSD Porter's Handbook `10.7.2. Setting Up Poudriere`_
 
-.. _`10.7.2. Setting Up Poudriere`: https://docs.freebsd.org/en/books/porters-handbook/testing/#testing-poudriere
+.. _10.7.2. Setting Up Poudriere: https://docs.freebsd.org/en/books/porters-handbook/testing/#testing-poudriere

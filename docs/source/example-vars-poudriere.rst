@@ -1,8 +1,8 @@
-.. code-block:: bash
-   :emphasize-lines: 1
+.. code-block:: yaml
+   :caption: host_vars/build.example.com/poudriere.yml
    :linenos:
+   :force:
 
-   shell> cat host_vars/build.example.com/poudriere.yml
    ---
    poudriere_install: false
 

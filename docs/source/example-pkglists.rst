@@ -1,8 +1,8 @@
-.. code-block:: sh
-   :emphasize-lines: 1,17-19,21-23
+.. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_pkglists
+   :emphasize-lines: 15-17,19-21
    :linenos:
-
-   shell> ansible-playbook pb.yml -t poudriere_pkglists
+   :force:
 
    PLAY [build.example.com] ********************************************************************************************
 
@@ -42,11 +42,10 @@
    build.example.com: ok=6    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
 
 
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: console
+   :caption: shell> tree /usr/local/etc/poudriere.conf
    :linenos:
 
-   shell> tree /usr/local/etc/poudriere.d/pkglist/
    /usr/local/etc/poudriere.d/pkglist/
    ├── amd64
    │   ├── ansible
@@ -54,21 +53,19 @@
    └── amd64.enabled
 
 
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: console
+   :caption: /usr/local/etc/poudriere.d/pkglist/amd64/ansible
    :linenos:
 
-   shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/ansible
    sysutils/ansible
    sysutils/py-ansible-lint
    sysutils/py-ansible-runner
 
 
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: console
+   :caption: /usr/local/etc/poudriere.d/pkglist/amd64/minimal
    :linenos:
 
-   shell> cat /usr/local/etc/poudriere.d/pkglist/amd64/minimal
    shells/bash
    devel/git
    archivers/gtar

@@ -3,7 +3,9 @@ Create SSL directories
 
 .. index:: single: SSL; Tasks/Create SSL dirs
 
-The creation of the SSL directories is enabled by default ::
+By default, create SSL directories
+
+.. code-block:: yaml
 
    poudriere_dirs: true
    poudriere_ssl_dir: /usr/local/etc/ssl
@@ -13,7 +15,9 @@ The creation of the SSL directories is enabled by default ::
      - "{{ poudriere_ssl_dir }}/csr"
    poudriere_ssl_private_dir: /usr/local/etc/ssl/private
 
-Fit the variables to your needs and create the directories ::
+Fit the variables to your needs and create the directories
+
+.. code-block:: console
 
    shell> ansible-playbook pb.yml -t poudriere_dirs
 

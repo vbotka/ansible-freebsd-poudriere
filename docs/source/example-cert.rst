@@ -1,8 +1,7 @@
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_cert -e poudriere_cert=true 
    :linenos:
-
-   shell> ansible-playbook pb.yml -t poudriere_cert -e poudriere_cert=true
+   :force:
 
    PLAY [build.example.com] *******************************************************************************
 
@@ -23,6 +22,6 @@
 
 
 .. literalinclude:: example-cert-tree.txt
-   :language: sh
+   :caption: shell> tree /usr/local/etc/ssl/
+   :language: console
    :linenos:
-   :emphasize-lines: 1

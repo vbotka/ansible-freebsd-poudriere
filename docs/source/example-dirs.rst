@@ -1,8 +1,7 @@
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_dirs
    :linenos:
-
-   shell> ansible-playbook pb.yml -t poudriere_dirs
+   :force:
 
    PLAY [build.example.com] *******************************************************************************
 

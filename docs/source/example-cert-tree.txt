@@ -1,4 +1,3 @@
-shell> tree /usr/local/etc/ssl/
 /usr/local/etc/ssl/
 ├── certs
 │   └── build.example.com.crt

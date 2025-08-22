@@ -4,17 +4,23 @@ Customize make
 .. index:: single: poudriere_make; Tasks/Customize make
 .. index:: single: make; Tasks/Customize make
 
-The customization of make.conf is enabled by default ::
+The customization of make.conf is enabled by default
+
+.. code-block:: yaml
 
    poudriere_make: true
    poudriere_make_file: "{{ poudriere_conf_dir }}/make.conf"
 
-and the customization list is empty ::
+and the customization list is empty
+
+.. code-block:: yaml
 
    poudriere_make_conf: []
 
 This would result in an empty file ``/usr/local/etc/poudriere.d/make.conf``. Optionally, set the
-list of the options. For example, ::
+list of the options. For example,
+
+.. code-block:: yaml
 
    poudriere_make_conf:
      - "OPTIONS_UNSET+=\t\t\tDOCS NLS X11 EXAMPLES"
@@ -24,20 +30,21 @@ list of the options. For example, ::
      - "DEFAULT_VERSIONS+=\t\tphp=8.3"
      - "DEFAULT_VERSIONS+=\t\tssl=openssl"
 
-Customize make.conf ::
+Customize make.conf
+
+.. code-block:: console
 
    shell> ansible-playbook pb.yml -t poudriere_make
 
-and take a look at the file
+and look at the file
 
 .. literalinclude:: example-make.txt
-   :language: sh
-   :linenos:
-   :emphasize-lines: 1
+   :caption: /usr/local/etc/poudriere.d/make.conf
+   :language: make
 
 .. seealso::
    * Source code :ref:`as_make.yml`
    * Template :ref:`as_template_make.conf.j2`
    * FreeBSD Porter's Handbook `5. Configuring the Makefile`_
 
-.. _`5. Configuring the Makefile`: https://docs.freebsd.org/en/books/porters-handbook/makefiles/
+.. _5. Configuring the Makefile: https://docs.freebsd.org/en/books/porters-handbook/makefiles/

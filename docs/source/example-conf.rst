@@ -1,8 +1,7 @@
-.. code-block:: sh
-   :emphasize-lines: 1
+.. code-block:: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_conf
    :linenos:
-
-   shell> ansible-playbook pb.yml -t poudriere_conf
+   :force:
 
    PLAY [build.example.com] *******************************************************************************
 
@@ -18,8 +17,7 @@
    PLAY RECAP *********************************************************************************************
    build.example.com: ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-
 .. literalinclude:: example-conf.txt
+   :caption: /usr/local/etc/poudriere.conf
    :language: sh
    :linenos:
-   :emphasize-lines: 1
