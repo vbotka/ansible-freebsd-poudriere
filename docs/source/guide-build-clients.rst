@@ -11,7 +11,7 @@ See FreeBSD Handbook chapter `Configuring pkg Clients to Use a Poudriere Reposit
 Configure repos
 ^^^^^^^^^^^^^^^
 
-Log to the clients ::
+Log to the clients. For example, ::
 
    shell> uname -a
    FreeBSD test 14.1-RELEASE FreeBSD 14.1-RELEASE releng/14.1-n267679-10e31f0946d8 GENERIC amd64
@@ -130,8 +130,8 @@ See the FreeBSD Handbook Chapter `Installing and Fetching Packages`_.
 Update the pkg database
 
 .. code-block:: console
+   :caption: shell> pkg update
 
-   shell> pkg update
    Updating build repository catalogue...
    Fetching meta.conf: 100%    178 B   0.2kB/s    00:01
    Fetching data.pkg: 100%  140 KiB 143.8kB/s    00:01
@@ -142,15 +142,15 @@ Update the pkg database
 Display packages info. For example,
 
 .. code-block:: console
+   :caption: shell> pkg info | grep pkg
 
-   shell> pkg info | grep pkg
    pkg-1.21.3                    Package manager
 
 Upgrade the package
 
 .. code-block:: console
+   :caption: shell> pkg upgrade pkg
 
-   shell> pkg upgrade pkg
    Updating build repository catalogue...
    build repository is up to date.
    All repositories are up to date.

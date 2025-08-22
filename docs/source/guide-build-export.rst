@@ -16,7 +16,7 @@ By default, Poudriere stores the data in ``/usr/local/poudriere/data/``
    └── packages
        └── 141Ramd64-default-devel
 
-Configure a web-server. For example, Apache
+Configure a web server. For example, Apache
 
 .. code-block:: apache
    :caption: /usr/local/etc/apache24/Includes/usr-local-poudriere-data.conf

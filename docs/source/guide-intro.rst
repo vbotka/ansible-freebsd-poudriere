@@ -34,10 +34,10 @@ This role role is included in the collection `vbotka.freebsd`_. See the examples
 Package lists
 --------------
 
-The utility `poudriere`_ provides the option *-f* to "*Build ports listed in the file*". Ports must
-be specified in the form of “category/port”. The utility `pkg`_ uses the mnemonics "pkg-origin" for
-this form. In this role, we use lists of “category/port”, or "pkg-origin". For example, the below
-variable (list of dictionaries comprises the lists of "pkg-origin")
+The utility `poudriere`_ provides the option ``-f`` to "*Build ports listed in the file*". Ports must
+be specified in the form of ``category/port``. The utility `pkg`_ uses the mnemonics ``pkg-origin`` for
+this form. In this role, we use lists of ``category/port``, or ``pkg-origin``. For example, the below
+variable (list of dictionaries comprises the lists of ``pkg-origin``)
 
 .. code-block:: yaml
 
@@ -73,7 +73,7 @@ will result in the files
        ├── ansible -> /usr/local/etc/poudriere.d/pkglist/amd64/ansible
        └── minimal -> /usr/local/etc/poudriere.d/pkglist/amd64/minimal
 
-The term **package lists** is used both for the variables and the resulting files in this role.
+The term ``package lists`` is used both for the variables and the resulting files in this role.
 
 .. _share your feedback and report issues: https://github.com/vbotka/ansible-freebsd-poudriere/issues
 .. _Contributions are welcome: https://github.com/firstcontributions/first-contributions
