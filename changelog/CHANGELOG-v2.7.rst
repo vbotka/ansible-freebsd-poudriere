@@ -16,6 +16,7 @@ Major Changes
 
 Minor Changes
 -------------
+* Formatting of defaults.
 
 
 2.7.5

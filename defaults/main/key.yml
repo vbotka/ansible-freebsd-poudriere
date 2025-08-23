@@ -3,5 +3,6 @@
 poudriere_key_size: 4096
 poudriere_key_type: RSA
 poudriere_key_crt: "{{ poudriere_ssl_dir }}/crt/poudriere-sk.crt"
-poudriere_conf_pkg_repo_signing_key: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
 poudriere_key_cmd: openssl rsa -in {{ poudriere_conf_pkg_repo_signing_key }} -pubout -out {{ poudriere_key_crt }}
+
+poudriere_conf_pkg_repo_signing_key: "{{ poudriere_ssl_private_dir }}/poudriere-sk.key"
