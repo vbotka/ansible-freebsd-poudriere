@@ -5,6 +5,7 @@
 
    ---
    - hosts: build.example.com
+     gather_facts: true
      become: true
      roles:
        - vbotka.freebsd_poudriere

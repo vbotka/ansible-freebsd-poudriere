@@ -17,6 +17,7 @@ Major Changes
 Minor Changes
 -------------
 * Formatting of defaults.
+* Update docs.
 
 
 2.7.5

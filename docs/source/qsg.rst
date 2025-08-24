@@ -25,9 +25,9 @@ configure and run `Poudriere`_
 .. include:: example-playbook.rst
 
 * Customize variables. Disable the installation of ``packages`` (2). Configure web server
-  ``certificate`` (5-8), repository ``signing key`` (11-12) and Poudriere ``parameters
-  (15-39)``. Create the list of ``architectures`` for which the packages will be built (42) and
-  configure ``make`` (45-51). Fit the configuration to your needs.
+  ``certificate`` (5-8), repository ``signing key`` (17-18) and Poudriere ``parameters
+  (21-45)``. Create the list of ``architectures`` for which the packages will be built (48) and
+  configure ``make`` (51-57). Fit the configuration to your needs.
 
 .. include:: example-vars-poudriere.rst
 
