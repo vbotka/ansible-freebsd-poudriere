@@ -1,0 +1,12 @@
+/usr/local/etc/ssl/
+├── certs
+│   └── build.example.com.crt
+├── crt
+│   └── build.example.com-sk.crt
+├── csr
+│   └── build.example.com.csr
+└── private
+    ├── build.example.com-sk.key
+    └── build.example.com.key
+
+5 directories, 5 files

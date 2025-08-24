@@ -1,0 +1,27 @@
+
+PLAY [build.example.com] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [build.example.com]
+
+TASK [vbotka.freebsd_poudriere : Pkglists: Create package lists.] **************
+included: /export/home/vlado.config/.ansible/roles/vbotka.freebsd_poudriere/tasks/pkglist.yml for build.example.com => (item=amd64)
+
+TASK [vbotka.freebsd_poudriere : Pkglist: Assert all items in _pkglist_enable are available in _pkg_dict] ***
+ok: [build.example.com]
+
+TASK [vbotka.freebsd_poudriere : Pkglist: Create directories.] *****************
+ok: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist/amd64)
+ok: [build.example.com] => (item=/usr/local/etc/poudriere.d/pkglist/amd64.enabled)
+
+TASK [vbotka.freebsd_poudriere : Pkglist: Create packages lists in /usr/local/etc/poudriere.d/pkglist/amd64] ***
+ok: [build.example.com] => (item=ansible)
+ok: [build.example.com] => (item=minimal)
+
+TASK [vbotka.freebsd_poudriere : Pkglist: Link enabled lists to /usr/local/etc/poudriere.d/pkglist/amd64.enabled] ***
+ok: [build.example.com] => (item=ansible)
+ok: [build.example.com] => (item=minimal)
+
+PLAY RECAP *********************************************************************
+build.example.com          : ok=6    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+

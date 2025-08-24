@@ -22,18 +22,29 @@ configure and run `Poudriere`_
 
 * Create the playbook ``pb.yml``. For example, with single host ``build.example.com`` (2)
 
-.. include:: example-playbook.rst
+.. literalinclude:: qsg/pb.yml
+   :language: yaml
+   :caption: pb.yml
+   :emphasize-lines: 2
+   :linenos:
 
 * Customize variables. Disable the installation of ``packages`` (2). Configure web server
-  ``certificate`` (5-8), repository ``signing key`` (11-12) and Poudriere ``parameters
-  (15-39)``. Create the list of ``architectures`` for which the packages will be built (42) and
-  configure ``make`` (45-51). Fit the configuration to your needs.
+  ``certificate`` (5-8), repository ``signing key`` (17-18) and Poudriere ``parameters
+  (21-45)``. Create the list of ``architectures`` for which the packages will be built (48) and
+  configure ``make`` (51-57). Fit the configuration to your needs.
 
-.. include:: example-vars-poudriere.rst
+.. literalinclude:: qsg/poudriere.yml
+   :language: yaml
+   :caption: host_vars/build.example.com/poudriere.yml
+   :linenos:
 
 * Create the package lists
 
-.. include:: example-vars-pkgdict.rst
+.. literalinclude:: qsg/pkg_dict.yml
+   :language: yaml
+   :caption: host_vars/build.example.com/pkg_dict.yml
+   :emphasize-lines: 2
+   :linenos:
 
 * Test the syntax
 
@@ -45,7 +56,11 @@ configure and run `Poudriere`_
 
 * Display the included variables. Enable debug ``poudriere_debug=true``
 
-.. include:: example-debug.rst
+.. literalinclude:: qsg/out-01.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_debug -e poudriere_debug=true
+   :force:
+   :linenos:
 
 * Configure ZFS ::
 
@@ -53,37 +68,85 @@ configure and run `Poudriere`_
 
 * Install packages. Enable the installation ``poudriere_install=true``
 
-.. include:: example-packages.rst
+.. literalinclude:: qsg/out-02.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_pkg -e poudriere_install=true
+   :force:
+   :linenos:
 
 * Create directories
 
-.. include:: example-dirs.rst
+.. literalinclude:: qsg/out-03.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_dirs
+   :force:
+   :linenos:
 
 * Generate the signing key
 
-.. include:: example-key.rst
+.. literalinclude:: qsg/out-04.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_key
+   :force:
+   :linenos:
 
 * Generate the certificate for the web server. Enable the generation ``poudriere_cert=true``
 
-.. include:: example-cert.rst
+.. literalinclude:: qsg/out-05.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_cert -e poudriere_cert=true
+   :force:
+   :linenos:
+
+.. literalinclude:: qsg/out-06.txt
+   :language: console
+   :caption: shell> ssh admin@$build_example_com sudo tree /usr/local/etc/ssl/
+   :linenos:
 
 * Configure poudriere
 
-.. include:: example-conf.rst
+.. literalinclude:: qsg/out-07.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_conf
+   :force:
+   :linenos:
 
-* Create directories (15-17) and create the package lists (19-21)
+* Create directories (12), create package lists (16), and link enabled lists (20)
 
-.. include:: example-pkglists.rst
+.. literalinclude:: qsg/out-08.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_pkglists
+   :force:
+   :linenos:
+
+.. literalinclude:: qsg/out-09.txt
+   :language: console
+   :caption: shell> ssh admin@$build_example_com tree /usr/local/etc/poudriere.d/pkglist/
+   :linenos:
+
+.. literalinclude:: qsg/out-10.txt
+   :language: console
+   :caption: /usr/local/etc/poudriere.d/pkglist/amd64/ansible
+   :linenos:
+
+.. literalinclude:: qsg/out-11.txt
+   :language: console
+   :caption: /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+   :linenos:
 
 * Configure make
 
-.. include:: example-make.rst
+.. literalinclude:: qsg/out-12.txt
+   :language: yaml
+   :caption: shell> ansible-playbook pb.yml -t poudriere_make
+   :force:
+   :linenos:
 
 * The role is idempotent. At this point, Poudriere is installed, configured, and ready to build
   packages. There should be no changes reported when the playbook is run repeatedly with the same
   data ::
 
-   shell> ansible-playbook pb.yml
+    shell> ansible-playbook pb.yml
 
 * Build the packages. Login into the host ``build.example.com`` and proceed according the `Poudriere
   documentation`_. For example,

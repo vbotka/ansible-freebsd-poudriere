@@ -1,6 +1,7 @@
 ---
 # configuration
 # See /usr/local/etc/poudriere.conf.sample
+
 poudriere_conf_file: /usr/local/etc/poudriere.conf
 poudriere_conf_template: poudriere.conf.j2
 poudriere_conf_dir: /usr/local/etc/poudriere.d
@@ -9,33 +10,36 @@ poudriere_conf_dirs:
     owner: "{{ poudriere_owner }}"
     group: "{{ poudriere_group }}"
     mode: "{{ poudriere_mode_dir }}"
-poudriere_conf_zpool: zroot
-poudriere_conf_no_zfs: "no"
-poudriere_conf_zrootfs: /poudriere
-poudriere_conf_freebsd_host: https://download.freebsd.org
-poudriere_conf_resolv_conf: /etc/resolv.conf
+
 poudriere_conf_basefs: /usr/local/poudriere
-poudriere_conf_svn_host: svn.FreeBSD.org
-poudriere_conf_poudriere_data: "{{ poudriere_conf_basefs }}/data"
-poudriere_conf_use_portlint: "no"
-poudriere_conf_use_tmpfs: "yes"
+poudriere_conf_check_changed_deps: "yes"  # default
+poudriere_conf_check_changed_options: verbose  # default
 poudriere_conf_distfiles_cache: /usr/ports/distfiles
+poudriere_conf_freebsd_host: https://download.freebsd.org  # suggested
+poudriere_conf_no_zfs: "no"
+poudriere_conf_poudriere_data: "{{ poudriere_conf_basefs }}/data"
+poudriere_conf_resolv_conf: /etc/resolv.conf
+poudriere_conf_svn_host: svn.FreeBSD.org  # default
 poudriere_conf_url_base: http://{{ ansible_default_ipv4.address | d('127.0.0.1') }}/
-poudriere_conf_check_changed_options: verbose
-poudriere_conf_check_changed_deps: "yes"
+poudriere_conf_use_portlint: "no"  # default
+poudriere_conf_use_tmpfs: "yes"  # default
+poudriere_conf_tmpfs_limit: "none"  # default
+poudriere_conf_zpool: zroot  # default
+poudriere_conf_zrootfs: /poudriere  # default
 poudriere_conf_data:  # See templates/poudriere.conf2.j2
-  ZPOOL: "{{ poudriere_conf_zpool }}"
-  no_ZFS: "{{ poudriere_conf_no_zfs }}"
-  ZROOTFS: "{{ poudriere_conf_zrootfs }}"
-  freebsd_HOST: "{{ poudriere_conf_freebsd_host }}"
-  RESOLV_CONF: "{{ poudriere_conf_resolv_conf }}"
   BASEFS: "{{ poudriere_conf_basefs }}"
-  svn_HOST: "{{ poudriere_conf_svn_host }}"
+  CHECK_CHANGED_DEPS: "{{ poudriere_conf_check_changed_deps }}"
+  CHECK_CHANGED_OPTIONS: "{{ poudriere_conf_check_changed_options }}"
+  DISTFILES_CACHE: "{{ poudriere_conf_distfiles_cache }}"
+  FREEBSD_HOST: "{{ poudriere_conf_freebsd_host }}"
+  NO_ZFS: "{{ poudriere_conf_no_zfs }}"
+  PKG_REPO_SIGNING_KEY: "{{ poudriere_conf_pkg_repo_signing_key }}"  # defaults/main/key.yml
   POUDRIERE_DATA: "{{ poudriere_conf_poudriere_data }}"
+  RESOLV_CONF: "{{ poudriere_conf_resolv_conf }}"
+  TMPFS_LIMIT: "{{ poudriere_conf_tmpfs_limit }}"
+  SVN_HOST: "{{ poudriere_conf_svn_host }}"
+  URL_BASE: "{{ poudriere_conf_url_base }}"
   USE_PORTLINT: "{{ poudriere_conf_use_portlint }}"
   USE_TMPFS: "{{ poudriere_conf_use_tmpfs }}"
-  DISTFILES_CACHE: "{{ poudriere_conf_distfiles_cache }}"
-  PKG_REPO_SIGNING_KEY: "{{ poudriere_conf_pkg_repo_signing_key }}"
-  URL_BASE: "{{ poudriere_conf_url_base }}"
-  check_CHANGED_OPTIONS: "{{ poudriere_conf_check_changed_options }}"
-  CHECK_CHANGED_DEPS: "{{ poudriere_conf_check_changed_deps }}"
+  ZPOOL: "{{ poudriere_conf_zpool }}"
+  ZROOTFS: "{{ poudriere_conf_zrootfs }}"
