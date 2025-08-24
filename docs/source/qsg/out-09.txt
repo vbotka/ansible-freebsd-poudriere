@@ -1,0 +1,89 @@
+/usr/local/etc/poudriere.d/pkglist/
+├── amd64
+│   ├── All
+│   ├── ansible
+│   ├── apache
+│   ├── apcups
+│   ├── devel
+│   ├── dhcp
+│   ├── dns
+│   ├── docker
+│   ├── hostap
+│   ├── integrity
+│   ├── jail
+│   ├── joomla
+│   ├── leutils
+│   ├── linux
+│   ├── mailserver
+│   ├── mailserver_sieve
+│   ├── mailserver_spamassasin
+│   ├── mcrypt
+│   ├── minimal
+│   ├── mysql
+│   ├── mysql_extra
+│   ├── nagios
+│   ├── nginx
+│   ├── pf
+│   ├── php
+│   ├── postinstall
+│   ├── poudriere
+│   ├── procmail
+│   ├── python
+│   ├── qemu
+│   ├── qemu_user_static
+│   ├── roundcube
+│   ├── roundcube_aspell
+│   ├── rsnapshot
+│   ├── security
+│   ├── smart
+│   ├── snmpd
+│   ├── ssmtp
+│   ├── wpa_supplicant
+│   └── yazvs
+├── amd64.enabled
+│   ├── All
+│   ├── ansible -> /usr/local/etc/poudriere.d/pkglist/amd64/ansible
+│   └── minimal -> /usr/local/etc/poudriere.d/pkglist/amd64/minimal
+├── arm
+│   ├── All
+│   ├── ansible
+│   ├── apache
+│   ├── apcups
+│   ├── devel
+│   ├── dhcp
+│   ├── dns
+│   ├── hostap
+│   ├── integrity
+│   ├── jail
+│   ├── joomla
+│   ├── leutils
+│   ├── linux
+│   ├── mailserver
+│   ├── mailserver_sieve
+│   ├── mailserver_spamassasin
+│   ├── mcrypt
+│   ├── minimal
+│   ├── mysql
+│   ├── mysql_extra
+│   ├── nginx
+│   ├── pf
+│   ├── php
+│   ├── postinstall
+│   ├── poudriere
+│   ├── procmail
+│   ├── python
+│   ├── roundcube
+│   ├── roundcube_aspell
+│   ├── rsnapshot
+│   ├── security
+│   ├── smart
+│   ├── snmpd
+│   ├── ssmtp
+│   ├── wpa_supplicant
+│   └── yazvs
+└── arm.enabled
+    ├── All
+    ├── ansible -> /usr/local/etc/poudriere.d/pkglist/arm/ansible
+    └── minimal -> /usr/local/etc/poudriere.d/pkglist/arm/minimal
+
+5 directories, 82 files

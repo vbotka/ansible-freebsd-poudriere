@@ -1,0 +1,18 @@
+---
+pkg_dict_amd64:
+  - pkglist: ansible
+    packages:
+      - sysutils/ansible
+      - sysutils/py-ansible-lint
+      - sysutils/py-ansible-runner
+  - pkglist: minimal
+    packages:
+      - archivers/gtar
+      - devel/git
+      - ftp/wget
+      - net/rsync
+      - ports-mgmt/pkg
+      - ports-mgmt/portmaster
+      - ports-mgmt/portupgrade
+      - security/sudo
+      - shells/bash

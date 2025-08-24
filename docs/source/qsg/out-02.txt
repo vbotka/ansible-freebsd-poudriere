@@ -1,0 +1,15 @@
+
+PLAY [build.example.com] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [build.example.com]
+
+TASK [vbotka.freebsd_poudriere : Pkg: Install poudriere packages.] *************
+ok: [build.example.com]
+
+TASK [vbotka.freebsd_poudriere : Pkg: Install packages to create certificate.] ***
+ok: [build.example.com]
+
+PLAY RECAP *********************************************************************
+build.example.com          : ok=3    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+

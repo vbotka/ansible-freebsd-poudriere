@@ -1,0 +1,12 @@
+
+PLAY [build.example.com] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [build.example.com]
+
+TASK [vbotka.freebsd_poudriere : Make: Configure /usr/local/etc/poudriere.d/make.conf] ***
+ok: [build.example.com]
+
+PLAY RECAP *********************************************************************
+build.example.com          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

@@ -1,0 +1,15 @@
+
+PLAY [build.example.com] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [build.example.com]
+
+TASK [vbotka.freebsd_poudriere : Conf: Create directories.] ********************
+ok: [build.example.com] => (item=/usr/ports/distfiles)
+
+TASK [vbotka.freebsd_poudriere : Conf: Configure /usr/local/etc/poudriere.conf] ***
+ok: [build.example.com]
+
+PLAY RECAP *********************************************************************
+build.example.com          : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

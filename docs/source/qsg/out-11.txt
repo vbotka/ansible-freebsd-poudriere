@@ -1,0 +1,9 @@
+archivers/gtar
+devel/git
+ftp/wget
+net/rsync
+ports-mgmt/pkg
+ports-mgmt/portmaster
+ports-mgmt/portupgrade
+security/sudo
+shells/bash
