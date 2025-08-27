@@ -16,7 +16,7 @@ Major Changes
 
 Minor Changes
 -------------
-
+* Update docs ug intro; Add example from vbotka.freebsd; Update pkg list.
 
 2.7.6
 =====
