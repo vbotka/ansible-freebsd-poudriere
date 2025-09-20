@@ -29,6 +29,7 @@ This role role is included in the collection `vbotka.freebsd`_. See the examples
 
 * `Build packages`_
 * `Configure Apache server`_
+* `Configure package repository`_
 
 Package lists
 --------------
@@ -43,14 +44,15 @@ variable (list of dictionaries comprises the lists of ``pkg-origin``)
    pkg_dict_amd64:
      - pkglist: minimal
        packages:
-         - shells/bash
-         - devel/git@default
          - archivers/gtar
+         - devel/git@default
+         - ftp/wget
+         - net/rsync
          - ports-mgmt/pkg
          - ports-mgmt/portmaster
          - ports-mgmt/portupgrade
-         - net/rsync
-         - ftp/wget
+         - security/sudo
+         - shells/bash
      - pkglist: ansible
        packages:
          - sysutils/ansible
@@ -92,5 +94,6 @@ The term ``package lists`` is used both for the variables and the resulting file
 .. _poudriere: https://man.freebsd.org/cgi/man.cgi?query=poudriere-bulk
 .. _pkg: https://man.freebsd.org/cgi/man.cgi?query=pkg-upgrade
 
-.. _Build packages: https://ansible-collection-freebsd.readthedocs.io/en/latest/examples/390/example.html#index-0
-.. _Configure Apache server: https://ansible-collection-freebsd.readthedocs.io/en/latest/examples/423/example.html#index-0
+.. _Build packages: https://ansible-collection-freebsd.readthedocs.io/en/latest/examples/390/example.html
+.. _Configure Apache server: https://ansible-collection-freebsd.readthedocs.io/en/latest/examples/423/example.html
+.. _Configure package repository: https://ansible-collection-freebsd.readthedocs.io/en/latest/examples/321/example.html
