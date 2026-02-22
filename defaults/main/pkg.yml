@@ -8,5 +8,5 @@ poudriere_packages:
   - devel/ccache
 
 poudriere_packages_cert:
-  - security/py-openssl
+  - security/py-pyopenssl
   - security/py-acme-tiny
