@@ -14,10 +14,11 @@ Ansible 2.21 upgrade.
 
 Major Changes
 -------------
+* Supported version FreeBSD 14.4, 15.0, and 15.1
 
 Minor Changes
 -------------
-* Supported version FreeBSD 14.4, 15.0, and 15.1
+* Docs. Remove from_yaml filter from the annotations templates.
 
 Bugfixes
 --------
