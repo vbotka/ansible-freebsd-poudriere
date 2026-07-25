@@ -6,6 +6,6 @@
 .vagrant
 build
 vagrant*
+vars/main.yml
 TODO
 ATTIC
-vars/main.yml
